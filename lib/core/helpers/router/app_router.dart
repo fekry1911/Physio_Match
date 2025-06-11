@@ -1,0 +1,66 @@
+import 'package:add_ques/core/const/const.dart';
+import 'package:add_ques/features/home_page/logic/home_cubit.dart';
+import 'package:add_ques/features/login_screen/logic/cubit/login_cubit.dart';
+import 'package:add_ques/features/login_screen/presentation/login.dart';
+import 'package:add_ques/features/register_screen/cubit/register_cubit.dart';
+import 'package:add_ques/features/register_screen/data/rebo/rebo_impl.dart';
+import 'package:add_ques/features/splash_screen/presentaion/splash_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../features/home_page/presentation/add_ques.dart';
+import '../../../di/di.dart';
+import '../../../features/login_screen/data/rebo/login_rebo.dart';
+import '../../../features/login_screen/data/rebo/login_rebo_imp.dart';
+import '../../../features/quiz/presentation/qui.dart';
+import '../../../features/register_screen/data/rebo/rebo.dart';
+import '../../../features/register_screen/presentation/register_screen.dart';
+import '../../../features/user_data/presentaion/user_ui.dart';
+
+class AppRouter {
+
+
+  Route? generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case splashScreen:
+        return MaterialPageRoute(builder: (_) => SplashScreen());
+      case userData:
+        return MaterialPageRoute(builder: (_) => UserData());
+      case quizScreen:
+        final args = settings.arguments;
+        if (args is List<Map<String, dynamic>>) {
+          return MaterialPageRoute(
+            builder: (_) => QuizScreen(questions: args),
+          );
+        } else {
+          return null;
+        }
+      case homeScreen:
+        return MaterialPageRoute(builder: (_) =>
+            MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => sl<LoginCubit>(),
+                ),
+                BlocProvider(
+                  create: (context) => sl<HomeCubit>(),
+                ),
+              ],
+              child: AddAllAues(),
+            ));
+      case loginScreen:
+        return MaterialPageRoute(builder: (_) =>
+            BlocProvider(
+              create: (context) => sl<LoginCubit>(),
+              child: LoginScreen(),
+            ));
+      case registerScreen:
+        return MaterialPageRoute(builder: (_) =>
+            BlocProvider(
+              create: (context) => sl<RegisterCubit>(),
+              child: Register(),
+            ));
+    }
+    return null;
+  }
+}

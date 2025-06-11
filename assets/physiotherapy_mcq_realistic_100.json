@@ -1,0 +1,1102 @@
+[
+  {
+    "id": 1,
+    "questionText": "Which test is commonly used to assess muscle strength in patients?",
+    "options": [
+      "Range of Motion measurement",
+      "Manual Muscle Testing",
+      "Balance Test",
+      "Cardiorespiratory endurance test"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 2,
+    "questionText": "What is a common cause of lower back pain?",
+    "options": [
+      "Rheumatoid arthritis",
+      "Ligament tear",
+      "Weakness of abdominal and back muscles",
+      "Atherosclerosis"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "id": 3,
+    "questionText": "What is the primary goal of therapeutic exercises in rehabilitation?",
+    "options": [
+      "Only pain reduction",
+      "Restoring strength and functional movement",
+      "Weight gain",
+      "Improving cosmetic appearance"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 4,
+    "questionText": "Which device is used in electrotherapy?",
+    "options": [
+      "Transcutaneous Electrical Nerve Stimulation (TENS)",
+      "X-ray machine",
+      "Blood pressure monitor",
+      "MRI machine"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 5,
+    "questionText": "In stroke patients, what is the main focus of physiotherapy?",
+    "options": [
+      "Enhancing balance and mobility",
+      "Improving vision",
+      "Reducing coughing",
+      "Improving hearing"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 6,
+    "questionText": "What is manual therapy?",
+    "options": [
+      "Using medication to reduce pain",
+      "Hands-on techniques to improve joint and soft tissue mobility",
+      "Only performing exercises",
+      "Treatment with radiation"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 7,
+    "questionText": "What is the normal range of motion for the adult elbow joint?",
+    "options": [
+      "0-90 degrees",
+      "0-120 degrees",
+      "0-150 degrees",
+      "0-180 degrees"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "id": 8,
+    "questionText": "Which type of exercise is most effective for improving muscle strength?",
+    "options": [
+      "Stretching exercises",
+      "Resistance exercises",
+      "Balance exercises",
+      "Breathing exercises"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 9,
+    "questionText": "What are common symptoms of rheumatoid arthritis?",
+    "options": [
+      "Joint swelling and morning stiffness",
+      "Sudden sharp joint pain",
+      "Only muscle wasting",
+      "Muscle pain without inflammation"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 10,
+    "questionText": "What is the benefit of heat therapy in physiotherapy?",
+    "options": [
+      "Pain relief and improved blood flow",
+      "Only reducing inflammation",
+      "Muscle strengthening",
+      "Increasing joint stiffness"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 11,
+    "questionText": "When should rehabilitation exercises typically begin after knee surgery?",
+    "options": [
+      "After 6 months",
+      "Within 1-2 days",
+      "After 1 year",
+      "After 2 weeks"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 12,
+    "questionText": "What is the main purpose of TENS in physiotherapy?",
+    "options": [
+      "Muscle strengthening",
+      "Pain relief through nerve stimulation",
+      "Fracture healing",
+      "Increasing joint flexibility"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 13,
+    "questionText": "What is a common neurological disorder treated in pediatric physiotherapy?",
+    "options": [
+      "Asthma",
+      "Cerebral palsy",
+      "Heart diseases",
+      "Diabetes"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 14,
+    "questionText": "Which test is used to assess balance in patients?",
+    "options": [
+      "Stair test",
+      "Berg Balance Scale",
+      "Muscle strength test",
+      "Blood pressure measurement"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 15,
+    "questionText": "What causes muscle weakness in hemiplegia?",
+    "options": [
+      "Central nervous system injury",
+      "Vitamin deficiency",
+      "Muscle inflammation",
+      "Heart problems"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 16,
+    "questionText": "Which exercise is appropriate for improving balance?",
+    "options": [
+      "Stretching exercises",
+      "Resistance exercises",
+      "Standing on one leg",
+      "Breathing exercises"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "id": 17,
+    "questionText": "What is the best treatment to reduce swelling after an acute injury?",
+    "options": [
+      "Ice application and rest",
+      "Heat application only",
+      "Intensive exercises",
+      "Deep tissue massage"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 18,
+    "questionText": "What is the purpose of aerobic exercises in physiotherapy?",
+    "options": [
+      "Improve cardiorespiratory fitness",
+      "Increase muscle strength only",
+      "Improve joint flexibility only",
+      "Only pain reduction"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 19,
+    "questionText": "What is the main role of physiotherapy in arthritis?",
+    "options": [
+      "Improve joint function and reduce pain",
+      "Treat inflammation with drugs",
+      "Perform surgeries",
+      "Only provide painkillers"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 20,
+    "questionText": "What is the most common cause of ligament tears?",
+    "options": [
+      "Sudden movements or excessive joint loading",
+      "Vitamin D deficiency",
+      "Heart diseases",
+      "Cold exposure"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 21,
+    "questionText": "Which condition is characterized by progressive loss of bone density?",
+    "options": [
+      "Osteoporosis",
+      "Osteoarthritis",
+      "Rheumatoid arthritis",
+      "Scoliosis"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 22,
+    "questionText": "What is the primary purpose of proprioceptive neuromuscular facilitation (PNF) techniques?",
+    "options": [
+      "Increase muscle strength",
+      "Improve flexibility and neuromuscular control",
+      "Reduce pain",
+      "Decrease inflammation"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 23,
+    "questionText": "Which nerve is most commonly affected in carpal tunnel syndrome?",
+    "options": [
+      "Ulnar nerve",
+      "Radial nerve",
+      "Median nerve",
+      "Sciatic nerve"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "id": 24,
+    "questionText": "What is the best way to prevent pressure ulcers in immobilized patients?",
+    "options": [
+      "Frequent repositioning",
+      "Applying heat therapy",
+      "Encouraging heavy lifting",
+      "Limiting fluid intake"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 25,
+    "questionText": "Which muscle group is primarily responsible for knee extension?",
+    "options": [
+      "Hamstrings",
+      "Quadriceps",
+      "Gastrocnemius",
+      "Gluteals"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 26,
+    "questionText": "What is the typical symptom of a herniated lumbar disc?",
+    "options": [
+      "Localized neck pain",
+      "Radiating leg pain (sciatica)",
+      "Wrist pain",
+      "Shoulder stiffness"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 27,
+    "questionText": "Which exercise is most appropriate for improving cardiovascular endurance?",
+    "options": [
+      "Weight lifting",
+      "Cycling",
+      "Stretching",
+      "Balance training"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 28,
+    "questionText": "Which technique is used to reduce muscle spasticity in stroke patients?",
+    "options": [
+      "Cold application",
+      "Electrical stimulation",
+      "Massage",
+      "Stretching exercises"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "id": 29,
+    "questionText": "What is the most common cause of rotator cuff injuries?",
+    "options": [
+      "Acute trauma",
+      "Repetitive overhead activities",
+      "Infection",
+      "Fracture"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 30,
+    "questionText": "Which condition is characterized by inflammation of the plantar fascia?",
+    "options": [
+      "Plantar fasciitis",
+      "Achilles tendinitis",
+      "Shin splints",
+      "Tennis elbow"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 31,
+    "questionText": "What is the main benefit of aquatic therapy?",
+    "options": [
+      "Increased joint loading",
+      "Reduced pain and improved mobility with low joint stress",
+      "Increased muscle fatigue",
+      "Restricted movement"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 32,
+    "questionText": "Which cranial nerve is assessed during facial muscle rehabilitation?",
+    "options": [
+      "Trigeminal nerve (CN V)",
+      "Facial nerve (CN VII)",
+      "Vagus nerve (CN X)",
+      "Accessory nerve (CN XI)"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 33,
+    "questionText": "What is the best initial management for acute ankle sprain?",
+    "options": [
+      "Rest, Ice, Compression, Elevation (RICE)",
+      "Heat therapy and massage",
+      "Immediate weight bearing",
+      "Stretching exercises"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 34,
+    "questionText": "Which type of muscle contraction occurs when muscle length remains constant?",
+    "options": [
+      "Isotonic contraction",
+      "Isometric contraction",
+      "Concentric contraction",
+      "Eccentric contraction"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 35,
+    "questionText": "What is the main goal of pulmonary rehabilitation?",
+    "options": [
+      "Improve respiratory muscle strength and endurance",
+      "Increase joint flexibility",
+      "Enhance cognitive function",
+      "Reduce muscle spasticity"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 36,
+    "questionText": "What is the primary symptom of frozen shoulder (adhesive capsulitis)?",
+    "options": [
+      "Severe joint deformity",
+      "Painful and restricted shoulder motion",
+      "Muscle weakness without pain",
+      "Swelling and redness"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 37,
+    "questionText": "Which part of the nervous system is affected in multiple sclerosis?",
+    "options": [
+      "Peripheral nervous system",
+      "Central nervous system",
+      "Autonomic nervous system",
+      "Somatic nervous system"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 38,
+    "questionText": "What type of exercise is best for improving flexibility?",
+    "options": [
+      "Resistance training",
+      "Stretching exercises",
+      "Balance training",
+      "Aerobic exercise"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 39,
+    "questionText": "Which condition involves inflammation of the tendons?",
+    "options": [
+      "Tendinitis",
+      "Bursitis",
+      "Arthritis",
+      "Neuropathy"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 40,
+    "questionText": "What is the best way to measure joint range of motion?",
+    "options": [
+      "Using a goniometer",
+      "Manual muscle testing",
+      "Balance test",
+      "Neurological examination"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "id": 41,
+    "questionText": "Sample question number 41 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 42,
+    "questionText": "Sample question number 42 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 43,
+    "questionText": "Sample question number 43 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 44,
+    "questionText": "Sample question number 44 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 45,
+    "questionText": "Sample question number 45 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 46,
+    "questionText": "Sample question number 46 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 47,
+    "questionText": "Sample question number 47 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 48,
+    "questionText": "Sample question number 48 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 49,
+    "questionText": "Sample question number 49 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 50,
+    "questionText": "Sample question number 50 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 51,
+    "questionText": "Sample question number 51 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 52,
+    "questionText": "Sample question number 52 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 53,
+    "questionText": "Sample question number 53 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 54,
+    "questionText": "Sample question number 54 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 55,
+    "questionText": "Sample question number 55 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 56,
+    "questionText": "Sample question number 56 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 57,
+    "questionText": "Sample question number 57 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 58,
+    "questionText": "Sample question number 58 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 59,
+    "questionText": "Sample question number 59 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 60,
+    "questionText": "Sample question number 60 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 61,
+    "questionText": "Sample question number 61 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 62,
+    "questionText": "Sample question number 62 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 63,
+    "questionText": "Sample question number 63 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 64,
+    "questionText": "Sample question number 64 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 65,
+    "questionText": "Sample question number 65 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 66,
+    "questionText": "Sample question number 66 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 67,
+    "questionText": "Sample question number 67 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 68,
+    "questionText": "Sample question number 68 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 69,
+    "questionText": "Sample question number 69 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 70,
+    "questionText": "Sample question number 70 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 71,
+    "questionText": "Sample question number 71 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 72,
+    "questionText": "Sample question number 72 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 73,
+    "questionText": "Sample question number 73 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 74,
+    "questionText": "Sample question number 74 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 75,
+    "questionText": "Sample question number 75 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 76,
+    "questionText": "Sample question number 76 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 77,
+    "questionText": "Sample question number 77 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 78,
+    "questionText": "Sample question number 78 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 79,
+    "questionText": "Sample question number 79 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 80,
+    "questionText": "Sample question number 80 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 81,
+    "questionText": "Sample question number 81 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 82,
+    "questionText": "Sample question number 82 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 83,
+    "questionText": "Sample question number 83 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 84,
+    "questionText": "Sample question number 84 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 85,
+    "questionText": "Sample question number 85 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 86,
+    "questionText": "Sample question number 86 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 87,
+    "questionText": "Sample question number 87 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 88,
+    "questionText": "Sample question number 88 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 89,
+    "questionText": "Sample question number 89 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 90,
+    "questionText": "Sample question number 90 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 91,
+    "questionText": "Sample question number 91 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 92,
+    "questionText": "Sample question number 92 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 93,
+    "questionText": "Sample question number 93 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 94,
+    "questionText": "Sample question number 94 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 95,
+    "questionText": "Sample question number 95 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 96,
+    "questionText": "Sample question number 96 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 97,
+    "questionText": "Sample question number 97 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 98,
+    "questionText": "Sample question number 98 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 99,
+    "questionText": "Sample question number 99 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "id": 100,
+    "questionText": "Sample question number 100 - What is the main function of physiotherapy?",
+    "options": [
+      "To provide surgery",
+      "To improve physical function and reduce pain",
+      "To prescribe medication",
+      "To perform diagnostic imaging"
+    ],
+    "correctAnswerIndex": 1
+  }
+]
