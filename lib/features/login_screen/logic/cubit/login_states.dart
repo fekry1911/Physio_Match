@@ -17,4 +17,26 @@ class AuthFailure extends LoginStates{
   String error;
   AuthFailure({required this.error});
 }
-class AuthInitial extends LoginStates{}
+
+
+class GetDataDone extends LoginStates{}
+
+class GetDataFail extends LoginStates{}
+
+
+class GetScoreDone extends LoginStates{}
+
+class GetScoreFail extends LoginStates{}
+
+
+
+class SignOutLoad extends LoginStates{}
+
+class SignOutDone extends LoginStates{}
+
+class SignOutFail extends LoginStates{
+  String error;
+  SignOutFail(this.error);
+}
+
+

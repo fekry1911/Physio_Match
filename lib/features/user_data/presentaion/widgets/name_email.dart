@@ -7,7 +7,9 @@ import '../../../../core/theme/text_themes/text.dart';
 
 
 class NameAndEmail extends StatelessWidget {
-  const NameAndEmail({super.key});
+  NameAndEmail({super.key,required this.name,required this.email});
+  String email;
+  String name;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +17,9 @@ class NameAndEmail extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(CacheHelper.getString(key: "name"),style: TextThemes.font22BlackMedium.copyWith(color: Colors.black),),
+        Text(name,style: TextThemes.font22BlackMedium.copyWith(color: Colors.black),),
         SizedBox(height: 10.h,),
-        Text(CacheHelper.getString(key: "email"),style: TextThemes.font14LightDarkRegular,),
+        Text(email,style: TextThemes.font14LightDarkRegular,),
 
       ],
     );

@@ -25,31 +25,23 @@ class _AnimatedTextState extends State<AnimatedText> {
   @override
   void initState() {
     super.initState();
-    startTypingLoop();
+    startTypingSequence(); // Changed function name
   }
 
-  void startTypingLoop() async {
-    while (_isMounted) {
-      for (int i = 0; i < texts.length && _isMounted; i++) {
-        await Future.delayed(Duration(milliseconds: 600));
-        if (!_isMounted) break;
-        setState(() {
-          displayedTexts.add(texts[i]);
-        });
-        await Future.delayed(Duration(seconds: 2));
-      }
-
-      await Future.delayed(Duration(seconds: 3));
+  void startTypingSequence() async {
+    for (int i = 0; i < texts.length && _isMounted; i++) {
+      await Future.delayed(Duration(milliseconds: 600));
       if (!_isMounted) break;
       setState(() {
-        displayedTexts.clear();
+        displayedTexts.add(texts[i]);
       });
+      await Future.delayed(Duration(seconds: 2));
     }
   }
 
   @override
   void dispose() {
-    _isMounted = false;
+    _isMounted = false; // Fixed here
     super.dispose();
   }
 

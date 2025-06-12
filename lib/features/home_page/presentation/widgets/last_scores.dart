@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../quiz/data/models/score_models.dart';
 
 class StaticLastScoresWidget extends StatelessWidget {
-  const StaticLastScoresWidget({super.key});
+   StaticLastScoresWidget({super.key,required this.dummyScores});
+  List<ScoreModel> dummyScores;
 
   Color getScoreColor(int score) {
     if (score >= 8) return Colors.green[700]!;
@@ -11,11 +15,7 @@ class StaticLastScoresWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> dummyScores = [
-      {"score": 8, "date": "2025-06-09"},
-      {"score": 6, "date": "2025-06-08"},
-      {"score": 4, "date": "2025-06-07"},
-    ];
+
 
     return Card(
       elevation: 5,
@@ -29,12 +29,12 @@ class StaticLastScoresWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.bar_chart, color: Colors.teal, size: 26),
-                const SizedBox(width: 8),
+                 Icon(Icons.bar_chart, color: Colors.teal, size: 26.r),
+                 SizedBox(width: 8.w),
                 Text(
                   "Your Last Scores",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal[800],
                   ),
@@ -42,33 +42,42 @@ class StaticLastScoresWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            ...dummyScores.map(
-                  (score) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 6.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.check_circle, color: Colors.teal[600]),
-                    const SizedBox(width: 10),
-                    Text(
-                      "Score: ${score['score']}/10",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: getScoreColor(score['score']),
-                      ),
+        dummyScores.isEmpty
+            ?  Center(
+          child: Text(
+              "Please take a quiz to see your results here....",
+            style: TextStyle(fontSize: 16.sp, color: Colors.grey),
+          ),
+        )
+            : Column(
+          children: dummyScores.map(
+                (score) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6.0),
+              child: Row(
+                children: [
+                  Icon(Icons.check_circle, color: Colors.teal[600]),
+                  const SizedBox(width: 10),
+                  Text(
+                    "Score: ${score.correctAnswers}/${score.totalQuestions}",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: getScoreColor(score.correctAnswers),
                     ),
-                    const Spacer(),
-                    Text(
-                      score['date'],
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black54,
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    (score.date.toIso8601String()).split("T").first,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.black54,
+                    ),
+                  )
+                ],
               ),
             ),
+          ).toList(),
+        ),
           ],
         ),
       ),

@@ -3,8 +3,9 @@ import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
 import 'package:add_ques/features/home_page/logic/home_cubit.dart';
 import 'package:add_ques/features/home_page/presentation/widgets/animated_text.dart';
-import 'package:add_ques/features/home_page/presentation/widgets/drawer.dart';
 import 'package:add_ques/features/home_page/presentation/widgets/last_scores.dart';
+import 'package:add_ques/features/login_screen/logic/cubit/login_cubit.dart';
+import 'package:add_ques/features/login_screen/logic/cubit/login_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,24 +20,30 @@ class AddAllAues extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyDrawer(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.h),
         child: AppBar(
-          centerTitle: true,
           elevation: 0,
-          leading: Padding(
-            padding: EdgeInsets.all(8.h),
-            child: Center(
-              child: Builder(
-                builder:
-                    (context) => IconButton(
-                      icon: Icon(Icons.menu, color: Colors.white, size: 25.r),
-                      onPressed: () => Scaffold.of(context).openDrawer(),
-                    ),
-              ),
+          actions: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Colors.grey.shade200,
+                  radius: 35.r,
+                ),
+
+                IconButton(
+                  onPressed: () {
+                    context.pushNamed(userData);
+                  },
+                  icon: Icon(Icons.person, color: Colors.black, size: 27.r),
+                ),
+              ],
             ),
-          ),
+
+          ], //
+
           backgroundColor: Colors.teal,
           title: Center(
             child: Text(
@@ -56,61 +63,93 @@ class AddAllAues extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Hi ${CacheHelper.getString(key: "name")}",
-              style: TextThemes.font22BlackMedium.copyWith(
-                color: AppColors.mainTealColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 30.sp,
-              ),
+            BlocConsumer<LoginCubit, LoginStates>(
+              builder: (context, state) {
+                var cubit = context.read<LoginCubit>();
+
+                return cubit.model == null ? CircularProgressIndicator(
+                  color: AppColors.mainTealColor,) : Text(
+                  "Hi ${cubit.model!.name}",
+                  style: TextThemes.font22BlackMedium.copyWith(
+                    color: AppColors.mainTealColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.sp,
+                  ),
+                );
+              }, listener: (BuildContext context, LoginStates state) {},
             ),
             SizedBox(height: 16.h),
             AnimatedText(),
             Spacer(),
-            StaticLastScoresWidget(),
+            BlocConsumer<LoginCubit, LoginStates>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                var cubit = context.read<LoginCubit>();
+
+                return StaticLastScoresWidget(dummyScores:cubit.scoreModel,);
+              },
+            ),
             Spacer(),
-            Center(
-              child: SizedBox(
-                width: double.infinity,
-                height: 70.h,
-                child: MaterialButton(
-                  disabledColor: Colors.grey,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
+            BlocConsumer<LoginCubit, LoginStates>(
+              listener: (context, state) {
+                // TODO: implement listener
+              },
+              builder: (context, state) {
+                var cubit = context.read<LoginCubit>();
+                return Center(
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 70.h,
+                    child: cubit.model != null ? MaterialButton(
+                      disabledColor: Colors.grey,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      onPressed: cubit.model!.tries <= 0 ? null : () async {
+                        print(cubit.model!.tries);
+                        print(
+                            """""""""""""""""""""""""""""""""""""""dd""ddddddddddddddddddddddddddddd""");
+
+                        context.read<HomeCubit>().getRandomQues();
+
+                        // Action here
+                      },
+                      color: Colors.teal,
+                      child: Text(
+                        cubit.model!.tries <= 0
+                            ? "You Haven\'t any tries  "
+                            : "Start Quiz",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ) : Center(child: CircularProgressIndicator(
+                      color: AppColors.mainTealColor,)),
                   ),
-                  onPressed: () async {
-                    context.read<HomeCubit>().getRandomQues();
-                    // Action here
-                  },
-                  color: Colors.teal,
-                  child: Text(
-                    "Start Quiz",
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  ),
-                ),
-              ),
+                );
+              },
             ),
             BlocListener<HomeCubit, HomeState>(
               listener: (context, state) {
-                if(state is GetLoading){
+                if (state is GetLoading) {
                   showDialog(
                     context: context,
                     builder:
-                        (context) => Center(
-                      child: CircularProgressIndicator(
-                        color: AppColors.mainTealColor,
-                      ),
-                    ),
+                        (context) =>
+                        Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.mainTealColor,
+                          ),
+                        ),
                   );
                 }
-                if(state is GetSucc){
+                if (state is GetSucc) {
                   Navigator.pop(context);
-                  context.pushNamed(quizScreen,arguments: context.read<HomeCubit>().questions).then((value) {
+                  context.pushNamed(quizScreen, arguments: context
+                      .read<HomeCubit>()
+                      .questions).then((value) {
                     context.read<HomeCubit>().resetState();
-
                   });
                 }
-                if(state is GetFail){
+                if (state is GetFail) {
                   setupState(
                     context,
                     error: state.error,
