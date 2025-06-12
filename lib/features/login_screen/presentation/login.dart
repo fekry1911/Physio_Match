@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             icon: Icons.done,
                             color: Colors.green,
                             onpressed: () {
-                              context.pushNamed(homeScreen);
+                              context.pushAndRemoveUntil(homeScreen);
                             });
                       }
                       if (state is AuthFailure) {

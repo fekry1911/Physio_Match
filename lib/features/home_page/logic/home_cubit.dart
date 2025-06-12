@@ -1,6 +1,9 @@
 import 'package:add_ques/features/home_page/data/rebo/get_all_ques.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
+
+import '../../../core/helpers/cache_helper.dart';
 
 part 'home_state.dart';
 
@@ -12,9 +15,14 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> getRandomQues()async {
     emit(GetLoading());
-    await getAllQues.getAllQues().then((onValue){
+    await getAllQues.getAllQues().then((onValue) async {
       questions=onValue;
-      emit(GetSucc());
+      await FirebaseFirestore.instance
+      .collection("users").doc(CacheHelper.getString(key: "uid")).update({
+        "tries": FieldValue.increment(-1),
+      }).then((onValue){
+        emit(GetSucc());
+      });
     }).catchError((onError){
       emit(GetFail(onError));
     });
