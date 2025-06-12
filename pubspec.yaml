@@ -38,7 +38,6 @@ dependencies:
   cloud_firestore: ^5.6.8
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.1.0
-  flutter_launcher_icons: ^0.13.1
   animated_text_kit: ^4.2.3
   json_serializable: ^6.9.5
   json_annotation: ^4.9.0
@@ -52,8 +51,10 @@ dependencies:
 
 
 
+
 dev_dependencies:
   build_runner: ^2.4.15
+  flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
 
@@ -80,6 +81,7 @@ flutter:
     - assets/physiotherapy_mcq_realistic_100.json
     - assets/logout.png
     - assets/personalcard.png
+    - assets/physiomatch.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
