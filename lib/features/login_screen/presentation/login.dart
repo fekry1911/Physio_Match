@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 8.h),
                   Text(
                     "Log in to continue your journey with PhysioMatch",
-                    style: TextThemes.textGreyRegular14,
+                    style: TextThemes.textGreyRegular14.copyWith(height: 2,letterSpacing: 2),
                   ),
                   SizedBox(height: 36.h),
                   BlocConsumer<LoginCubit, LoginStates>(

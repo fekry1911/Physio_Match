@@ -1,5 +1,7 @@
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:add_ques/features/login_screen/logic/cubit/login_cubit.dart';
+import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
+import 'package:add_ques/features/user_data/presentaion/widgets/dialog.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/list_title_data.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/name_email.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,7 @@ import '../../../core/const/const.dart';
 import '../../../core/shared_widgets/snack_bar.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
+import '../../home_page/presentation/widgets/last_scores.dart';
 import '../../login_screen/logic/cubit/login_states.dart';
 
 class UserData extends StatelessWidget {
@@ -38,13 +41,14 @@ class UserData extends StatelessWidget {
             centerTitle: true,
           ),
         ),
-        body: BlocConsumer<LoginCubit, LoginStates>(
-          listener: (context, state) {
-          },
+        body: BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
+          listener: (context, state) {},
           builder: (context, state) {
-            var cubit=context.read<LoginCubit>();
-            if(cubit.model==null){
-              return Center(child: CircularProgressIndicator(color: AppColors.whiteColor,));
+            var cubit = context.read<UpdateUserDataCubit>();
+            if (cubit.model == null) {
+              return Center(
+                child: CircularProgressIndicator(color: AppColors.whiteColor),
+              );
             }
             return Stack(
               alignment: Alignment.topCenter,
@@ -75,33 +79,45 @@ class UserData extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 160.h), // لتحت الصورة بمسافة
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      NameAndEmail(name: cubit.model!.name, email: cubit.model!.email,),
-                      SizedBox(height: 20.h),
-                      IconAndInfo(
-                        image: 'assets/personalcard.png',
-                        data: 'Update My Personal Data',
-                        onPreesed: () {
-                          AwesomeSnackBar(
-                            context: context,
-                            tittle: "SignOut Error",
-                            message: "hi this is a simple error",
-                          );
-                        },
-                        backColor: Color(0xffEAF2FF),
-                      ),
-                      Divider(height: 25.h, endIndent: 50.w, indent: 30.w),
-                      IconAndInfo(
-                        image: 'assets/logout.png',
-                        data: 'Log Out',
-                        onPreesed: () {
-                          context.read<LoginCubit>().signOut();
-                        },
-                        backColor: Color(0xffFFEEEF),
-                      ),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        NameAndEmail(
+                          name: cubit.model!.name,
+                          email: cubit.model!.email,
+                        ),
+                        SizedBox(height: 20.h),
+
+                        Padding(
+                          padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
+                          child: StaticLastScoresWidget(dummyScores: cubit.scoreModel, backGround: Colors.grey.shade100,),
+                        ),
+
+                        SizedBox(height: 20.h),
+
+                        IconAndInfo(
+                          image: 'assets/personalcard.png',
+                          data: 'Update My Personal Data',
+                          onPreesed: () {
+                            showEditProfileDialog(
+                              context,
+                              imageUrl: cubit.model!.imageUrl,
+                            );
+                          },
+                          backColor: Color(0xffEAF2FF),
+                        ),
+                        Divider(height: 25.h, endIndent: 50.w, indent: 30.w),
+                        IconAndInfo(
+                          image: 'assets/logout.png',
+                          data: 'Log Out',
+                          onPreesed: () {
+                            context.read<LoginCubit>().signOut();
+                          },
+                          backColor: Color(0xffFFEEEF),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 BlocListener<LoginCubit, LoginStates>(
@@ -114,7 +130,6 @@ class UserData extends StatelessWidget {
                               child: CircularProgressIndicator(
                                 color: AppColors.whiteColor,
                                 semanticsLabel: "loading",
-
                               ),
                             ),
                       );
