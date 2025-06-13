@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
                 primaryColorLight: Colors.blue,
                 primaryColor: Colors.blue,
                 appBarTheme: AppBarTheme(
+                  centerTitle: false,
                   scrolledUnderElevation: 0,
                   backgroundColor: Colors.white,
                   elevation: 0,

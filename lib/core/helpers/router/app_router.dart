@@ -1,4 +1,6 @@
 import 'package:add_ques/core/const/const.dart';
+import 'package:add_ques/features/chat_bot/logic/cubit/chat_cubit.dart';
+import 'package:add_ques/features/chat_bot/presentation/chat_ui.dart';
 import 'package:add_ques/features/home_page/logic/home_cubit.dart';
 import 'package:add_ques/features/login_screen/logic/cubit/login_cubit.dart';
 import 'package:add_ques/features/login_screen/presentation/login.dart';
@@ -21,6 +23,14 @@ class AppRouter {
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
+      case chatScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => ChatCubit(),
+                child: ChatScreen(),
+              ),
+        );
       case userData:
         return MaterialPageRoute(
           builder:
@@ -30,14 +40,12 @@ class AppRouter {
                     create:
                         (context) =>
                             sl<UpdateUserDataCubit>()
-                              ..getUserData(CacheHelper.getString(key: "uid"))..getUserScores(CacheHelper.getString(key: "uid")),
+                              ..getUserData(CacheHelper.getString(key: "uid"))
+                              ..getUserScores(
+                                CacheHelper.getString(key: "uid"),
+                              ),
                   ),
-                  BlocProvider(
-                    create:
-                        (context) =>
-                    sl<LoginCubit>()
-                  ),
-
+                  BlocProvider(create: (context) => sl<LoginCubit>()),
                 ],
                 child: UserData(),
               ),
@@ -64,7 +72,10 @@ class AppRouter {
                     create:
                         (context) =>
                             sl<LoginCubit>()
-                              ..getUserData(CacheHelper.getString(key: "uid"))..getUserScores(CacheHelper.getString(key: "uid")),
+                              ..getUserData(CacheHelper.getString(key: "uid"))
+                              ..getUserScores(
+                                CacheHelper.getString(key: "uid"),
+                              ),
                   ),
                   BlocProvider(create: (context) => sl<HomeCubit>()),
                 ],
