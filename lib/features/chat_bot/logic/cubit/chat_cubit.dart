@@ -1,13 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import '../../../../core/const/keys/aoi_keys.dart';
 import '../../data/models/message_model.dart';
 import 'chat_state.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   final Dio dio = Dio();
 
-  // ✅ تأكد إن المفتاح مسبوق بـ "Bearer "
-  final String apiKey = 'Bearer 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';
+  final String apiKey1 = apiKey;
+
 
   List<Message> messages = [];
 
@@ -27,7 +28,7 @@ class ChatCubit extends Cubit<ChatState> {
         'https://openrouter.ai/api/v1/chat/completions',
         options: Options(
           headers: {
-            'Authorization': apiKey, // تأكد إنه يبدأ بـ Bearer
+            'Authorization': apiKey1, // تأكد إنه يبدأ بـ Bearer
             'Content-Type': 'application/json',
             'HTTP-Referer': 'https://github.com/fekry1911/docway/blob/development/lib/features/register_screen/presentation/widgets/email_password.dart',
             'X-Title': 'PhysioMatch Assistant',

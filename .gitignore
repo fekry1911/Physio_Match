@@ -32,10 +32,13 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+# Sensitive Keys and Configs
+lib/core/const/keys/aoi_keys.dart
+
 
 # Symbolication related
 app.*.symbols
-
+6
 # Obfuscation related
 app.*.map.json
 
