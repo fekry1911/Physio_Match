@@ -5,6 +5,7 @@ import 'package:add_ques/features/login_screen/presentation/login.dart';
 import 'package:add_ques/features/quiz/logic/save_score_cubit.dart';
 import 'package:add_ques/features/register_screen/cubit/register_cubit.dart';
 import 'package:add_ques/features/splash_screen/presentaion/splash_screen.dart';
+import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,9 +29,15 @@ class AppRouter {
                   BlocProvider(
                     create:
                         (context) =>
-                            sl<LoginCubit>()
-                              ..getUserData(CacheHelper.getString(key: "uid")),
+                            sl<UpdateUserDataCubit>()
+                              ..getUserData(CacheHelper.getString(key: "uid"))..getUserScores(CacheHelper.getString(key: "uid")),
                   ),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                    sl<LoginCubit>()
+                  ),
+
                 ],
                 child: UserData(),
               ),

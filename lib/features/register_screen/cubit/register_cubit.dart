@@ -39,7 +39,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
             await addUserData
                 .addUserData(
                   userModel: UserModel(
-                    tries: 0,
+                    tries: 3,
                     name: name.text,
                     email: email.text,
                     phone: phone.text,
