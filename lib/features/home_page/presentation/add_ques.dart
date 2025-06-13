@@ -201,7 +201,7 @@ class AddAllAues extends StatelessWidget {
 
         backgroundColor: AppColors.mainTealColor,
         onPressed: () {
-          context.pushAndRemoveUntil(chatScreen);
+          context.pushNamed(chatScreen);
         },
         child: Icon(Icons.assistant,size: 25.r,color: Colors.white,),
       ),
