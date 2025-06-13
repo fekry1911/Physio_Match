@@ -7,9 +7,11 @@ import '../../../../core/theme/text_themes/text.dart';
 
 
 class NameAndEmail extends StatelessWidget {
-  NameAndEmail({super.key,required this.name,required this.email});
+  NameAndEmail({super.key,required this.name,required this.email,required this.phone});
   String email;
   String name;
+  String phone;
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,8 @@ class NameAndEmail extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(name,style: TextThemes.font22BlackMedium.copyWith(color: Colors.black),),
+        SizedBox(height: 10.h,),
+        Text(phone,style: TextThemes.font14LightDarkRegular,),
         SizedBox(height: 10.h,),
         Text(email,style: TextThemes.font14LightDarkRegular,),
 

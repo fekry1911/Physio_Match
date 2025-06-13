@@ -43,42 +43,48 @@ class StaticLastScoresWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-        dummyScores.isEmpty
-            ?  Center(
-          child: Text(
-              "Please take a quiz to see your results here....",
-            style: TextStyle(fontSize: 16.sp, color: Colors.grey),
-          ),
-        )
-            : Column(
-          children: dummyScores.map(
-                (score) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6.0),
-              child: Row(
-                children: [
-                  Icon(Icons.check_circle, color: Colors.teal[600]),
-                  const SizedBox(width: 10),
-                  Text(
-                    "Score: ${score.correctAnswers}/${score.totalQuestions}",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: getScoreColor(score.correctAnswers),
-                    ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    (score.date.toIso8601String()).split("T").first,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                  )
-                ],
+            dummyScores.isEmpty
+                ? Center(
+              child: Text(
+                "Please take a quiz to see your results here....",
+                style: TextStyle(fontSize: 16.sp, color: Colors.grey),
               ),
-            ),
-          ).toList(),
-        ),
+            )
+                : SizedBox(
+              height: 120.h,
+              child: ListView.builder(
+                itemCount: dummyScores.length,
+                itemBuilder: (context, index) {
+                  final score = dummyScores[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.check_circle, color: Colors.teal[600]),
+                        const SizedBox(width: 10),
+                        Text(
+                          "Score: ${score.correctAnswers}/${score.totalQuestions}",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: getScoreColor(score.correctAnswers),
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          (score.date.toIso8601String()).split("T").first,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black54,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+              ),
+            )
+
           ],
         ),
       ),

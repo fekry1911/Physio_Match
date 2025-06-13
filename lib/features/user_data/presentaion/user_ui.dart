@@ -86,6 +86,8 @@ class UserData extends StatelessWidget {
                         NameAndEmail(
                           name: cubit.model!.name,
                           email: cubit.model!.email,
+                          phone:  cubit.model!.phone,
+
                         ),
                         SizedBox(height: 20.h),
 
@@ -108,13 +110,16 @@ class UserData extends StatelessWidget {
                           backColor: Color(0xffEAF2FF),
                         ),
                         Divider(height: 25.h, endIndent: 50.w, indent: 30.w),
-                        IconAndInfo(
-                          image: 'assets/logout.png',
-                          data: 'Log Out',
-                          onPreesed: () {
-                            context.read<LoginCubit>().signOut();
-                          },
-                          backColor: Color(0xffFFEEEF),
+                        Padding(
+                          padding:  EdgeInsets.only(bottom: 20.0.h),
+                          child: IconAndInfo(
+                            image: 'assets/logout.png',
+                            data: 'Log Out',
+                            onPreesed: () {
+                              context.read<LoginCubit>().signOut();
+                            },
+                            backColor: Color(0xffFFEEEF),
+                          ),
                         ),
                       ],
                     ),

@@ -1,4 +1,3 @@
-import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
 import 'package:add_ques/features/home_page/logic/home_cubit.dart';
@@ -25,34 +24,34 @@ class AddAllAues extends StatelessWidget {
         child: AppBar(
           elevation: 0,
           actions: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.grey.shade200,
-                  radius: 25.r,
-                ),
+            Padding(
+              padding: EdgeInsets.only(right: 8.0.w),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.grey.shade200,
+                    radius: 25.r,
+                  ),
 
-                IconButton(
-                  onPressed: () {
-                    context.pushNamed(userData);
-                  },
-                  icon: Icon(Icons.person, color: Colors.black, size: 20.r),
-                ),
-              ],
+                  IconButton(
+                    onPressed: () {
+                      context.pushNamed(userData);
+                    },
+                    icon: Icon(Icons.person, color: Colors.black, size: 20.r),
+                  ),
+                ],
+              ),
             ),
-
           ], //
 
           backgroundColor: Colors.teal,
-          title: Center(
-            child: Text(
-              "Home",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+          title: Text(
+            "Home",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
         ),
@@ -68,16 +67,20 @@ class AddAllAues extends StatelessWidget {
                 builder: (context, state) {
                   var cubit = context.read<LoginCubit>();
 
-                  return cubit.model == null ? CircularProgressIndicator(
-                    color: AppColors.mainTealColor,) : Text(
-                    "Hi ${cubit.model!.name}",
-                    style: TextThemes.font22BlackMedium.copyWith(
-                      color: AppColors.mainTealColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30.sp,
-                    ),
-                  );
-                }, listener: (BuildContext context, LoginStates state) {},
+                  return cubit.model == null
+                      ? CircularProgressIndicator(
+                        color: AppColors.mainTealColor,
+                      )
+                      : Text(
+                        "Hi ${cubit.model!.name}",
+                        style: TextThemes.font22BlackMedium.copyWith(
+                          color: AppColors.mainTealColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30.sp,
+                        ),
+                      );
+                },
+                listener: (BuildContext context, LoginStates state) {},
               ),
               SizedBox(height: 16.h),
               AnimatedText(),
@@ -87,7 +90,10 @@ class AddAllAues extends StatelessWidget {
                 builder: (context, state) {
                   var cubit = context.read<LoginCubit>();
 
-                  return StaticLastScoresWidget(dummyScores:cubit.scoreModel, backGround: Colors.teal[50]!,);
+                  return StaticLastScoresWidget(
+                    dummyScores: cubit.scoreModel,
+                    backGround: Colors.teal[50]!,
+                  );
                 },
               ),
               SizedBox(height: 30.h),
@@ -101,29 +107,50 @@ class AddAllAues extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       height: 70.h,
-                      child: cubit.model != null ? MaterialButton(
-                        disabledColor: Colors.grey,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        onPressed: cubit.model!.tries <= 0 ? null : () async {
-                          print(cubit.model!.tries);
-                          print(
-                              """""""""""""""""""""""""""""""""""""""dd""ddddddddddddddddddddddddddddd""");
+                      child:
+                          cubit.model != null
+                              ? MaterialButton(
+                                disabledColor: Colors.grey,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                onPressed:
+                                    cubit.model!.tries <= 0
+                                        ? null
+                                        : () async {
+                                          print(cubit.model!.tries);
+                                          print(
+                                            """"""
+                                            """"""
+                                            """"""
+                                            """"""
+                                            """"""
+                                            """"""
+                                            """dd""ddddddddddddddddddddddddddddd""",
+                                          );
 
-                          context.read<HomeCubit>().getRandomQues();
+                                          context
+                                              .read<HomeCubit>()
+                                              .getRandomQues();
 
-                          // Action here
-                        },
-                        color: Colors.teal,
-                        child: Text(
-                          cubit.model!.tries <= 0
-                              ? "You Haven\'t any tries  "
-                              : "Start Quiz",
-                          style: TextStyle(color: Colors.white, fontSize: 25),
-                        ),
-                      ) : Center(child: CircularProgressIndicator(
-                        color: AppColors.mainTealColor,)),
+                                          // Action here
+                                        },
+                                color: Colors.teal,
+                                child: Text(
+                                  cubit.model!.tries <= 0
+                                      ? "You Haven\'t any tries  "
+                                      : "Start Quiz",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                  ),
+                                ),
+                              )
+                              : Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColors.mainTealColor,
+                                ),
+                              ),
                     ),
                   );
                 },
@@ -134,8 +161,7 @@ class AddAllAues extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder:
-                          (context) =>
-                          Center(
+                          (context) => Center(
                             child: CircularProgressIndicator(
                               color: AppColors.mainTealColor,
                             ),
@@ -144,11 +170,14 @@ class AddAllAues extends StatelessWidget {
                   }
                   if (state is GetSucc) {
                     Navigator.pop(context);
-                    context.pushNamed(quizScreen, arguments: context
-                        .read<HomeCubit>()
-                        .questions).then((value) {
-                      context.read<HomeCubit>().resetState();
-                    });
+                    context
+                        .pushNamed(
+                          quizScreen,
+                          arguments: context.read<HomeCubit>().questions,
+                        )
+                        .then((value) {
+                          context.read<HomeCubit>().resetState();
+                        });
                   }
                   if (state is GetFail) {
                     setupState(
@@ -164,10 +193,17 @@ class AddAllAues extends StatelessWidget {
                 },
                 child: SizedBox.shrink(),
               ),
-
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+
+        backgroundColor: AppColors.mainTealColor,
+        onPressed: () {
+          context.pushAndRemoveUntil(chatScreen);
+        },
+        child: Icon(Icons.assistant,size: 25.r,color: Colors.white,),
       ),
     );
   }
