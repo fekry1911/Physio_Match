@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/const/const.dart';
 import '../../../core/theme/colors/colors.dart';
+import '../../../test.dart';
 import '../../register_screen/presentation/widgets/errr_setup.dart';
 
 class AddAllAues extends StatelessWidget {
@@ -26,21 +27,11 @@ class AddAllAues extends StatelessWidget {
           actions: [
             Padding(
               padding: EdgeInsets.only(right: 8.0.w),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.grey.shade200,
-                    radius: 25.r,
-                  ),
-
-                  IconButton(
-                    onPressed: () {
-                      context.pushNamed(userData);
-                    },
-                    icon: Icon(Icons.person, color: Colors.black, size: 20.r),
-                  ),
-                ],
+              child: IconButton(
+                onPressed: () {
+                  context.pushNamed(userData);
+                },
+                icon: Icon(Icons.settings, color: Colors.white, size: 30.r),
               ),
             ),
           ], //
@@ -193,6 +184,22 @@ class AddAllAues extends StatelessWidget {
                 },
                 child: SizedBox.shrink(),
               ),
+              ElevatedButton.icon(
+                icon: Icon(Icons.view_in_ar),
+                label: Text("عرض ثلاثي الأبعاد"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Anatomy3DView(
+                        title: 'العضلة ذات الرأسين (Biceps)',
+                        url: 'https://sketchfab.com/3d-models/biceps-brachii-40b94cb7af854a669f0d6123bc7b7540',
+                      ),
+                    ),
+                  );
+                },
+              )
+
             ],
           ),
         ),
