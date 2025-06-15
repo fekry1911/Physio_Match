@@ -30,7 +30,7 @@ class ChatCubit extends Cubit<ChatState> {
           headers: {
             'Authorization': apiKey1, // تأكد إنه يبدأ بـ Bearer
             'Content-Type': 'application/json',
-            'HTTP-Referer': 'https://github.com/fekry1911/docway/blob/development/lib/features/register_screen/presentation/widgets/email_password.dart',
+            'HTTP-Referer': 'https://github.com/fekry1911/Physio_Match',
             'X-Title': 'PhysioMatch Assistant',
           },
         ),
@@ -39,7 +39,7 @@ class ChatCubit extends Cubit<ChatState> {
           "messages": [
             {
               "role": "system",
-              "content": "أنت مساعد ذكي لدعم أطباء العلاج الطبيعي وتقييم المتقدمين للعمل."
+              "content": "You are a professional medical assistant specialized in physical therapy. Your task is to provide accurate and helpful information to doctors and patients based on the latest medical and scientific recommendations. Do not give final diagnoses, but offer informative support only."
             },
             {
               "role": "user",
