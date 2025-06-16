@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,7 +53,7 @@ void AwesomeDialog({required context,required correct,required widget,required S
             onPressed: () {
               cubit.saveScore(
                 correctAnswers: correct,
-                totalQuestions: widget.questions.length,
+                totalQuestions: widget.questions.length, uid: CacheHelper.getString(key: "uid"),
               );
               },
             child: Text(

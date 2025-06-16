@@ -43,10 +43,9 @@ class LoginCubit extends Cubit<LoginStates> {
           )
           .then((value) async {
             await CacheHelper.putString(key: "uid", value: value.user!.uid);
-            getUserData(value.user!.uid).then((onValue) {
-              emit(AuthSuccess());
-            });
-          });
+            emit(AuthSuccess());
+
+      });
     } catch (e) {
       emit(AuthFailure(error: e.toString()));
     }
@@ -66,43 +65,4 @@ class LoginCubit extends Cubit<LoginStates> {
         });
   }
 
-  Future<void> getUserData(id) async {
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(id)
-        .get()
-        .then((value) async {
-          model = UserModel.fromMap(value.data()!);
-          emit(GetDataDone());
-        })
-        .catchError((onError) {
-          emit(GetDataFail());
-        });
-  }
-
-  Future<void> getUserScores(id) async {
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(id)
-        .collection("score")
-        .orderBy("date", descending: true)
-        .limit(5)
-        .get()
-        .then((onValue) {
-          print(onValue.docs);
-          if (onValue.docs.isNotEmpty) {
-            for (var doc in onValue.docs) {
-              print(doc.data());
-              scoreModel.add(ScoreModel.fromMap(doc.data()));
-            }
-          }
-          else {
-            scoreModel = [];
-          }
-          emit(GetScoreDone());
-        })
-        .catchError((onError) {
-          emit(GetScoreFail());
-        });
-  }
 }

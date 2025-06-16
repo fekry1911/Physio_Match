@@ -5,6 +5,7 @@ import 'package:add_ques/features/home_page/presentation/widgets/animated_text.d
 import 'package:add_ques/features/home_page/presentation/widgets/last_scores.dart';
 import 'package:add_ques/features/login_screen/logic/cubit/login_cubit.dart';
 import 'package:add_ques/features/login_screen/logic/cubit/login_states.dart';
+import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,9 +55,9 @@ class AddAllAues extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BlocConsumer<LoginCubit, LoginStates>(
+              BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
                 builder: (context, state) {
-                  var cubit = context.read<LoginCubit>();
+                  var cubit = context.read<UpdateUserDataCubit>();
 
                   return cubit.model == null
                       ? CircularProgressIndicator(
@@ -70,30 +71,30 @@ class AddAllAues extends StatelessWidget {
                           fontSize: 30.sp,
                         ),
                       );
-                },
-                listener: (BuildContext context, LoginStates state) {},
+                }, listener: (BuildContext context, UpdateUserDataState state) {  },
               ),
               SizedBox(height: 16.h),
               AnimatedText(),
               SizedBox(height: 30.h),
-              BlocConsumer<LoginCubit, LoginStates>(
+              BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
                 listener: (context, state) {},
                 builder: (context, state) {
-                  var cubit = context.read<LoginCubit>();
+                  var cubit = context.read<UpdateUserDataCubit>();
 
                   return StaticLastScoresWidget(
-                    dummyScores: cubit.scoreModel,
+                    text: "Your Last 5 Scores",
+                    dummyScores: cubit.scoreModelLimit,
                     backGround: Colors.teal[50]!,
                   );
                 },
               ),
               SizedBox(height: 30.h),
-              BlocConsumer<LoginCubit, LoginStates>(
+              BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
                 listener: (context, state) {
                   // TODO: implement listener
                 },
                 builder: (context, state) {
-                  var cubit = context.read<LoginCubit>();
+                  var cubit = context.read<UpdateUserDataCubit>();
                   return Center(
                     child: SizedBox(
                       width: double.infinity,

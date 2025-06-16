@@ -44,7 +44,7 @@ void setupServiceLocator() {
   sl.registerFactory<RegisterCubit>(() => RegisterCubit(sl<RegisterRebo>(), sl<AddUserData>()),);
   sl.registerFactory<LoginCubit>(() => LoginCubit(sl<AuthRepository>()));
   sl.registerFactory<HomeCubit>(() => HomeCubit(sl<GetAllQues>()));
-  sl.registerFactory<SaveScoreCubit>(() => SaveScoreCubit(sl<AddScore>()));
-  sl.registerFactory<UpdateUserDataCubit>(() => UpdateUserDataCubit(sl<UpdateUserRebo>()));
+  sl.registerFactory<SaveScoreCubit>(() => SaveScoreCubit(sl<AddScore>(), sl<UpdateUserDataCubit>()));
+  sl.registerLazySingleton<UpdateUserDataCubit>(() => UpdateUserDataCubit(sl<UpdateUserRebo>()));
 
 }

@@ -4,9 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../quiz/data/models/score_models.dart';
 
 class StaticLastScoresWidget extends StatelessWidget {
-  StaticLastScoresWidget({super.key,required this.dummyScores,required this.backGround});
+  StaticLastScoresWidget({super.key,required this.text,required this.dummyScores,required this.backGround});
   List<ScoreModel> dummyScores;
   Color backGround;
+  String text;
 
   Color getScoreColor(int score) {
     if (score >= 8) return Colors.green[700]!;
@@ -33,7 +34,7 @@ class StaticLastScoresWidget extends StatelessWidget {
                  Icon(Icons.bar_chart, color: Colors.teal, size: 26.r),
                  SizedBox(width: 8.w),
                 Text(
-                  "Your Last Scores",
+                  text,
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
