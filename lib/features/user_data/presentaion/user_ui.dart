@@ -86,14 +86,17 @@ class UserData extends StatelessWidget {
                         NameAndEmail(
                           name: cubit.model!.name,
                           email: cubit.model!.email,
-                          phone:  cubit.model!.phone,
-
+                          phone: cubit.model!.phone,
                         ),
                         SizedBox(height: 20.h),
 
                         Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
-                          child: StaticLastScoresWidget(dummyScores: cubit.scoreModel, backGround: Colors.grey.shade100,),
+                          padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+                          child: StaticLastScoresWidget(
+                            dummyScores: cubit.scoreModel,
+                            backGround: Colors.grey.shade100,
+                            text: "Your Last Scores",
+                          ),
                         ),
 
                         SizedBox(height: 20.h),
@@ -111,7 +114,7 @@ class UserData extends StatelessWidget {
                         ),
                         Divider(height: 25.h, endIndent: 50.w, indent: 30.w),
                         Padding(
-                          padding:  EdgeInsets.only(bottom: 20.0.h),
+                          padding: EdgeInsets.only(bottom: 20.0.h),
                           child: IconAndInfo(
                             image: 'assets/logout.png',
                             data: 'Log Out',

@@ -13,6 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../di/di.dart';
 import '../../../features/home_page/presentation/add_ques.dart';
+import '../../../features/quiz/data/rebo/add.dart';
 import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
@@ -20,6 +21,7 @@ import '../cache_helper.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
+    UpdateUserDataCubit updateCubit = sl<UpdateUserDataCubit>();
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
@@ -36,14 +38,8 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider(
-                    create:
-                        (context) =>
-                            sl<UpdateUserDataCubit>()
-                              ..getUserData(CacheHelper.getString(key: "uid"))
-                              ..getUserScores(
-                                CacheHelper.getString(key: "uid"),
-                              ),
+                  BlocProvider.value(
+                    value: updateCubit,
                   ),
                   BlocProvider(create: (context) => sl<LoginCubit>()),
                 ],
@@ -53,29 +49,32 @@ class AppRouter {
       case quizScreen:
         final args = settings.arguments;
         if (args is List<Map<String, dynamic>>) {
+          UpdateUserDataCubit updateCubit = sl<UpdateUserDataCubit>();
           return MaterialPageRoute(
-            builder:
-                (_) => BlocProvider(
-                  create: (context) => sl<SaveScoreCubit>(),
-                  child: QuizScreen(questions: args),
+            builder: (_) => MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: updateCubit),
+                BlocProvider(
+                  create: (context) => SaveScoreCubit(
+                    sl<AddScore>(),
+                    updateCubit,
+                  ),
                 ),
+              ],
+              child: QuizScreen(questions: args),
+            ),
           );
         } else {
           return null;
         }
+
       case homeScreen:
         return MaterialPageRoute(
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider(
-                    create:
-                        (context) =>
-                            sl<LoginCubit>()
-                              ..getUserData(CacheHelper.getString(key: "uid"))
-                              ..getUserScores(
-                                CacheHelper.getString(key: "uid"),
-                              ),
+                  BlocProvider.value(
+                   value: updateCubit,
                   ),
                   BlocProvider(create: (context) => sl<HomeCubit>()),
                 ],
