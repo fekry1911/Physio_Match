@@ -1,26 +1,26 @@
 import 'package:add_ques/features/student/logic/student_state.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
+import '../data/models/register_model.dart';
+import '../data/rebo/register_repo.dart';
 
 class StudentRegisterCubit extends Cubit<StudentState> {
-  StudentRegisterCubit() : super(StudentInitial());
+  StudentRegisterCubit(this.registerRepository) : super(StudentInitial());
+  RegisterRepository registerRepository;
 
-  TextEditingController nameController=TextEditingController();
-  TextEditingController gradeController=TextEditingController();
-  TextEditingController phoneController=TextEditingController();
-  TextEditingController universityController=TextEditingController();
-  TextEditingController yearController=TextEditingController();
-  TextEditingController cityController=TextEditingController();
-  TextEditingController graduationController=TextEditingController();
-  TextEditingController specializationController=TextEditingController();
-  TextEditingController expController=TextEditingController();
-  TextEditingController departmentController=TextEditingController();
-  TextEditingController gpaController=TextEditingController();
-
+  TextEditingController nameController = TextEditingController();
+  TextEditingController gradeController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController universityController = TextEditingController();
+  TextEditingController yearController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController graduationController = TextEditingController();
+  TextEditingController specializationController = TextEditingController();
+  TextEditingController expController = TextEditingController();
+  TextEditingController departmentController = TextEditingController();
+  TextEditingController gpaController = TextEditingController();
 
   int currentStep = 0;
 
@@ -30,47 +30,78 @@ class StudentRegisterCubit extends Cubit<StudentState> {
     GlobalKey<FormState>(), // Step 3
   ];
   String selectedGender = "male";
-  bool isSelectedGender=false;
+  bool isSelectedGender = false;
 
   String selectedStatus = "doctor";
-  bool isSelectedStatus=false;
+  bool isSelectedStatus = false;
 
   void changeGender(String gender) {
     selectedGender = gender;
     print(selectedGender);
-    isSelectedGender=true;
+    isSelectedGender = true;
     emit(StudentGenderChanged());
   }
+
   void changeStatus(String status) {
     selectedStatus = status;
     print(selectedStatus);
-    isSelectedStatus=true;
+    isSelectedStatus = true;
     emit(StudentGenderChanged());
   }
 
-
-  // Future<void> submitStudent() async {
-  //   final data = {
-  //     'name': name,
-  //     'phone': phone,
-  //     'university': university,
-  //     'year': year,
-  //     'city': city,
-  //     'type': 'student',
-  //     'timestamp': FieldValue.serverTimestamp(),
-  //   };
-  //
-  //   await FirebaseFirestore.instance.collection('students').add(data);
-  // }
+  Future<void> submitStudent() async {
+    emit(StudentSubmitLoading());
+   try{
+     if (selectedStatus == "Doctor") {
+       await registerRepository.registerDoctor(
+         DoctorModel(
+           fullName: nameController.text,
+           university: universityController.text,
+           status: selectedStatus,
+           phone: phoneController.text,
+           gender: selectedGender,
+           dateOfBirth: yearController.text,
+           city: cityController.text,
+           specialization: specializationController.text,
+           exp: expController.text,
+           graduationYear: graduationController.text,
+         ),
+       );
+     } else {
+       await registerRepository.registerStudent(
+         StudentModel(
+           fullName: nameController.text,
+           university: universityController.text,
+           status: selectedStatus,
+           phone: phoneController.text,
+           gender: selectedGender,
+           dateOfBirth: yearController.text,
+           city: cityController.text,
+           gradeYearGraduate: gradeController.text,
+           dep: departmentController.text,
+           gpa: gpaController.text,
+         ),
+       );
+     }
+     emit(StudentSubmitted());
+   }catch(e){
+     print(e.toString());
+     emit(StudentSubmitFailed(error: e.toString()));
+   }
+  }
 
   void nextStep() {
     if (currentStep < 2) {
       currentStep++;
       emit(StudentInitial());
     }
+    if(currentStep==2){
+      submitStudent();
+    }
   }
-  setCurrentStep(int step){
-    currentStep=step;
+
+  setCurrentStep(int step) {
+    currentStep = step;
     emit(SetCurrent());
   }
 
@@ -78,9 +109,9 @@ class StudentRegisterCubit extends Cubit<StudentState> {
     if (currentStep > 0) {
       currentStep--;
       emit(PreviousStep());
-
     }
   }
+
   Future<void> selectDate(BuildContext context) async {
     DateTime now = DateTime.now();
 
@@ -93,7 +124,7 @@ class StudentRegisterCubit extends Cubit<StudentState> {
 
     if (picked != null) {
       String formattedDate = DateFormat('yyyy-MM-dd').format(picked);
-        yearController.text = formattedDate;
+      yearController.text = formattedDate;
     }
     emit(PickDateDone());
   }
