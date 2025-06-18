@@ -50,6 +50,8 @@ dependencies:
   image_picker: ^1.1.0
   dio: ^5.4.1
   webview_flutter: ^4.4.1
+  intl: ^0.18.1  # أو أحدث نسخة متاحة
+
 
 
 dev_dependencies:

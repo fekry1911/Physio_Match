@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
               debugShowCheckedModeBanner: false,
             onGenerateRoute: appRouter.generateRoute,
-            initialRoute:splashScreen,
+            initialRoute:studentRegisterScreen,
               title: 'First Method',
               theme: ThemeData(
                 primaryColorLight: Colors.blue,

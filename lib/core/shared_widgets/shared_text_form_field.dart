@@ -19,6 +19,8 @@ class SharedTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?) validator;
   final int? maxLength;
+  final bool? enabled;
+
 
   const SharedTextFormField({
     super.key,
@@ -29,6 +31,7 @@ class SharedTextFormField extends StatelessWidget {
     this.inputTextStyle,
     this.hintStyle,
     this.suffixIcon,
+    this.enabled,
     required this.hintText,
     this.isObscureText,
     this.prefixIcon,
@@ -40,6 +43,7 @@ class SharedTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: enabled,
       style: inputTextStyle ?? const TextStyle(color: Colors.black),
       controller: controller,
       obscureText: isObscureText ?? false,
