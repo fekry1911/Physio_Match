@@ -103,7 +103,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-            create: (context) => StudentRegisterCubit(),
+            create: (context) => sl<StudentRegisterCubit>(),
             child: StepperExample(),
           ),
         );

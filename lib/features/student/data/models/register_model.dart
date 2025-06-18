@@ -16,6 +16,7 @@ abstract class RegisterModel {
     required this.dateOfBirth,
     required this.city,
   });
+
 }
 
 class DoctorModel extends RegisterModel {

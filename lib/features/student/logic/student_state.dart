@@ -13,4 +13,14 @@ class StudentGenderChanged extends StudentState{}
 
 class PickDateDone extends StudentState{}
 
+class StudentSubmitted extends StudentState{}
+
+
+class StudentSubmitLoading extends StudentState{}
+
+class StudentSubmitFailed extends StudentState{
+  String error;
+  StudentSubmitFailed({required this.error});
+}
+
 

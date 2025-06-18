@@ -21,6 +21,9 @@ import '../features/quiz/data/rebo/add_impl.dart';
 import '../features/register_screen/cubit/register_cubit.dart';
 import '../features/register_screen/data/rebo/rebo.dart';
 import '../features/register_screen/data/rebo/rebo_impl.dart';
+import '../features/student/data/rebo/register_repo.dart';
+import '../features/student/data/rebo/register_repo_impl.dart';
+import '../features/student/logic/student_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -38,6 +41,7 @@ void setupServiceLocator() {
   sl.registerLazySingleton<GetAllQues>(() => GetAllQuesImpl(sl(),));
   sl.registerLazySingleton<AddScore>(() => AppScoreImpl(sl(),));
   sl.registerLazySingleton<UpdateUserRebo>(() => UpdateUserDataImpl(sl(),sl()));
+  sl.registerLazySingleton<RegisterRepository>(() => RegisterRepoImpl(sl()));
 
 
   // Cubits
@@ -46,5 +50,6 @@ void setupServiceLocator() {
   sl.registerFactory<HomeCubit>(() => HomeCubit(sl<GetAllQues>()));
   sl.registerFactory<SaveScoreCubit>(() => SaveScoreCubit(sl<AddScore>(), sl<UpdateUserDataCubit>()));
   sl.registerLazySingleton<UpdateUserDataCubit>(() => UpdateUserDataCubit(sl<UpdateUserRebo>()));
+  sl.registerLazySingleton<StudentRegisterCubit>(() => StudentRegisterCubit(sl<RegisterRepository>()));
 
 }
