@@ -6,14 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../../../core/theme/colors/colors.dart';
 import '../../../../core/theme/text_themes/text.dart';
-import '../../logic/student_cubit.dart';
+import '../../logic/type_register_cubit.dart';
 
 class SetUniAndYearAndCity extends StatelessWidget {
   const SetUniAndYearAndCity({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<StudentRegisterCubit>(context);
+    final cubit = BlocProvider.of<TypeRegisterCubit>(context);
     return Padding(
       padding: EdgeInsets.all(20.0.sign),
       child: Form(

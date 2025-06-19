@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppColors{
-  static Color mainTealColor=Colors.teal;
+  static Color mainTealColor=Color(0xFF164E51);
   static Color greyColor=Color(0xff757575);
   static Color whiteColor=Color(0xffFFFFFF);
   static Color darkBlue=Color(0xffC2C2C2);

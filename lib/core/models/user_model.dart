@@ -4,6 +4,7 @@ class UserModel {
   final String phone;
   final String imageUrl;
   final int tries;
+  final String? type;
 
   UserModel({
     required this.name,
@@ -11,6 +12,7 @@ class UserModel {
     required this.phone,
     required this.imageUrl,
     required this.tries,
+    this.type,
   });
 
   Map<String, dynamic> toMap() {
@@ -20,6 +22,7 @@ class UserModel {
       'phone': phone,
       'imageUrl': imageUrl,
       'tries': tries,
+      'type': type,
     };
   }
 
@@ -30,6 +33,7 @@ class UserModel {
       email: map['email'] ?? '',
       phone: map['phone'] ?? '',
       imageUrl: map['imageUrl'] ?? '',
+      type: map['type'],
     );
   }
 }
