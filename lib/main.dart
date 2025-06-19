@@ -2,10 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/router/app_router.dart';
 import 'features/home_page/presentation/add_ques.dart';
 import 'core/const/const.dart';
 import 'core/helpers/cache_helper.dart';
-import 'core/helpers/router/app_router.dart';
 import 'di/di.dart';
 import 'features/splash_screen/presentaion/splash_screen.dart';
 import 'firebase_options.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
               debugShowCheckedModeBanner: false,
             onGenerateRoute: appRouter.generateRoute,
-            initialRoute:studentRegisterScreen,
+            initialRoute:splashScreen,
               title: 'First Method',
               theme: ThemeData(
                 primaryColorLight: Colors.blue,

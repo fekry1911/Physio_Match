@@ -1,3 +1,4 @@
+import 'package:add_ques/features/student/data/models/register_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,8 +15,15 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
 
   UpdateUserDataCubit(this.updateUserRebo) : super(UpdateUserDataInitial()) {
     final uid = CacheHelper.getString(key: "uid");
+    final type = CacheHelper.getString(key: "type");
+
     if (uid != null) {
-      getUserData(uid);
+      if(type=="doctor"){
+        getDoctorData(uid);
+      }
+      else{
+        getStudentData(uid);
+      }
       getUserScores(uid);
       getUserScoresLimit(uid);
     }
@@ -40,35 +48,53 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
     await updateUserRebo.UpdateUserData(
       UserModel(
         name: name.text,
-        email: model!.email,
+        email: "studentModel!.email",
         phone: phone.text,
-        imageUrl: model!.imageUrl,
-        tries: model!.tries,
+        imageUrl: "studentModel!.imageUrl",
+        tries: studentModel!.tries!,
       ),
     ).then((value) {
-      getUserData(CacheHelper.getString(key: "uid"));
+      getStudentData(CacheHelper.getString(key: "uid"));
       emit(UpdateUserDataDone());
     }).catchError((onError) {
       emit(UpdateUserDataFail(onError.toString()));
     });
   }
 
-  UserModel? model;
+  StudentModel? studentModel;
 
-  Future<void> getUserData(id) async {
+
+  Future<void> getStudentData(id) async {
     emit(GetUserDataLoad());
     await FirebaseFirestore.instance
-        .collection('users')
+        .collection('student')
         .doc(id)
         .get()
         .then((value) async {
-          model = UserModel.fromMap(value.data()!);
+          studentModel = StudentModel.fromMap(value.data()!);
           emit(GetUserDataDone());
         })
         .catchError((onError) {
           emit(GetUserDataFail());
         });
   }
+  DoctorModel? doctortModel;
+
+  Future<void> getDoctorData(id) async {
+    emit(GetUserDataLoad());
+    await FirebaseFirestore.instance
+        .collection('doctors')
+        .doc(id)
+        .get()
+        .then((value) async {
+      doctortModel = DoctorModel.fromMap(value.data()!);
+      emit(GetUserDataDone());
+    })
+        .catchError((onError) {
+      emit(GetUserDataFail());
+    });
+  }
+
   List<ScoreModel> scoreModel = [];
 
   Future<void> getUserScores(String id) async {

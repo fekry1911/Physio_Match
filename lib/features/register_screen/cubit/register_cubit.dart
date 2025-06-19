@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/helpers/cache_helper.dart';
 import '../../../core/models/sign_model.dart';
 import '../../../core/models/user_model.dart';
 import '../data/rebo/rebo.dart';
@@ -48,6 +49,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
                   userId: onValue.user!.uid,
                 )
                 .then((value) {
+                  CacheHelper.putString(key: 'uid', value: onValue.user!.uid);
                   emit(RegisterSuccess(onValue.user!.uid));
                 });
           });

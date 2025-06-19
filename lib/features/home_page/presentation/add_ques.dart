@@ -59,12 +59,12 @@ class AddAllAues extends StatelessWidget {
                 builder: (context, state) {
                   var cubit = context.read<UpdateUserDataCubit>();
 
-                  return cubit.model == null
+                  return cubit.studentModel == null
                       ? CircularProgressIndicator(
                         color: AppColors.mainTealColor,
                       )
                       : Text(
-                        "Hi ${cubit.model!.name}",
+                        "Hi ${cubit.studentModel!.fullName}",
                         style: TextThemes.font22BlackMedium.copyWith(
                           color: AppColors.mainTealColor,
                           fontWeight: FontWeight.bold,
@@ -100,17 +100,17 @@ class AddAllAues extends StatelessWidget {
                       width: double.infinity,
                       height: 70.h,
                       child:
-                          cubit.model != null
+                          cubit.studentModel != null
                               ? MaterialButton(
                                 disabledColor: Colors.grey,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 onPressed:
-                                    cubit.model!.tries <= 0
+                                    cubit.studentModel!.tries! <= 0
                                         ? null
                                         : () async {
-                                          print(cubit.model!.tries);
+                                          print(cubit.studentModel!.tries);
                                           print(
                                             """"""
                                             """"""
@@ -129,7 +129,7 @@ class AddAllAues extends StatelessWidget {
                                         },
                                 color: Colors.teal,
                                 child: Text(
-                                  cubit.model!.tries <= 0
+                                  cubit.studentModel!.tries! <= 0
                                       ? "You Haven\'t any tries  "
                                       : "Start Quiz",
                                   style: TextStyle(

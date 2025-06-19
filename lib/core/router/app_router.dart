@@ -19,7 +19,6 @@ import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
 import '../../../features/student/presentation/ui_student.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
-import '../cache_helper.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
