@@ -1,18 +1,19 @@
 import 'package:add_ques/core/shared_widgets/shared_text_form_field.dart';
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
-import 'package:add_ques/features/student/logic/student_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../logic/type_register_cubit.dart';
 
 class SetNameAndPhone extends StatelessWidget {
   SetNameAndPhone({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<StudentRegisterCubit>(context);
+    final cubit = BlocProvider.of<TypeRegisterCubit>(context);
     return Padding(
       padding: EdgeInsets.all(20.0.sign),
       child: Form(
@@ -76,9 +77,9 @@ class SetNameAndPhone extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text("Student / recent graduated"),
+              title: Text("Student"),
               leading: Radio<String>(
-                value: "Student / recent graduated",
+                value: "Student",
                 groupValue: cubit.selectedStatus,
                 onChanged: (value) {
                   cubit.changeStatus(value!);

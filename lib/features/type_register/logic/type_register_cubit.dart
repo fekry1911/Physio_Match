@@ -1,15 +1,17 @@
 import 'package:add_ques/core/helpers/cache_helper.dart';
-import 'package:add_ques/features/student/logic/student_state.dart';
+import 'package:add_ques/features/type_register/logic/type_register_state.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-
+import '../../doctor/data/models/doctor_model.dart';
+import '../../student/daya/models/student_model.dart';
 import '../data/models/register_model.dart';
 import '../data/rebo/register_repo.dart';
 
-class StudentRegisterCubit extends Cubit<StudentState> {
-  StudentRegisterCubit(this.registerRepository,this.auth) : super(StudentInitial());
+class TypeRegisterCubit extends Cubit<TypeRegisterState> {
+  TypeRegisterCubit(this.registerRepository,this.auth) : super(StudentInitial());
   FirebaseAuth auth ;
   RegisterRepository registerRepository;
   TextEditingController nameController = TextEditingController();
@@ -71,7 +73,7 @@ class StudentRegisterCubit extends Cubit<StudentState> {
            imageUrl: 'http://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1',
          ),
        );
-       CacheHelper.putString(key: "type", value: "doctor");
+       CacheHelper.putString(key: "type", value: "Doctor");
 
      } else {
        await registerRepository.registerStudent(
@@ -91,10 +93,12 @@ class StudentRegisterCubit extends Cubit<StudentState> {
            tries: 3,
          ),
        );
-       CacheHelper.putString(key: "type", value: "student");
-
+       CacheHelper.putString(key: "type", value: "Student");
      }
      CacheHelper.putBoolean(key: "submitted", value: true);
+     await FirebaseFirestore.instance.collection("users").doc(CacheHelper.getString(key: "uid")).update({
+       "type": selectedStatus,
+     });
      emit(StudentSubmitted());
    }catch(e){
      print(e.toString());
@@ -103,17 +107,14 @@ class StudentRegisterCubit extends Cubit<StudentState> {
   }
 
   void nextStep() {
-    if (currentStep < 2) {
+    if (currentStep == 2) {
+      submitStudent(); // آخر خطوة، نرسل البيانات
+    } else {
       currentStep++;
       emit(StudentInitial());
-      if(currentStep==2){
-        submitStudent();
-      }
-    }
-    if(currentStep==2){
-      submitStudent();
     }
   }
+
 
   setCurrentStep(int step) {
     currentStep = step;

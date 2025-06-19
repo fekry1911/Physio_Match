@@ -1,10 +1,11 @@
 import 'package:add_ques/core/helpers/cache_helper.dart';
-import 'package:add_ques/core/models/sign_model.dart';
-import 'package:add_ques/features/register_screen/data/rebo/rebo.dart';
-import 'package:add_ques/features/student/data/models/register_model.dart';
-import 'package:add_ques/features/student/data/rebo/register_repo.dart';
+import 'package:add_ques/features/type_register/data/rebo/register_repo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../doctor/data/models/doctor_model.dart';
+import '../../../student/daya/models/student_model.dart';
+import '../models/register_model.dart';
 
 class RegisterRepoImpl implements RegisterRepository {
   FirebaseFirestore firestore;

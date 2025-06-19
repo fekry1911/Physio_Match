@@ -1,6 +1,7 @@
 import 'package:add_ques/core/const/const.dart';
 import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
+import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -36,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
       if (uid == null) {
         context.pushAndRemoveUntil(loginScreen);
       } else if (submitted == true) {
-        context.pushAndRemoveUntil(homeScreen);
+        context.pushAndRemoveUntil(homeDeciderScreen);
       } else {
         context.pushAndRemoveUntil(studentRegisterScreen);
       }
@@ -53,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF008080),
+      backgroundColor: AppColors.mainTealColor,
       body: FadeTransition(
         opacity: _animation,
         child: Center(

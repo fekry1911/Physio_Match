@@ -7,7 +7,7 @@ import 'package:add_ques/features/login_screen/presentation/login.dart';
 import 'package:add_ques/features/quiz/logic/save_score_cubit.dart';
 import 'package:add_ques/features/register_screen/cubit/register_cubit.dart';
 import 'package:add_ques/features/splash_screen/presentaion/splash_screen.dart';
-import 'package:add_ques/features/student/logic/student_cubit.dart';
+import 'package:add_ques/features/type_register/presentation/type_register_ui.dart';
 import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +17,9 @@ import '../../../features/home_page/presentation/add_ques.dart';
 import '../../../features/quiz/data/rebo/add.dart';
 import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
-import '../../../features/student/presentation/ui_student.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
+import '../../features/home/presentation/screens/decider_screen.dart';
+import '../../features/type_register/logic/type_register_cubit.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -102,9 +103,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-            create: (context) => sl<StudentRegisterCubit>(),
-            child: StepperExample(),
+            create: (context) => sl<TypeRegisterCubit>(),
+            child: TypeRegisterScreen(),
           ),
+        );
+      case homeDeciderScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => HomeDeciderScreen(),
         );
     }
     return null;

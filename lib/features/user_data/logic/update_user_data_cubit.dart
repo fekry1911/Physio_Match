@@ -1,11 +1,13 @@
-import 'package:add_ques/features/student/data/models/register_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../core/helpers/cache_helper.dart';
 import '../../../core/models/user_model.dart';
+import '../../doctor/data/models/doctor_model.dart';
 import '../../quiz/data/models/score_models.dart';
+import '../../student/daya/models/student_model.dart';
+import '../../type_register/data/models/register_model.dart';
 import '../data/update_user_rebo.dart';
 
 part 'update_user_data_state.dart';
@@ -67,7 +69,7 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
   Future<void> getStudentData(id) async {
     emit(GetUserDataLoad());
     await FirebaseFirestore.instance
-        .collection('student')
+        .collection('type_register')
         .doc(id)
         .get()
         .then((value) async {
