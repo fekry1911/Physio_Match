@@ -5,7 +5,9 @@ abstract class RegisterModel {
   final String status;
   final String dateOfBirth;
   final String city;
+  final String imageUrl;
   final String university;
+  final String email;
 
   RegisterModel({
     required this.fullName,
@@ -15,6 +17,8 @@ abstract class RegisterModel {
     required this.gender,
     required this.dateOfBirth,
     required this.city,
+    required this.email,
+    required this.imageUrl,
   });
 
 }
@@ -24,6 +28,7 @@ class DoctorModel extends RegisterModel {
   final String? specialization;
   final String? graduationYear;
 
+
   DoctorModel({
     required super.fullName,
     required super.university,
@@ -32,6 +37,8 @@ class DoctorModel extends RegisterModel {
     required super.gender,
     required super.dateOfBirth,
     required super.city,
+    required super.email,
+    required super.imageUrl,
     required this.specialization,
     required this.exp,
     required this.graduationYear,
@@ -39,6 +46,8 @@ class DoctorModel extends RegisterModel {
 
   factory DoctorModel.fromMap(Map<String, dynamic> map) {
     return DoctorModel(
+      email: map['email'] ?? '',
+      imageUrl: map['imageUrl'] ?? '',
       fullName: map['fullName'] ?? '',
       university: map['university'] ?? '',
       status: map['status'] ?? '',
@@ -64,6 +73,8 @@ class DoctorModel extends RegisterModel {
       'specialization': specialization,
       'exp': exp,
       'graduationYear': graduationYear,
+      'email': email,
+      'imageUrl': imageUrl,
     };
   }
 }
@@ -71,7 +82,10 @@ class DoctorModel extends RegisterModel {
 class StudentModel extends RegisterModel {
   final String? gradeYearGraduate; // السنة الدراسية أو سنة التخرج
   final String? dep;               // القسم
-  final String? gpa;               // التقدير العام
+  final String? gpa;
+  final int? tries;
+
+
 
   StudentModel({
     required super.fullName,
@@ -81,14 +95,20 @@ class StudentModel extends RegisterModel {
     required super.gender,
     required super.dateOfBirth,
     required super.city,
+    required super.email,
+    required super.imageUrl,
     required this.gradeYearGraduate,
     required this.dep,
     required this.gpa,
+    required this.tries,
   });
 
   factory StudentModel.fromMap(Map<String, dynamic> map) {
     return StudentModel(
+      email: map['email'] ?? '',
+
       fullName: map['fullName'] ?? '',
+      tries: map['tries'],
       university: map['university'] ?? '',
       status: map['status'] ?? '',
       phone: map['phone'] ?? '',
@@ -98,6 +118,7 @@ class StudentModel extends RegisterModel {
       gradeYearGraduate: map['gradeYearGraduate'],
       dep: map['dep'],
       gpa: map['gpa'],
+      imageUrl: map['imageUrl'],
     );
   }
 
@@ -113,6 +134,8 @@ class StudentModel extends RegisterModel {
       'gradeYearGraduate': gradeYearGraduate,
       'dep': dep,
       'gpa': gpa,
+      'tries': tries,
+      'imageUrl': imageUrl,
     };
   }
 }

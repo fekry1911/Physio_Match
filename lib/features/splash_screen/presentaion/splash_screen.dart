@@ -1,15 +1,8 @@
 import 'package:add_ques/core/const/const.dart';
 import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
-import 'package:add_ques/features/login_screen/logic/cubit/login_cubit.dart';
-import 'package:add_ques/features/login_screen/presentation/login.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../home_page/presentation/add_ques.dart';
-import '../../quiz/presentation/qui.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -37,9 +30,17 @@ class _SplashScreenState extends State<SplashScreen>
     // بعد 3 ثواني، نعمل انتقال مع تأثير Fade Out
     Future.delayed(Duration(seconds: 3), () async {
       await _controller.reverse(); // تأثير اختفاء
-      CacheHelper.getString(key: "uid")==null
-          ?context.pushAndRemoveUntil(loginScreen)
-          :context.pushAndRemoveUntil(homeScreen);
+      final uid = CacheHelper.getString(key: "uid");
+      final submitted = CacheHelper.getBoolean(key: "submitted");
+
+      if (uid == null) {
+        context.pushAndRemoveUntil(loginScreen);
+      } else if (submitted == true) {
+        context.pushAndRemoveUntil(homeScreen);
+      } else {
+        context.pushAndRemoveUntil(studentRegisterScreen);
+      }
+
     });
   }
 

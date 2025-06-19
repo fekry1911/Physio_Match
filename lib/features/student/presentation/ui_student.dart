@@ -33,11 +33,10 @@ class StepperExample extends StatelessWidget {
                 ),
                 canvasColor: Colors.white, // خلفية الـ stepper
               ),
-              child: Material(
-                elevation: 0,
-                child: Column(
-                  children: [
-                    Stepper(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Stepper(
                       type: StepperType.horizontal,
                       currentStep: cubit.currentStep,
                       physics: ClampingScrollPhysics(),
@@ -111,36 +110,36 @@ class StepperExample extends StatelessWidget {
                         ),
                       ],
                     ),
-                    BlocListener<StudentRegisterCubit, StudentState>(
-                      listener: (BuildContext context, state) {
-                        if (state is StudentSubmitLoading) {
-                          showDialog(
-                            context: context,
-                            builder:
-                                (context) => Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.whiteColor,
-                                semanticsLabel: "loading",
-                              ),
+                  ),
+                  BlocListener<StudentRegisterCubit, StudentState>(
+                    listener: (BuildContext context, state) {
+                      if (state is StudentSubmitLoading) {
+                        showDialog(
+                          context: context,
+                          builder:
+                              (context) => Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.whiteColor,
+                              semanticsLabel: "loading",
                             ),
-                          );
-                        }
-                        if (state is StudentSubmitted) {
-                          context.pushAndRemoveUntil(loginScreen);
-                        }
-                        if (state is StudentSubmitFailed) {
-                          AwesomeSnackBar(
-                            context: context,
-                            tittle: "SignOut Error",
-                            message: state.error,
-                          );
-                        }
-                      },
-                      child: SizedBox.shrink(),
-                    ),
+                          ),
+                        );
+                      }
+                      if (state is StudentSubmitted) {
+                        context.pushAndRemoveUntil(homeScreen);
+                      }
+                      if (state is StudentSubmitFailed) {
+                        AwesomeSnackBar(
+                          context: context,
+                          tittle: "error",
+                          message: state.error,
+                        );
+                      }
+                    },
+                    child: SizedBox.shrink(),
+                  ),
 
-                  ],
-                ),
+                ],
               ),
             );
           },

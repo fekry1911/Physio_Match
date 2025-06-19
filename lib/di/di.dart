@@ -50,6 +50,6 @@ void setupServiceLocator() {
   sl.registerFactory<HomeCubit>(() => HomeCubit(sl<GetAllQues>()));
   sl.registerFactory<SaveScoreCubit>(() => SaveScoreCubit(sl<AddScore>(), sl<UpdateUserDataCubit>()));
   sl.registerLazySingleton<UpdateUserDataCubit>(() => UpdateUserDataCubit(sl<UpdateUserRebo>()));
-  sl.registerLazySingleton<StudentRegisterCubit>(() => StudentRegisterCubit(sl<RegisterRepository>()));
+  sl.registerLazySingleton<StudentRegisterCubit>(() => StudentRegisterCubit(sl<RegisterRepository>(),sl<FirebaseAuth>()));
 
 }
