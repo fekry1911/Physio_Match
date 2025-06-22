@@ -50,7 +50,9 @@ dependencies:
   image_picker: ^1.1.0
   dio: ^5.4.1
   webview_flutter: ^4.4.1
-  intl: ^0.18.1  # أو أحدث نسخة متاحة
+  intl: ^0.18.1
+
+
 
 
 
@@ -84,6 +86,7 @@ flutter:
     - assets/logout.png
     - assets/personalcard.png
     - assets/physiomatch.png
+    - assets/AbdulrahmanFekry cv(flutter Developer.pdf
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
