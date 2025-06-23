@@ -1,3 +1,4 @@
+import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: cubit.currentIndex,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.blue,
+            selectedItemColor: AppColors.mainTealColor,
             unselectedItemColor: Colors.grey,
             onTap: (index) {
               cubit.changeIndex(index);

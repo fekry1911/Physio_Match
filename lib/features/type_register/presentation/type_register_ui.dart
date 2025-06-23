@@ -28,7 +28,6 @@ class TypeRegisterScreen extends StatelessWidget {
               data: Theme.of(context).copyWith(
                 colorScheme: ColorScheme.light(
                   primary: AppColors.mainTealColor,
-                  // لون الخطوة النشطة والدائرة
                   onSurface: Colors.grey, // لون الخطوات الغير نشطة
                 ),
                 canvasColor: Colors.white, // خلفية الـ stepper

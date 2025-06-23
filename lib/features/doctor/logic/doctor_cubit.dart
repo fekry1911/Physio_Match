@@ -14,8 +14,8 @@ class DoctorCubit extends Cubit<DoctorState> {
   DoctorCubit() : super(DoctorInitial());
   final List<Widget> pages = [
     DoctorDashboardScreen(),
-    DoctorFilesScreen(),
     MedicalFeedScreen(),
+    DoctorFilesScreen(),
     DoctorSettingsScreen(),
   ];
   final List<String> titles=[
