@@ -7,6 +7,10 @@ const String userData="/user-data";
 const String chatScreen="/chat-screen";
 const String studentRegisterScreen="/studentRegister-screen";
 const String homeDeciderScreen="/homeDecider-screen";
+const String paymentData="/paymentData-screen";
+const String paymentSubmit="/paymentSubmit-screen";
+
+
 
 
 

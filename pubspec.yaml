@@ -51,6 +51,7 @@ dependencies:
   dio: ^5.4.1
   webview_flutter: ^4.4.1
   intl: ^0.18.1
+  supabase_flutter: ^2.9.1
 
 
 
@@ -87,6 +88,8 @@ flutter:
     - assets/personalcard.png
     - assets/physiomatch.png
     - assets/AbdulrahmanFekry cv(flutter Developer.pdf
+    - assets/payment.png
+    - assets/physio/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

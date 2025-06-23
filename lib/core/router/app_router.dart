@@ -19,6 +19,9 @@ import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
 import '../../features/home/presentation/screens/decider_screen.dart';
+import '../../features/payment/logic/payment_cubit.dart';
+import '../../features/payment/screens/payment_screen.dart';
+import '../../features/payment/screens/pre_payment/payment_data.dart';
 import '../../features/type_register/logic/type_register_cubit.dart';
 
 class AppRouter {
@@ -40,9 +43,7 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider.value(
-                    value: updateCubit,
-                  ),
+                  BlocProvider.value(value: updateCubit),
                   BlocProvider(create: (context) => sl<LoginCubit>()),
                 ],
                 child: UserData(),
@@ -53,18 +54,18 @@ class AppRouter {
         if (args is List<Map<String, dynamic>>) {
           UpdateUserDataCubit updateCubit = sl<UpdateUserDataCubit>();
           return MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-              providers: [
-                BlocProvider.value(value: updateCubit),
-                BlocProvider(
-                  create: (context) => SaveScoreCubit(
-                    sl<AddScore>(),
-                    updateCubit,
-                  ),
+            builder:
+                (_) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider.value(value: updateCubit),
+                    BlocProvider(
+                      create:
+                          (context) =>
+                              SaveScoreCubit(sl<AddScore>(), updateCubit),
+                    ),
+                  ],
+                  child: QuizScreen(questions: args),
                 ),
-              ],
-              child: QuizScreen(questions: args),
-            ),
           );
         } else {
           return null;
@@ -75,9 +76,7 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider.value(
-                   value: updateCubit,
-                  ),
+                  BlocProvider.value(value: updateCubit),
                   BlocProvider(create: (context) => sl<HomeCubit>()),
                 ],
                 child: AddAllAues(),
@@ -103,14 +102,24 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-            create: (context) => sl<TypeRegisterCubit>(),
-            child: TypeRegisterScreen(),
-          ),
+                create: (context) => sl<TypeRegisterCubit>(),
+                child: TypeRegisterScreen(),
+              ),
         );
       case homeDeciderScreen:
+        return MaterialPageRoute(builder: (_) => HomeDeciderScreen());
+      case paymentData:
         return MaterialPageRoute(
           builder:
-              (_) => HomeDeciderScreen(),
+              (_) => BlocProvider(
+                create: (context) => sl<PaymentCubit>(),
+                child: PaymentData(),
+              ),
+        );
+      case paymentSubmit:
+        final args = settings.arguments;
+        return MaterialPageRoute(
+          builder: (_) => PaymentScreen(url: args.toString()),
         );
     }
     return null;

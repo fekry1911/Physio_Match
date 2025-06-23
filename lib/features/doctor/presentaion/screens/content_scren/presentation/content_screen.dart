@@ -1,11 +1,52 @@
-import 'package:flutter/cupertino.dart';
+import 'package:add_ques/core/theme/colors/colors.dart';
+import 'package:add_ques/features/doctor/presentaion/screens/content_scren/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/theme/text_themes/text.dart';
 
 class DoctorFilesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("📊 إحصائيات و مواعيد اليوم",style: TextThemes.font14LightDarkRegular.copyWith(color: Colors.blue),));
+    return Container(
+      color: Colors.grey[200],
+      child: ListView.separated(
+        itemCount: items.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Image.asset(items[index]["image"]!, fit: BoxFit.cover,width: double.infinity,height: 100.h,),
+                Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [Colors.white, Colors.white.withOpacity(0.0)],
+                        stops: [0.0, 0.5],
+                      ),
+                    ),
+
+                  ),
+                ),
+               Padding(
+                 padding: const EdgeInsets.all(8.0),
+                 child: Text(
+                    textAlign: TextAlign.center,
+                    items[index]["text"]!,
+                    style: TextThemes.font16BlackBold.copyWith(color: AppColors.mainTealColor),
+                  ),
+               )
+
+              ],
+            ),
+          );
+        }, separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(height: 10.h,);
+      },
+      ),
+    );
   }
 }
