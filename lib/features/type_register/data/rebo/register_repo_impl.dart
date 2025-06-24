@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../doctor/data/models/doctor_model.dart';
-import '../../../student/daya/models/student_model.dart';
 import '../models/register_model.dart';
 
 class RegisterRepoImpl implements RegisterRepository {
@@ -18,10 +17,6 @@ class RegisterRepoImpl implements RegisterRepository {
     await firestore.collection('doctors').doc(CacheHelper.getString(key: "uid")).set(doctor.toMap());
   }
 
-  @override
-  Future<void> registerStudent(StudentModel student) async {
-    await firestore.collection('students').doc(CacheHelper.getString(key: "uid")).set(student.toMap());
-  }
 
   @override
   Future<DoctorModel> getDoctor(String uid) async {
@@ -30,10 +25,4 @@ class RegisterRepoImpl implements RegisterRepository {
     return DoctorModel.fromMap(response.docs.first.data());
   }
 
-  @override
-  Future<StudentModel> getStudent(String uid) async {
-    var response = await firestore.collection('students').where(
-        'uid', isEqualTo: uid).get();
-    return StudentModel.fromMap(response.docs.first.data());
-  }
 }

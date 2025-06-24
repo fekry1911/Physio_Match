@@ -59,33 +59,7 @@ class SetNameAndPhone extends StatelessWidget {
             ),
 
             SizedBox(height: 25.h),
-            Text(
-              "Select your status",
-              style: TextThemes.font16BlackBold.copyWith(
-                color: AppColors.mainTealColor,
-              ),
-            ),
-            SizedBox(height: 15.h),
-            ListTile(
-              title: Text("Doctor"),
-              leading: Radio<String>(
-                value: "Doctor",
-                groupValue: cubit.selectedStatus,
-                onChanged: (value) {
-                  cubit.changeStatus(value!);
-                },
-              ),
-            ),
-            ListTile(
-              title: Text("Student"),
-              leading: Radio<String>(
-                value: "Student",
-                groupValue: cubit.selectedStatus,
-                onChanged: (value) {
-                  cubit.changeStatus(value!);
-                },
-              ),
-            ),
+
             SizedBox(height: 25.h),
             Text(
               "Select your Gender",

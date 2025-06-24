@@ -6,7 +6,6 @@ import 'package:add_ques/features/register_screen/cubit/register_cubit.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step1_name_phone.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step2_year_city_uni.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step3_doctor.dart';
-import 'package:add_ques/features/type_register/presentation/widgets/step3_student.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +42,7 @@ class TypeRegisterScreen extends StatelessWidget {
                         cubit.setCurrentStep(step);
                       },
                       onStepContinue: () {
-                        if (cubit.formKeys[cubit.currentStep].currentState!.validate() && cubit.isSelectedGender && cubit.isSelectedStatus) {
+                        if (cubit.formKeys[cubit.currentStep].currentState!.validate() && cubit.isSelectedGender ) {
                           cubit.nextStep();
                         }
                       },
@@ -104,7 +103,7 @@ class TypeRegisterScreen extends StatelessWidget {
                                       : Colors.grey,
                             ),
                           ),
-                          content: cubit.selectedStatus=="Doctor"?SetStep3ForDoctors():SetStep3ForStudent(),
+                          content: SetStep3ForDoctors(),
                           isActive: cubit.currentStep >= 2,
                         ),
                       ],

@@ -1,30 +1,31 @@
+import 'dart:io';
+
 import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/features/type_register/logic/type_register_state.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:path/path.dart' as path;
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '../../doctor/data/models/doctor_model.dart';
-import '../../student/daya/models/student_model.dart';
-import '../data/models/register_model.dart';
 import '../data/rebo/register_repo.dart';
 
 class TypeRegisterCubit extends Cubit<TypeRegisterState> {
-  TypeRegisterCubit(this.registerRepository,this.auth) : super(StudentInitial());
-  FirebaseAuth auth ;
+  TypeRegisterCubit(this.registerRepository, this.auth)
+    : super(StudentInitial());
+  FirebaseAuth auth;
+
   RegisterRepository registerRepository;
   TextEditingController nameController = TextEditingController();
-  TextEditingController gradeController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController universityController = TextEditingController();
   TextEditingController yearController = TextEditingController();
   TextEditingController cityController = TextEditingController();
-  TextEditingController graduationController = TextEditingController();
-  TextEditingController specializationController = TextEditingController();
-  TextEditingController expController = TextEditingController();
-  TextEditingController departmentController = TextEditingController();
-  TextEditingController gpaController = TextEditingController();
 
   int currentStep = 0;
 
@@ -36,9 +37,6 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
   String selectedGender = "male";
   bool isSelectedGender = false;
 
-  String selectedStatus = "doctor";
-  bool isSelectedStatus = false;
-
   void changeGender(String gender) {
     selectedGender = gender;
     print(selectedGender);
@@ -46,64 +44,30 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     emit(StudentGenderChanged());
   }
 
-  void changeStatus(String status) {
-    selectedStatus = status;
-    print(selectedStatus);
-    isSelectedStatus = true;
-    emit(StudentGenderChanged());
-  }
-
   Future<void> submitStudent() async {
     emit(StudentSubmitLoading());
-   try{
-     if (selectedStatus == "Doctor") {
-       await registerRepository.registerDoctor(
-         DoctorModel(
-           fullName: nameController.text,
-           university: universityController.text,
-           status: selectedStatus,
-           phone: phoneController.text,
-           gender: selectedGender,
-           dateOfBirth: yearController.text,
-           city: cityController.text,
-           specialization: specializationController.text,
-           exp: expController.text,
-           graduationYear: graduationController.text,
-           email: auth.currentUser!.email!,
-           imageUrl: 'http://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1',
-         ),
-       );
-       CacheHelper.putString(key: "type", value: "Doctor");
-
-     } else {
-       await registerRepository.registerStudent(
-         StudentModel(
-           fullName: nameController.text,
-           university: universityController.text,
-           status: selectedStatus,
-           phone: phoneController.text,
-           gender: selectedGender,
-           dateOfBirth: yearController.text,
-           city: cityController.text,
-           gradeYearGraduate: gradeController.text,
-           dep: departmentController.text,
-           gpa: gpaController.text,
-           email: auth.currentUser!.email!,
-           imageUrl: 'http://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1',
-           tries: 3,
-         ),
-       );
-       CacheHelper.putString(key: "type", value: "Student");
-     }
-     CacheHelper.putBoolean(key: "submitted", value: true);
-     await FirebaseFirestore.instance.collection("users").doc(CacheHelper.getString(key: "uid")).update({
-       "type": selectedStatus,
-     });
-     emit(StudentSubmitted());
-   }catch(e){
-     print(e.toString());
-     emit(StudentSubmitFailed(error: e.toString()));
-   }
+    try {
+      await registerRepository.registerDoctor(
+        DoctorModel(
+          fullName: nameController.text,
+          university: universityController.text,
+          phone: phoneController.text,
+          gender: selectedGender,
+          dateOfBirth: yearController.text,
+          city: cityController.text,
+          email: auth.currentUser!.email!,
+          imageUrl:uploadedImageUrl!,
+          tries: 3,
+          resume: uploadedImageUrl!,
+        ),
+      );
+      CacheHelper.putString(key: "type", value: "Doctor");
+      CacheHelper.putBoolean(key: "submitted", value: true);
+      emit(StudentSubmitted());
+    } catch (e) {
+      print(e.toString());
+      emit(StudentSubmitFailed(error: e.toString()));
+    }
   }
 
   void nextStep() {
@@ -115,6 +79,125 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     }
   }
 
+  final picker = ImagePicker();
+  String? uploadedImageUrl =
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+
+  String UploadedPdf = "";
+  String? fileName;
+
+  Future<void> pickAndUploadImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile == null) return;
+
+    final originalFile = File(pickedFile.path);
+    final fileName = path.basename(pickedFile.path);
+
+    try {
+      final compressedBytes = await FlutterImageCompress.compressWithFile(
+        originalFile.absolute.path,
+        quality: 70,
+      );
+
+      if (compressedBytes == null) {
+        print('❌ فشل في ضغط الصورة');
+        emit(UploadImageFail());
+        return;
+      }
+
+      final sizeInMB = compressedBytes.lengthInBytes / (1024 * 1024);
+      print('📏 حجم الصورة المضغوطة: ${sizeInMB.toStringAsFixed(2)} MB');
+
+      if (sizeInMB > 50) {
+        print('❌ الصورة لسه كبيرة (>50MB)');
+        emit(UploadImageFail());
+        return;
+      }
+
+      // ✅ الحصول على UID من Firebase Auth
+      final uid = FirebaseAuth.instance.currentUser?.uid;
+      if (uid == null) {
+        print('❌ المستخدم غير مسجل دخول');
+        emit(UploadImageFail());
+        return;
+      }
+
+      // ✅ اسم ملف باستخدام uid
+      final userFilePath = 'public/${uid}_profile.jpg';
+
+      final storageRef = Supabase.instance.client.storage.from('images');
+      await storageRef.uploadBinary(
+        userFilePath,
+        compressedBytes,
+        fileOptions: FileOptions(upsert: true, contentType: 'image/jpeg'),
+      );
+
+      final publicUrl = storageRef.getPublicUrl(userFilePath);
+      uploadedImageUrl = publicUrl;
+
+      emit(UploadImageSucc());
+    } catch (e) {
+      print('❌ Error: $e');
+      emit(UploadImageFail());
+    }
+  }
+
+  Future<void> pickAndUploadCV() async {
+    try {
+      // ✅ اختيار ملف PDF
+      final typeGroup = XTypeGroup(label: 'PDF', extensions: ['pdf']);
+
+      final XFile? file = await openFile(acceptedTypeGroups: [typeGroup]);
+
+      if (file == null) {
+        print('🚫 لم يتم اختيار ملف');
+        return;
+      }
+
+      final fileBytes = await file.readAsBytes();
+      final fileName = file.name;
+
+      // ✅ تحقق من الحجم
+      final sizeInMB = fileBytes.lengthInBytes / (1024 * 1024);
+      print('📏 حجم CV: ${sizeInMB.toStringAsFixed(2)} MB');
+
+      if (sizeInMB > 50) {
+        print('❌ الملف أكبر من الحد المسموح به (50MB)');
+        return;
+      }
+
+      // ✅ الحصول على UID
+      final uid = FirebaseAuth.instance.currentUser?.uid;
+      if (uid == null) {
+        print('❌ المستخدم غير مسجل دخول');
+        return;
+      }
+
+      // ✅ تحديد اسم الملف داخل الباكت
+      final userFilePath = 'public/${uid}_cv.pdf';
+
+      // ✅ رفع الملف إلى Supabase
+      final storageRef = Supabase.instance.client.storage.from('documents');
+      await storageRef.uploadBinary(
+        userFilePath,
+        fileBytes,
+        fileOptions: const FileOptions(
+          upsert: true,
+          contentType: 'application/pdf',
+        ),
+      );
+
+      // ✅ الحصول على الرابط العام
+      final publicUrl = storageRef.getPublicUrl(userFilePath);
+      print('📄 تم رفع CV: $publicUrl');
+      UploadedPdf = publicUrl;
+      emit(UploadCVSucc());
+    } catch (e) {
+      print('❌ Error: $e');
+      emit(UploadCVFail());
+    }
+  }
 
   setCurrentStep(int step) {
     currentStep = step;
