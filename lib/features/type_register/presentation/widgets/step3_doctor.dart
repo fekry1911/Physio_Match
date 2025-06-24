@@ -19,68 +19,25 @@ class SetStep3ForDoctors extends StatelessWidget {
       child: Form(
         key: cubit.formKeys[2],
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Enter Your Years of experience",
-              style: TextThemes.font16BlackBold.copyWith(
-                color: AppColors.mainTealColor,
-              ),
-            ),
-            SizedBox(height: 15.h),
-            SharedTextFormField(
-              hintText: "Enter Your Years of experience",
-              validator: (validator){
-                if(validator!.isEmpty) {
-                  return  "Enter Your Years of experience";
-                }
-                return null;
-              },
-              controller: cubit.expController,
-            ),
-            SizedBox(height: 20.h,),
-            Text(
-              "Enter Your Specialization ",
-              style: TextThemes.font16BlackBold.copyWith(
-                color: AppColors.mainTealColor,
-              ),
-            ),
-            SizedBox(height: 15.h),
-            SharedTextFormField(
-              hintText: "Enter Your Specialization",
-              validator: (validator) {
-                if(validator!.isEmpty) {
-                  return "Enter Your Specialization";
-                }
-                return null;
-              },
-              controller: cubit.specializationController,
-            ),
-            SizedBox(height: 20.h,),
-            Text(
-              "Enter your Graduation year",
-              style: TextThemes.font16BlackBold.copyWith(
-                color: AppColors.mainTealColor,
-              ),
-            ),
-            SizedBox(height: 15.h),
-            GestureDetector(
-              onTap: (){
-                cubit.selectDate(context);
-              },
-              child: SharedTextFormField(
-                suffixIcon: Icon(Icons.calendar_today),
-                hintText: "Enter your Graduation year",
-                validator: (validator) {
-                  if(validator!.isEmpty) {
-                    return "Enter your Graduation year";
-                  }
-                  return null;
-                },
-                controller: cubit.graduationController,
-              ),
-            ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(200.r),
+                child: Image.network(cubit.uploadedImageUrl!,height: 150.h,width: 150.w,fit: BoxFit.cover)),
+            SizedBox(height: 10.h),
+            MaterialButton(onPressed: (){
+              cubit.pickAndUploadImage();
+            },child: Text("Click to Upload Your Image"),),
+            SizedBox(height: 10.h),
+            MaterialButton(
+              color: AppColors.mainTealColor,
+              textColor: AppColors.whiteColor,
+              shape: RoundedRectangleBorder(),
+              onPressed: (){
+              cubit.pickAndUploadCV();
+            },child: Text("Click to Upload Your CV"),),
+            cubit.UploadedPdf==""?Text("${cubit.UploadedPdf}",style: TextThemes.font16BlackBold.copyWith(color: AppColors.mainTealColor),):SizedBox(),
           ],
         ),
       ),

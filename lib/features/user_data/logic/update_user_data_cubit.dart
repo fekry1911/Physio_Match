@@ -6,7 +6,6 @@ import '../../../core/helpers/cache_helper.dart';
 import '../../../core/models/user_model.dart';
 import '../../doctor/data/models/doctor_model.dart';
 import '../../quiz/data/models/score_models.dart';
-import '../../student/daya/models/student_model.dart';
 import '../../type_register/data/models/register_model.dart';
 import '../data/update_user_rebo.dart';
 
@@ -63,7 +62,7 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
     });
   }
 
-  StudentModel? studentModel;
+  DoctorModel? studentModel;
 
 
   Future<void> getStudentData(id) async {
@@ -73,7 +72,7 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
         .doc(id)
         .get()
         .then((value) async {
-          studentModel = StudentModel.fromMap(value.data()!);
+          studentModel = DoctorModel.fromMap(value.data()!);
           emit(GetUserDataDone());
         })
         .catchError((onError) {
