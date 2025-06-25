@@ -59,7 +59,10 @@ class AddAllAues extends StatelessWidget {
                 builder: (context, state) {
                   var cubit = context.read<UpdateUserDataCubit>();
 
-                  return cubit.studentModel == null
+                  return CircularProgressIndicator(
+                    color: AppColors.mainTealColor,
+                  );
+                /*  return cubit.studentModel == null
                       ? CircularProgressIndicator(
                         color: AppColors.mainTealColor,
                       )
@@ -70,7 +73,7 @@ class AddAllAues extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 30.sp,
                         ),
-                      );
+                      );*/
                 }, listener: (BuildContext context, UpdateUserDataState state) {  },
               ),
               SizedBox(height: 16.h),
@@ -99,8 +102,8 @@ class AddAllAues extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       height: 70.h,
-                      child:
-                          cubit.studentModel != null
+                      child:null,
+                          /*cubit.studentModel != null
                               ? MaterialButton(
                                 disabledColor: Colors.grey,
                                 shape: RoundedRectangleBorder(
@@ -142,7 +145,7 @@ class AddAllAues extends StatelessWidget {
                                 child: CircularProgressIndicator(
                                   color: AppColors.mainTealColor,
                                 ),
-                              ),
+                              ),*/
                     ),
                   );
                 },

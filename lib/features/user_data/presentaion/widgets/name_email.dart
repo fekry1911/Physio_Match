@@ -16,14 +16,14 @@ class NameAndEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(name,style: TextThemes.font22BlackMedium.copyWith(color: Colors.black),),
         SizedBox(height: 10.h,),
         Text(phone,style: TextThemes.font14LightDarkRegular,),
         SizedBox(height: 10.h,),
-        Text(email,style: TextThemes.font14LightDarkRegular,),
+        //Text(email,style: TextThemes.font14LightDarkRegular,),
 
       ],
     );

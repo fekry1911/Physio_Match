@@ -1,19 +1,19 @@
-import 'package:add_ques/core/const/const.dart';
-import 'package:add_ques/core/helpers/extentions/context_extention.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/theme/text_themes/text.dart';
-import '../../../../../payment/screens/payment_screen.dart';
+import '../widgets/card.dart';
 
 class DoctorDashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: GestureDetector(
-        onTap: (){
-          context.pushNamed(paymentData);
-         // Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreen()));
-        },
-        child: Text("Home Screen",style: TextThemes.font14LightDarkRegular.copyWith(color: Colors.blue),)));
+    return ListView.separated(
+      itemBuilder: (BuildContext context, int index) {
+        return DoctorCard();
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return Divider(height: 1.h, color: Colors.grey);
+      },
+      itemCount: 10,
+    );
   }
 }

@@ -109,7 +109,7 @@ void showEditProfileDialog(BuildContext context, {required String imageUrl}) {
                               shape: RoundedRectangleBorder(),
                               onPressed: () {
                                if(cubit.formKey.currentState!.validate()){
-                                 cubit.updateData();
+                                // cubit.updateData();
                                }
                               },
                               child: Text(

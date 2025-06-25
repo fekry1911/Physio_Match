@@ -14,21 +14,7 @@ part 'update_user_data_state.dart';
 class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
   UpdateUserRebo updateUserRebo;
 
-  UpdateUserDataCubit(this.updateUserRebo) : super(UpdateUserDataInitial()) {
-    final uid = CacheHelper.getString(key: "uid");
-    final type = CacheHelper.getString(key: "type");
-
-    if (uid != null) {
-      if(type=="doctor"){
-        getDoctorData(uid);
-      }
-      else{
-        getStudentData(uid);
-      }
-      getUserScores(uid);
-      getUserScoresLimit(uid);
-    }
-  }
+  UpdateUserDataCubit(this.updateUserRebo) : super(UpdateUserDataInitial()) {}
 
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
@@ -44,41 +30,8 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
     }
   }
 
-  Future<void> updateData() async {
-    emit(UpdateUserDataLoad());
-    await updateUserRebo.UpdateUserData(
-      UserModel(
-        name: name.text,
-        email: "studentModel!.email",
-        phone: phone.text,
-        imageUrl: "studentModel!.imageUrl",
-        tries: studentModel!.tries!,
-      ),
-    ).then((value) {
-      getStudentData(CacheHelper.getString(key: "uid"));
-      emit(UpdateUserDataDone());
-    }).catchError((onError) {
-      emit(UpdateUserDataFail(onError.toString()));
-    });
-  }
-
-  DoctorModel? studentModel;
 
 
-  Future<void> getStudentData(id) async {
-    emit(GetUserDataLoad());
-    await FirebaseFirestore.instance
-        .collection('type_register')
-        .doc(id)
-        .get()
-        .then((value) async {
-          studentModel = DoctorModel.fromMap(value.data()!);
-          emit(GetUserDataDone());
-        })
-        .catchError((onError) {
-          emit(GetUserDataFail());
-        });
-  }
   DoctorModel? doctortModel;
 
   Future<void> getDoctorData(id) async {
@@ -97,7 +50,6 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
   }
 
   List<ScoreModel> scoreModel = [];
-
   Future<void> getUserScores(String id) async {
     scoreModel.clear(); // 👈 أضف دي هنا
     await FirebaseFirestore.instance
@@ -118,7 +70,6 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
     });
   }
   List<ScoreModel> scoreModelLimit = [];
-
   Future<void> getUserScoresLimit(id) async {
     scoreModelLimit.clear(); // ضروري قبل التكرار
     await FirebaseFirestore.instance
@@ -145,5 +96,4 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
       emit(GetScoreFail());
     });
   }
-
 }
