@@ -45,7 +45,7 @@ class UserData extends StatelessWidget {
           listener: (context, state) {},
           builder: (context, state) {
             var cubit = context.read<UpdateUserDataCubit>();
-            if (cubit.studentModel == null) {
+            if (cubit.doctortModel == null) {
               return Center(
                 child: CircularProgressIndicator(color: AppColors.whiteColor),
               );
@@ -70,7 +70,7 @@ class UserData extends StatelessWidget {
                   top: 0,
                   child: ClipOval(
                     child: Image.network(
-                      cubit.studentModel!.imageUrl,
+                      cubit.doctortModel!.imageUrl,
                       fit: BoxFit.cover,
                       height: 130.h,
                       width: 130.h,
@@ -84,9 +84,9 @@ class UserData extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         NameAndEmail(
-                          name: cubit.studentModel!.fullName,
-                          email: cubit.studentModel!.email,
-                          phone: cubit.studentModel!.phone,
+                          name: cubit.doctortModel!.fullName,
+                          email: cubit.doctortModel!.email,
+                          phone: cubit.doctortModel!.phone,
                         ),
                         SizedBox(height: 20.h),
 
@@ -107,7 +107,7 @@ class UserData extends StatelessWidget {
                           onPreesed: () {
                             showEditProfileDialog(
                               context,
-                              imageUrl: cubit.studentModel!.imageUrl!,
+                              imageUrl: cubit.doctortModel!.imageUrl!,
                             );
                           },
                           backColor: Color(0xffEAF2FF),

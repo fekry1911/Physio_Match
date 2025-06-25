@@ -9,6 +9,7 @@ import 'package:add_ques/features/register_screen/cubit/register_cubit.dart';
 import 'package:add_ques/features/splash_screen/presentaion/splash_screen.dart';
 import 'package:add_ques/features/type_register/presentation/type_register_ui.dart';
 import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +27,6 @@ import '../../features/type_register/logic/type_register_cubit.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
-    UpdateUserDataCubit updateCubit = sl<UpdateUserDataCubit>();
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
@@ -43,7 +43,7 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider.value(value: updateCubit),
+                  BlocProvider(create: (context)=>sl<UpdateUserDataCubit>()..getDoctorData(FirebaseAuth.instance.currentUser!.uid),),
                   BlocProvider(create: (context) => sl<LoginCubit>()),
                 ],
                 child: UserData(),
@@ -76,7 +76,6 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider.value(value: updateCubit),
                   BlocProvider(create: (context) => sl<HomeCubit>()),
                 ],
                 child: AddAllAues(),

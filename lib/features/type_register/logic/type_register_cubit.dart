@@ -11,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart' as path;
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../doctor/data/models/doctor_model.dart';
 import '../data/rebo/register_repo.dart';
@@ -83,7 +84,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
   String? uploadedImageUrl =
       "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
 
-  String UploadedPdf = "";
+  String UploadedPdf = "No file added";
   String? fileName;
 
   Future<void> pickAndUploadImage() async {
@@ -93,8 +94,11 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
 
     final originalFile = File(pickedFile.path);
     final fileName = path.basename(pickedFile.path);
+    print("$fileName 1111111111111111111111111111111111111111111111111111");
+
 
     try {
+      print("$fileName 1111111111111111111111111111111111111111111111111111");
       final compressedBytes = await FlutterImageCompress.compressWithFile(
         originalFile.absolute.path,
         quality: 70,
@@ -115,6 +119,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
         return;
       }
 
+      emit(UploadImageLoad());
       // ✅ الحصول على UID من Firebase Auth
       final uid = FirebaseAuth.instance.currentUser?.uid;
       if (uid == null) {
@@ -145,9 +150,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
 
   Future<void> pickAndUploadCV() async {
     try {
-      // ✅ اختيار ملف PDF
       final typeGroup = XTypeGroup(label: 'PDF', extensions: ['pdf']);
-
       final XFile? file = await openFile(acceptedTypeGroups: [typeGroup]);
 
       if (file == null) {
@@ -158,7 +161,6 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       final fileBytes = await file.readAsBytes();
       final fileName = file.name;
 
-      // ✅ تحقق من الحجم
       final sizeInMB = fileBytes.lengthInBytes / (1024 * 1024);
       print('📏 حجم CV: ${sizeInMB.toStringAsFixed(2)} MB');
 
@@ -167,18 +169,17 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
         return;
       }
 
-      // ✅ الحصول على UID
+      emit(UploadImageLoad());
+
       final uid = FirebaseAuth.instance.currentUser?.uid;
       if (uid == null) {
         print('❌ المستخدم غير مسجل دخول');
         return;
       }
 
-      // ✅ تحديد اسم الملف داخل الباكت
-      final userFilePath = 'public/${uid}_cv.pdf';
-
-      // ✅ رفع الملف إلى Supabase
+      final userFilePath = '${uid}_cv.pdf'; // ✅ لا تضع "public/"
       final storageRef = Supabase.instance.client.storage.from('documents');
+
       await storageRef.uploadBinary(
         userFilePath,
         fileBytes,
@@ -188,11 +189,11 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
         ),
       );
 
-      // ✅ الحصول على الرابط العام
       final publicUrl = storageRef.getPublicUrl(userFilePath);
       print('📄 تم رفع CV: $publicUrl');
+
       UploadedPdf = publicUrl;
-      emit(UploadCVSucc());
+      emit(UploadImageSucc());
     } catch (e) {
       print('❌ Error: $e');
       emit(UploadCVFail());
@@ -227,4 +228,14 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     }
     emit(PickDateDone());
   }
-}
+
+  Future<void> openPDFLink(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication, // 👈 افتح الرابط خارج التطبيق
+    )) {
+      print('❌ لا يمكن فتح الرابط');
+    }
+  }}

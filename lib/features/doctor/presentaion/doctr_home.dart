@@ -21,13 +21,15 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 1,
             title: Text(cubit.titles[cubit.currentIndex]),
           ),
           body: cubit.pages[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: cubit.currentIndex,
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: AppColors.mainTealColor,
+            selectedItemColor: AppColors.blackColor,
             unselectedItemColor: Colors.grey,
             onTap: (index) {
               cubit.changeIndex(index);
@@ -37,11 +39,6 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                 icon: Icon(Icons.dashboard),
                 label: 'Home',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.folder_copy),
-                label: "Quiz",
-              ),
-
               BottomNavigationBarItem(
                 icon: Icon(Icons.feed),
                 label: 'My Document',

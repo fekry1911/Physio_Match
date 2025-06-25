@@ -27,7 +27,7 @@ class SaveScoreCubit extends Cubit<SaveScoreState> {
         ),
       );
 
-      await updateCubit.getStudentData(uid);
+     // await updateCubit.getStudentData(uid);
       await updateCubit.getUserScores(uid);
       await updateCubit.getUserScoresLimit(uid);
 

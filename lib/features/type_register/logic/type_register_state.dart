@@ -17,6 +17,10 @@ class StudentSubmitted extends TypeRegisterState{}
 
 class UploadImageSucc extends TypeRegisterState{}
 
+
+class UploadImageLoad extends TypeRegisterState{}
+
+
 class UploadImageFail extends TypeRegisterState{}
 
 class UploadCVSucc extends TypeRegisterState{}
