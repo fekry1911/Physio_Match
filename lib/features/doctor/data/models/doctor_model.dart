@@ -1,24 +1,26 @@
 import '../../../type_register/data/models/register_model.dart';
 
 class DoctorModel extends RegisterModel {
-  int tries = 3;
-
+  int? tries = 3;
 
   DoctorModel({
-    required super.fullName,
-    required super.university,
-    required super.phone,
-    required super.gender,
-    required super.dateOfBirth,
-    required super.city,
-    required super.email,
-    required super.imageUrl,
-    required this.tries, required super.resume,
+    super.fullName,
+    super.university,
+    super.phone,
+    super.gender,
+    super.dateOfBirth,
+    super.city,
+    super.email,
+    super.imageUrl,
+    super.specialization,
+    this.tries,
+    super.resume,
   });
 
   factory DoctorModel.fromMap(Map<String, dynamic> map) {
     return DoctorModel(
       tries: map['tries'] ?? 3,
+      specialization: map['specialization'] ?? '',
       email: map['email'] ?? '',
       imageUrl: map['imageUrl'] ?? '',
       fullName: map['fullName'] ?? '',
@@ -27,13 +29,13 @@ class DoctorModel extends RegisterModel {
       gender: map['gender'] ?? '',
       dateOfBirth: map['dateOfBirth'] ?? '',
       city: map['city'] ?? '',
-      resume: map['resume'] ,
-
+      resume: map['resume'],
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
+      'specialization': specialization,
       'fullName': fullName,
       'university': university,
       'phone': phone,

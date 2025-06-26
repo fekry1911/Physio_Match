@@ -42,9 +42,11 @@ class TypeRegisterScreen extends StatelessWidget {
                         cubit.setCurrentStep(step);
                       },
                       onStepContinue: () {
-                        if (cubit.formKeys[cubit.currentStep].currentState!.validate() && cubit.isSelectedGender ) {
+                        final formState = cubit.formKeys[cubit.currentStep].currentState;
+                        if (formState != null && formState.validate() && cubit.isSelectedGender) {
                           cubit.nextStep();
                         }
+
                       },
                       onStepCancel: cubit.previousStep,
 
@@ -127,6 +129,7 @@ class TypeRegisterScreen extends StatelessWidget {
                         context.pushAndRemoveUntil(homeDeciderScreen);
                       }
                       if (state is StudentSubmitFailed) {
+                        Navigator.pop(context);
                         AwesomeSnackBar(
                           context: context,
                           tittle: "error",

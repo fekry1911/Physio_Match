@@ -27,6 +27,8 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
   TextEditingController universityController = TextEditingController();
   TextEditingController yearController = TextEditingController();
   TextEditingController cityController = TextEditingController();
+  TextEditingController specializationController = TextEditingController();
+
 
   int currentStep = 0;
 
@@ -35,7 +37,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     GlobalKey<FormState>(), // Step 2
     GlobalKey<FormState>(), // Step 3
   ];
-  String selectedGender = "male";
+  String? selectedGender;
   bool isSelectedGender = false;
 
   void changeGender(String gender) {
@@ -48,8 +50,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
   Future<void> submitStudent() async {
     emit(StudentSubmitLoading());
     try {
-      await registerRepository.registerDoctor(
-        DoctorModel(
+      await registerRepository.registerDoctor(DoctorModel(
           fullName: nameController.text,
           university: universityController.text,
           phone: phoneController.text,
@@ -59,9 +60,20 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
           email: auth.currentUser!.email!,
           imageUrl:uploadedImageUrl!,
           tries: 3,
-          resume: uploadedImageUrl!,
-        ),
+          resume: uploadedCvUrl ?? "",
+          specialization: specializationController.text
+        )
       );
+      print(nameController.text);
+      print(phoneController.text);
+      print(selectedGender);
+      print(yearController.text);
+      print(cityController.text);
+      print(auth.currentUser!.email!);
+      print(uploadedImageUrl);
+      print(uploadedCvUrl);
+      print(specializationController.text);
+
       CacheHelper.putString(key: "type", value: "Doctor");
       CacheHelper.putBoolean(key: "submitted", value: true);
       emit(StudentSubmitted());
@@ -71,7 +83,17 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     }
   }
 
+
   void nextStep() {
+    print(nameController.text);
+    print(phoneController.text);
+    print(selectedGender);
+    print(yearController.text);
+    print(cityController.text);
+    print(auth.currentUser!.email!);
+    print(uploadedImageUrl);
+    print(uploadedCvUrl);
+    print(specializationController.text);
     if (currentStep == 2) {
       submitStudent(); // آخر خطوة، نرسل البيانات
     } else {
@@ -93,7 +115,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     if (pickedFile == null) return;
 
     final originalFile = File(pickedFile.path);
-    final fileName = path.basename(pickedFile.path);
+    fileName = path.basename(pickedFile.path);
     print("$fileName 1111111111111111111111111111111111111111111111111111");
 
 
@@ -147,7 +169,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       emit(UploadImageFail());
     }
   }
-
+  String? uploadedCvUrl="";
   Future<void> pickAndUploadCV() async {
     try {
       final typeGroup = XTypeGroup(label: 'PDF', extensions: ['pdf']);
@@ -190,6 +212,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       );
 
       final publicUrl = storageRef.getPublicUrl(userFilePath);
+      uploadedCvUrl=publicUrl;
       print('📄 تم رفع CV: $publicUrl');
 
       UploadedPdf = publicUrl;

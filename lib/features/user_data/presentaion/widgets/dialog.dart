@@ -58,7 +58,6 @@ void showEditProfileDialog(BuildContext context, {required String imageUrl}) {
                               bottom: -10,
                               child: IconButton(
                                 onPressed: () {
-                                  cubit.pickAndUploadImage();
                                 },
                                 icon: Icon(
                                   Icons.camera_alt,

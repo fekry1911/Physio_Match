@@ -4,6 +4,7 @@ import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/dialog.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/list_title_data.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/name_email.dart';
+import 'package:add_ques/features/user_data/presentaion/widgets/resume.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,32 +26,55 @@ class UserData extends StatelessWidget {
         context.pushAndRemoveUntil(homeScreen);
         return Future.value(false);
       },
-      child: Scaffold(
-        backgroundColor: AppColors.mainTealColor,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.h),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: AppColors.mainTealColor,
-            title: Text(
-              "Profile",
-              style: TextThemes.font18BlackSemiBold.copyWith(
-                color: Colors.white,
+      child:BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
+        listener: (context, state) {
+          if(state is EditProfileImageUpdated){
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Row(
+                  children: [
+                    Icon(Icons.check_circle, color: AppColors.mainTealColor),
+                    SizedBox(width: 8),
+                    Text("Image Updated Successfully",style: TextThemes.font16BlackBold.copyWith(color: AppColors.mainTealColor)),
+                  ],
+                ),
+                duration: Duration(seconds: 2),
+                backgroundColor: Colors.white,
+                behavior: SnackBarBehavior.floating,
+                elevation: 6,
               ),
-            ),
-            centerTitle: true,
-          ),
-        ),
-        body: BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            var cubit = context.read<UpdateUserDataCubit>();
-            if (cubit.doctortModel == null) {
-              return Center(
-                child: CircularProgressIndicator(color: AppColors.whiteColor),
-              );
-            }
-            return Stack(
+            );
+
+          }
+          if(state is EditProfileCvUpdated){
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Row(
+                  children: [
+                    Icon(Icons.check_circle, color: AppColors.mainTealColor),
+                    SizedBox(width: 8),
+                    Text("CV Updated Successfully",style: TextThemes.font16BlackBold.copyWith(color: AppColors.mainTealColor)),
+                  ],
+                ),
+                duration: Duration(seconds: 2),
+                backgroundColor: Colors.white,
+                behavior: SnackBarBehavior.floating,
+                elevation: 6,
+              ),
+            );
+
+          }
+        },
+        builder: (context, state) {
+          var cubit = context.read<UpdateUserDataCubit>();
+          if (cubit.doctortModel == null) {
+            return Center(
+              child: CircularProgressIndicator(color: AppColors.mainTealColor),
+            );
+          }
+          return Padding(
+            padding:  EdgeInsets.only(top: 20.h),
+            child: Stack(
               alignment: Alignment.topCenter,
               clipBehavior: Clip.none,
               children: [
@@ -66,16 +90,33 @@ class UserData extends StatelessWidget {
                   width: double.infinity,
                   height: double.infinity,
                 ),
-                Positioned(
-                  top: 0,
-                  child: ClipOval(
-                    child: Image.network(
-                      cubit.doctortModel!.imageUrl,
-                      fit: BoxFit.cover,
-                      height: 130.h,
-                      width: 130.h,
+                Stack(
+                  //  clipBehavior: Clip.none,
+                  alignment: Alignment.center,
+                  children: [
+                    Positioned(
+                      top: 0,
+                      child: ClipOval(
+                        child: Image.network(
+                          cubit.doctortModel!.imageUrl!,
+                          fit: BoxFit.cover,
+                          height: 130.h,
+                          width: 130.h,
+                        ),
+                      ),
                     ),
-                  ),
+                    Positioned(
+                      top: 120,
+                      right: 120,
+                      child: CircleAvatar(
+                          radius: 20.r,
+                          backgroundColor: AppColors.mainTealColor,
+                          child: IconButton(onPressed: (){
+                            cubit.updateImage();
+                          }, icon: Icon(Icons.edit,color: AppColors.whiteColor,))),
+                    ),
+
+                  ],
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 160.h), // لتحت الصورة بمسافة
@@ -84,19 +125,27 @@ class UserData extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         NameAndEmail(
-                          name: cubit.doctortModel!.fullName,
-                          email: cubit.doctortModel!.email,
-                          phone: cubit.doctortModel!.phone,
+                          name: cubit.doctortModel!.fullName!,
+                          email: cubit.doctortModel!.email!,
+                          phone: cubit.doctortModel!.phone!,
+                        ),
+                        SizedBox(height: 20.h),
+                        Padding(
+                          padding:  EdgeInsets.symmetric(horizontal: 34.w),
+                          child: ResumeButton(),
                         ),
                         SizedBox(height: 20.h),
 
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-                          child: StaticLastScoresWidget(
-                            dummyScores: cubit.scoreModel,
-                            backGround: Colors.grey.shade100,
-                            text: "Your Last Scores",
-                          ),
+                        IconAndInfo(
+                          image: 'assets/personalcard.png',
+                          data: 'Show My Scores',
+                          onPreesed: () {
+                            /* showEditProfileDialog(
+                                context,
+                                imageUrl: cubit.studentModel!.imageUrl!,
+                              );*/
+                          },
+                          backColor: Color(0xffEAF2FF),
                         ),
 
                         SizedBox(height: 20.h),
@@ -105,10 +154,10 @@ class UserData extends StatelessWidget {
                           image: 'assets/personalcard.png',
                           data: 'Update My Personal Data',
                           onPreesed: () {
-                            showEditProfileDialog(
-                              context,
-                              imageUrl: cubit.doctortModel!.imageUrl!,
-                            );
+                            /* showEditProfileDialog(
+                                context,
+                                imageUrl: cubit.studentModel!.imageUrl!,
+                              );*/
                           },
                           backColor: Color(0xffEAF2FF),
                         ),
@@ -135,11 +184,11 @@ class UserData extends StatelessWidget {
                         context: context,
                         builder:
                             (context) => Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.whiteColor,
-                                semanticsLabel: "loading",
-                              ),
-                            ),
+                          child: CircularProgressIndicator(
+                            color: AppColors.mainTealColor,
+                            semanticsLabel: "loading",
+                          ),
+                        ),
                       );
                     }
                     if (state is SignOutDone) {
@@ -156,10 +205,10 @@ class UserData extends StatelessWidget {
                   child: SizedBox.shrink(),
                 ),
               ],
-            );
-          },
-        ),
-      ),
+            ),
+          );
+        },
+      )
     );
   }
 }

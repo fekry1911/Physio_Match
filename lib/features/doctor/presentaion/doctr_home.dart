@@ -22,11 +22,11 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            elevation: 1,
             title: Text(cubit.titles[cubit.currentIndex]),
           ),
           body: cubit.pages[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.white,
             currentIndex: cubit.currentIndex,
             type: BottomNavigationBarType.fixed,
             selectedItemColor: AppColors.blackColor,
@@ -44,8 +44,8 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
                 label: 'My Document',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Setting',
+                icon: Icon(Icons.person),
+                label: 'Profile',
               ),
             ],
           ),

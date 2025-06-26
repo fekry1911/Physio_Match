@@ -28,6 +28,14 @@ final class UpdateUserDataFail extends UpdateUserDataState {
 
 final class EditProfileImageUpdated extends UpdateUserDataState {}
 
+final class EditProfileCvUpdated extends UpdateUserDataState {}
+
+
+final class EditProfileImageFail extends UpdateUserDataState {}
+
+final class EditProfileCvFail extends UpdateUserDataState {}
+
+
 final class GetScoreDone extends UpdateUserDataState {}
 
 

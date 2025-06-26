@@ -41,4 +41,10 @@ class CacheHelper
   {
     return sharedPreferences!.remove(key);
   }
+  static  removeBool({
+    required String key,
+  })
+  {
+    return sharedPreferences!.remove(key);
+  }
 }

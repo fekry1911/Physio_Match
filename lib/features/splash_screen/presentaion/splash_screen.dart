@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen>
       } else if (submitted == true) {
         context.pushAndRemoveUntil(homeDeciderScreen);
       } else {
-        context.pushAndRemoveUntil(studentRegisterScreen);
+        context.pushAndRemoveUntil(typeRegisterScreen);
       }
 
     });
