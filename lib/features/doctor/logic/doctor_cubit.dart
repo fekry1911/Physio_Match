@@ -28,8 +28,8 @@ class DoctorCubit extends Cubit<DoctorState> {
     ),  ];
   final List<String> titles=[
     "Home",
-    "Revision",
-    "setting"
+    "quiz",
+    "Profile"
   ];
   int currentIndex = 0;
   changeIndex(int index) {

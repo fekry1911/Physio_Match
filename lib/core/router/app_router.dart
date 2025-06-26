@@ -97,7 +97,7 @@ class AppRouter {
                 child: Register(),
               ),
         );
-      case studentRegisterScreen:
+      case typeRegisterScreen:
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(

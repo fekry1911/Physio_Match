@@ -43,12 +43,7 @@ class LoginCubit extends Cubit<LoginStates> {
           )
           .then((value) async {
             await CacheHelper.putString(key: "uid", value: value.user!.uid);
-            await FirebaseFirestore.instance
-                .collection('users')
-                .doc(value.user!.uid)
-                .get().then((value) {
-                  CacheHelper.putString(key: "type", value: value.data()!["type"]);
-            });
+            CacheHelper.putBoolean(key: "submitted", value: true);
             emit(AuthSuccess());
 
       });
@@ -65,7 +60,7 @@ class LoginCubit extends Cubit<LoginStates> {
         .then((onValue) {
           CacheHelper.removeString(key: "uid");
           CacheHelper.removeString(key: "type");
-          CacheHelper.removeString(key: "submitted");
+          CacheHelper.removeBool(key: "submitted");
           emit(SignOutDone());
         })
         .catchError((onError) {

@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/helpers/cache_helper.dart';
 import '../../../core/models/user_model.dart';
@@ -22,14 +26,49 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
 
   String? updateImageUrl;
 
-  Future<void> pickAndUploadImage() async {
-    final result = await updateUserRebo.UpdateUserImage();
-    if (result != null) {
-      updateImageUrl = result;
-      emit(EditProfileImageUpdated()); // حدث يخلّي الـ UI يعيد البناء
+  Future<void> updateImage()async {
+    try{
+    final respnse = await  updateUserRebo.UpdateUserImage();
+    FirebaseFirestore.instance.collection("doctors").doc(FirebaseAuth.instance.currentUser!.uid).update(
+        {
+          "imageUrl":respnse
+        }
+    );
+    doctortModel=null;
+    getDoctorData(FirebaseAuth.instance.currentUser!.uid);
+    emit(EditProfileImageUpdated());
+    }catch(e){
+
+      emit(EditProfileImageFail());
+    }
+
+  }
+  String? updateCvUrl="";
+
+  Future<void> updateCv()async {
+    try{
+      final respnse = await  updateUserRebo.UpdateUser();
+      FirebaseFirestore.instance.collection("doctors").doc(FirebaseAuth.instance.currentUser!.uid).update(
+          {
+            "resume":respnse
+          }
+      ).then((onValue){
+        updateCvUrl=respnse;
+
+        doctortModel=null;
+        getDoctorData(FirebaseAuth.instance.currentUser!.uid);
+        emit(EditProfileCvUpdated());
+      });
+      Timer(Duration(seconds: 4), () {
+        updateCvUrl="";
+      });
+
+    }
+    catch(e){
+      emit(EditProfileCvFail());
+
     }
   }
-
 
 
   DoctorModel? doctortModel;
@@ -47,6 +86,17 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
         .catchError((onError) {
       emit(GetUserDataFail());
     });
+  }
+
+  Future<void> openPDFLink(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication, // 👈 افتح الرابط خارج التطبيق
+    )) {
+      print('❌ لا يمكن فتح الرابط');
+    }
   }
 
   List<ScoreModel> scoreModel = [];

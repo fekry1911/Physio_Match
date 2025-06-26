@@ -89,14 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   BlocListener<LoginCubit, LoginStates>(
                     listener: (BuildContext context,  state) {
                       if (state is AuthSuccess) {
-                        setupState(
-                            context,
-                            error: "Loged In completed successfully",
-                            icon: Icons.done,
-                            color: Colors.green,
-                            onpressed: () {
-                              context.pushAndRemoveUntil(homeScreen);
-                            });
+                        context.pushAndRemoveUntil(homeDeciderScreen);
                       }
                       if (state is AuthFailure) {
                         setupState(

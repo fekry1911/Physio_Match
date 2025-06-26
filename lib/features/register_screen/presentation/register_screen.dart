@@ -85,7 +85,7 @@ class _RegisterState extends State<Register> {
                           icon: Icons.done,
                           color: Colors.green,
                           onpressed: () {
-                            context.pushNamed(studentRegisterScreen);
+                            context.pushNamed(typeRegisterScreen);
                           });
                     }
                     if (state is RegisterFailure) {
