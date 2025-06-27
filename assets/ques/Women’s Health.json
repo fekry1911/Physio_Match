@@ -1,0 +1,155 @@
+{
+  "specialty": "Women’s Health",
+  "questions": [
+    {
+      "question": "What is the primary purpose of a Pap smear?",
+      "options": ["Detecting ovarian cancer", "Screening for cervical cancer", "Diagnosing breast cancer", "Checking for uterine fibroids"],
+      "correctAnswer": "Screening for cervical cancer"
+    },
+    {
+      "question": "What is the medical term for the cessation of menstruation, typically occurring around age 50?",
+      "options": ["Menarche", "Dysmenorrhea", "Menopause", "Amenorrhea"],
+      "correctAnswer": "Menopause"
+    },
+    {
+      "question": "Which of the following is a common symptom of a urinary tract infection (UTI) in women?",
+      "options": ["Chest pain", "Painful urination (dysuria)", "Headache", "Blurred vision"],
+      "correctAnswer": "Painful urination (dysuria)"
+    },
+    {
+      "question": "What is the recommended frequency for mammograms for women over 40 (or as advised by doctor)?",
+      "options": ["Every 5 years", "Every 2 years", "Every year", "Only if symptoms appear"],
+      "correctAnswer": "Every year"
+    },
+    {
+      "question": "What is the condition characterized by the growth of endometrial-like tissue outside the uterus?",
+      "options": ["Uterine fibroids", "Ovarian cysts", "Endometriosis", "Polycystic Ovary Syndrome (PCOS)"],
+      "correctAnswer": "Endometriosis"
+    },
+    {
+      "question": "Which hormone plays a crucial role in regulating the menstrual cycle and maintaining pregnancy?",
+      "options": ["Testosterone", "Insulin", "Estrogen", "Thyroid hormone"],
+      "correctAnswer": "Estrogen"
+    },
+    {
+      "question": "What is the primary concern for women experiencing heavy menstrual bleeding (menorrhagia)?",
+      "options": ["Weight gain", "Anemia", "Hair loss", "Acne"],
+      "correctAnswer": "Anemia"
+    },
+    {
+      "question": "What is the medical term for painful menstruation?",
+      "options": ["Amenorrhea", "Oligomenorrhea", "Dysmenorrhea", "Menorrhagia"],
+      "correctAnswer": "Dysmenorrhea"
+    },
+    {
+      "question": "Which vitamin is especially important for women of childbearing age to prevent neural tube defects in offspring?",
+      "options": ["Vitamin C", "Vitamin D", "Folic Acid", "Vitamin B12"],
+      "correctAnswer": "Folic Acid"
+    },
+    {
+      "question": "What is a common symptom of Polycystic Ovary Syndrome (PCOS)?",
+      "options": ["Regular menstruation", "Weight loss", "Irregular periods and hirsutism", "Clear skin"],
+      "correctAnswer": "Irregular periods and hirsutism"
+    },
+    {
+      "question": "What is the purpose of prenatal care during pregnancy?",
+      "options": ["To avoid medical attention", "To monitor the health of the mother and fetus and provide education", "To induce early labor", "To treat only severe complications"],
+      "correctAnswer": "To monitor the health of the mother and fetus and provide education"
+    },
+    {
+      "question": "What is the most common type of cancer among women worldwide?",
+      "options": ["Lung cancer", "Breast cancer", "Colon cancer", "Ovarian cancer"],
+      "correctAnswer": "Breast cancer"
+    },
+    {
+      "question": "What is the term for a vaginal yeast infection?",
+      "options": ["Bacterial vaginosis", "Trichomoniasis", "Candidiasis", "Gonorrhea"],
+      "correctAnswer": "Candidiasis"
+    },
+    {
+      "question": "Which of these methods is an effective form of contraception?",
+      "options": ["Withdrawal method", "Birth control pills", "Tracking ovulation manually", "Douching"],
+      "correctAnswer": "Birth control pills"
+    },
+    {
+      "question": "What is the medical term for the abnormal growth of cells on the cervix that can lead to cancer?",
+      "options": ["Cervical polyps", "Cervical dysplasia", "Cervical erosion", "Cervicitis"],
+      "correctAnswer": "Cervical dysplasia"
+    },
+    {
+      "question": "What is a common symptom of menopause?",
+      "options": ["Increased energy levels", "Hot flashes and night sweats", "Regular menstrual periods", "Improved memory"],
+      "correctAnswer": "Hot flashes and night sweats"
+    },
+    {
+      "question": "What is the importance of regular exercise for women's health?",
+      "options": ["Increases risk of chronic diseases", "Helps maintain healthy weight, bone density, and cardiovascular health", "Causes hormonal imbalances", "Leads to infertility"],
+      "correctAnswer": "Helps maintain healthy weight, bone density, and cardiovascular health"
+    },
+    {
+      "question": "What is the term for the weakening of pelvic floor muscles leading to organ prolapse?",
+      "options": ["Cystitis", "Pelvic organ prolapse", "Endometritis", "Vaginitis"],
+      "correctAnswer": "Pelvic organ prolapse"
+    },
+    {
+      "question": "What is the condition characterized by severe mood swings, irritability, and anxiety before menstruation?",
+      "options": ["Premenstrual Syndrome (PMS)", "Premenstrual Dysphoric Disorder (PMDD)", "Depression", "Bipolar disorder"],
+      "correctAnswer": "Premenstrual Dysphoric Disorder (PMDD)"
+    },
+    {
+      "question": "What is the purpose of iron supplementation during pregnancy?",
+      "options": ["To increase blood sugar", "To prevent iron deficiency anemia in mother and baby", "To cause constipation", "To reduce calcium absorption"],
+      "correctAnswer": "To prevent iron deficiency anemia in mother and baby"
+    },
+    {
+      "question": "What is the term for an ectopic pregnancy?",
+      "options": ["Pregnancy in the uterus", "Pregnancy outside the uterus, usually in the fallopian tube", "Twin pregnancy", "Miscarriage"],
+      "correctAnswer": "Pregnancy outside the uterus, usually in the fallopian tube"
+    },
+    {
+      "question": "What is the screening test for gestational diabetes during pregnancy?",
+      "options": ["Blood pressure check", "Urine test", "Glucose tolerance test", "Ultrasound"],
+      "correctAnswer": "Glucose tolerance test"
+    },
+    {
+      "question": "Which of the following is a symptom of a common sexually transmitted infection (STI)?",
+      "options": ["Clear discharge", "Genital sores or unusual discharge", "No symptoms always", "Weight gain"],
+      "correctAnswer": "Genital sores or unusual discharge"
+    },
+    {
+      "question": "What is the medical term for a benign tumor in the uterus?",
+      "options": ["Ovarian cyst", "Uterine fibroid", "Endometrial cancer", "Cervical polyp"],
+      "correctAnswer": "Uterine fibroid"
+    },
+    {
+      "question": "What is the purpose of Kegel exercises for women?",
+      "options": ["To strengthen arm muscles", "To strengthen pelvic floor muscles", "To improve vision", "To reduce appetite"],
+      "correctAnswer": "To strengthen pelvic floor muscles"
+    },
+    {
+      "question": "What is the condition where breast tissue becomes lumpy and painful, often related to hormonal changes?",
+      "options": ["Breast cancer", "Fibrocystic breast changes", "Mastitis", "Breast abscess"],
+      "correctAnswer": "Fibrocystic breast changes"
+    },
+    {
+      "question": "What is the importance of bone density screening (DEXA scan) for postmenopausal women?",
+      "options": ["To assess joint health", "To screen for osteoporosis risk", "To detect muscle problems", "To check for circulation issues"],
+      "correctAnswer": "To screen for osteoporosis risk"
+    },
+    {
+      "question": "What is the term for a surgical procedure to remove the uterus?",
+      "options": ["Oophorectomy", "Mastectomy", "Hysterectomy", "Appendectomy"],
+      "correctAnswer": "Hysterectomy"
+    },
+    {
+      "question": "Which type of birth control also provides protection against STIs?",
+      "options": ["Birth control pills", "IUD", "Condoms", "Vaginal ring"],
+      "correctAnswer": "Condoms"
+    },
+    {
+      "question": "What is the purpose of regular self-breast exams?",
+      "options": ["To replace mammograms", "To become familiar with one's breasts and detect any changes early", "To cause anxiety", "To prevent breast cancer entirely"],
+      "correctAnswer": "To become familiar with one's breasts and detect any changes early"
+    }
+  ]
+}

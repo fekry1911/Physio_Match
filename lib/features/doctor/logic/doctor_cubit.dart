@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../../di/di.dart';
+import '../../home_page/logic/home_cubit.dart';
+import '../../home_page/presentation/add_ques.dart';
 import '../../login_screen/logic/cubit/login_cubit.dart';
 import '../../user_data/logic/update_user_data_cubit.dart';
 import '../../user_data/presentaion/user_ui.dart';
@@ -18,8 +20,12 @@ class DoctorCubit extends Cubit<DoctorState> {
   DoctorCubit() : super(DoctorInitial());
   final List<Widget> pages = [
     DoctorDashboardScreen(),
-    DoctorFilesScreen(),
     MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => sl<HomeCubit>()),
+      ],
+      child: AddAllAues(),
+    ),    MultiBlocProvider(
       providers: [
         BlocProvider(create: (context)=>sl<UpdateUserDataCubit>()..getDoctorData(FirebaseAuth.instance.currentUser!.uid),),
         BlocProvider(create: (context) => sl<LoginCubit>()),
@@ -28,7 +34,7 @@ class DoctorCubit extends Cubit<DoctorState> {
     ),  ];
   final List<String> titles=[
     "Home",
-    "quiz",
+    "Choose specialization for quiz",
     "Profile"
   ];
   int currentIndex = 0;

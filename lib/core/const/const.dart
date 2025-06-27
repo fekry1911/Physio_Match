@@ -9,6 +9,8 @@ const String typeRegisterScreen="/studentRegister-screen";
 const String homeDeciderScreen="/homeDecider-screen";
 const String paymentData="/paymentData-screen";
 const String paymentSubmit="/paymentSubmit-screen";
+const String doctorHomeScreen="/doctorHome-screen";
+
 
 
 

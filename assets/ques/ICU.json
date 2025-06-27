@@ -1,0 +1,155 @@
+{
+  "specialty": "ICU",
+  "questions": [
+    {
+      "question": "What is the primary goal of continuous monitoring in the Intensive Care Unit (ICU)?",
+      "options": ["Providing comfort to the patient", "Early detection of deterioration", "Reducing healthcare costs", "Increasing length of stay"],
+      "correctAnswer": "Early detection of deterioration"
+    },
+    {
+      "question": "What breathing device supports respiration for patients who cannot breathe on their own?",
+      "options": ["Oxygen regulator", "Nebulizer", "Mechanical Ventilator", "Pulse oximeter"],
+      "correctAnswer": "Mechanical Ventilator"
+    },
+    {
+      "question": "What is the term for reduced blood flow to tissues leading to inadequate oxygen supply?",
+      "options": ["Hypertension", "Shock", "Anemia", "Fever"],
+      "correctAnswer": "Shock"
+    },
+    {
+      "question": "Which of the following is a sign of Acute Respiratory Distress Syndrome (ARDS)?",
+      "options": ["Decreased respiratory rate", "Worsening oxygenation despite oxygen support", "Improved lung function", "Decreased body temperature"],
+      "correctAnswer": "Worsening oxygenation despite oxygen support"
+    },
+    {
+      "question": "What is the purpose of inserting a Central Venous Catheter in ICU patients?",
+      "options": ["Measuring body temperature", "Administering fluids and medications and monitoring central venous pressure", "Measuring blood pressure", "Collecting stool samples"],
+      "correctAnswer": "Administering fluids and medications and monitoring central venous pressure"
+    },
+    {
+      "question": "What is the term for a severe infection that can lead to organ failure?",
+      "options": ["Sinusitis", "Dermatitis", "Sepsis", "Tonsillitis"],
+      "correctAnswer": "Sepsis"
+    },
+    {
+      "question": "Which of these medications are commonly used to support blood pressure in shock states?",
+      "options": ["Antibiotics", "Painkillers", "Vasopressors", "Antacids"],
+      "correctAnswer": "Vasopressors"
+    },
+    {
+      "question": "What is a common complication for patients with prolonged stays in the ICU?",
+      "options": ["Increased appetite", "ICU-acquired weakness", "Rapid mobility improvement", "Increased mental activity"],
+      "correctAnswer": "ICU-acquired weakness"
+    },
+    {
+      "question": "What is the purpose of using strict fluid balance charts in the ICU?",
+      "options": ["Measuring body temperature", "Accurately monitoring fluid balance", "Estimating weight", "Measuring lung volume"],
+      "correctAnswer": "Accurately monitoring fluid balance"
+    },
+    {
+      "question": "Which of the following is a sign of acute kidney failure?",
+      "options": ["Increased urine output", "Decreased creatinine level", "Elevated blood urea and creatinine levels", "Decreased blood pressure"],
+      "correctAnswer": "Elevated blood urea and creatinine levels"
+    },
+    {
+      "question": "What is the term for a coma resulting from reversible brain dysfunction?",
+      "options": ["Stroke", "Brain hemorrhage", "Encephalopathy", "Brain tumor"],
+      "correctAnswer": "Encephalopathy"
+    },
+    {
+      "question": "What is the importance of blood sugar control in ICU patients?",
+      "options": ["To reduce the need for medications", "To reduce the risk of infection and complications", "To increase length of stay", "No significant importance"],
+      "correctAnswer": "To reduce the risk of infection and complications"
+    },
+    {
+      "question": "What procedure is essential for preventing pressure ulcers in ICU patients?",
+      "options": ["Reduced movement", "Not changing patient's position", "Regular repositioning and skin support", "Using coarse sheets"],
+      "correctAnswer": "Regular repositioning and skin support"
+    },
+    {
+      "question": "What is the Glasgow Coma Scale?",
+      "options": ["A blood pressure scale", "A body temperature scale", "A scale for assessing level of consciousness", "A kidney function scale"],
+      "correctAnswer": "A scale for assessing level of consciousness"
+    },
+    {
+      "question": "What is the importance of early enteral nutrition in the ICU?",
+      "options": ["Increases infection risk", "Delays recovery", "Preserves gut function and reduces complications", "Always causes nausea"],
+      "correctAnswer": "Preserves gut function and reduces complications"
+    },
+    {
+      "question": "Which of the following is a sign of increased intracranial pressure (ICP)?",
+      "options": ["Decreased blood pressure", "Increased heart rate", "Severe headache, nausea/vomiting, altered consciousness", "Increased appetite"],
+      "correctAnswer": "Severe headache, nausea/vomiting, altered consciousness"
+    },
+    {
+      "question": "What intervention helps prevent Deep Vein Thrombosis (DVT) in the ICU?",
+      "options": ["Complete immobility", "Sequential Compression Devices", "Lack of hydration", "Avoiding movement"],
+      "correctAnswer": "Sequential Compression Devices"
+    },
+    {
+      "question": "What is the purpose of Chest Tubes?",
+      "options": ["To administer medication", "To remove air or fluid from the pleural space", "To measure blood pressure", "To feed the patient"],
+      "correctAnswer": "To remove air or fluid from the pleural space"
+    },
+    {
+      "question": "What is the term for the failure of two or more organ systems?",
+      "options": ["Simple inflammation", "Single organ failure", "Multiple Organ Failure", "Complete recovery"],
+      "correctAnswer": "Multiple Organ Failure"
+    },
+    {
+      "question": "Which of these medications are used to reduce anxiety and agitation in ICU patients?",
+      "options": ["Antibiotics", "Analgesics and sedatives", "Diuretics", "Antacids"],
+      "correctAnswer": "Analgesics and sedatives"
+    },
+    {
+      "question": "What is one risk of early extubation (removal of the endotracheal tube)?",
+      "options": ["Improved breathing", "Need for reintubation", "Increased oxygenation", "Decreased infection risk"],
+      "correctAnswer": "Need for reintubation"
+    },
+    {
+      "question": "What is the purpose of a Cardiac Monitor?",
+      "options": ["Measuring body temperature", "Monitoring the heart's electrical activity and heart rate", "Measuring blood sugar levels", "Providing warmth"],
+      "correctAnswer": "Monitoring the heart's electrical activity and heart rate"
+    },
+    {
+      "question": "What is the term for oxygen deficiency in tissues?",
+      "options": ["Hyperoxia", "Hypoxia", "Hypercapnia", "Acidosis"],
+      "correctAnswer": "Hypoxia"
+    },
+    {
+      "question": "What is the importance of preventing Ventilator-Associated Pneumonia (VAP)?",
+      "options": ["No importance", "Increases hospital stay", "Reduces mortality", "Prevents the need for mechanical ventilation"],
+      "correctAnswer": "Reduces mortality"
+    },
+    {
+      "question": "What is the purpose of an Arterial Blood Gas (ABG) analysis?",
+      "options": ["Measuring blood pressure", "Assessing oxygen, carbon dioxide, and pH levels in the blood", "Measuring blood sugar", "Determining blood type"],
+      "correctAnswer": "Assessing oxygen, carbon dioxide, and pH levels in the blood"
+    },
+    {
+      "question": "What intervention can reduce the risk of stress ulcers in ICU patients?",
+      "options": ["Parenteral nutrition only", "Antacids and proton pump inhibitors", "Antibiotics", "Constant movement"],
+      "correctAnswer": "Antacids and proton pump inhibitors"
+    },
+    {
+      "question": "What is the term for a collection of blood outside blood vessels within the body?",
+      "options": ["Edema", "Hematoma", "Abscess", "Cyst"],
+      "correctAnswer": "Hematoma"
+    },
+    {
+      "question": "What is the importance of accurate and comprehensive documentation in ICU records?",
+      "options": ["To waste time", "To ensure continuity of care and patient safety", "To increase paperwork", "To avoid communication"],
+      "correctAnswer": "To ensure continuity of care and patient safety"
+    },
+    {
+      "question": "What device is used for continuous arterial pressure monitoring?",
+      "options": ["Thermometer", "Arterial Line", "Glucose meter", "Weight scale"],
+      "correctAnswer": "Arterial Line"
+    },
+    {
+      "question": "What is the goal of early ICU discharge planning?",
+      "options": ["To keep the patient longer", "To improve patient outcomes and reduce complications", "To increase costs", "To delay recovery"],
+      "correctAnswer": "To improve patient outcomes and reduce complications"
+    }
+  ]
+}

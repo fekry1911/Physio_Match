@@ -1,3 +1,3 @@
 abstract class GetAllQues{
-  Future<List<Map<String, dynamic>>> getAllQues();
+  Future<List<Map<String, dynamic>>> getAllQues(String specialty);
 }

@@ -11,210 +11,95 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/const/const.dart';
+import '../../../core/shared_widgets/snack_bar.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../../../test.dart';
 import '../../register_screen/presentation/widgets/errr_setup.dart';
+import '../data/data/data.dart';
 
 class AddAllAues extends StatelessWidget {
   AddAllAues({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.h),
-        child: AppBar(
-          elevation: 0,
-          actions: [
-            Padding(
-              padding: EdgeInsets.only(right: 8.0.w),
-              child: IconButton(
-                onPressed: () {
-                  context.pushNamed(userData);
-                },
-                icon: Icon(Icons.settings, color: Colors.white, size: 30.r),
-              ),
-            ),
-          ], //
-
-          backgroundColor: Colors.teal,
-          title: Text(
-            "Home",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 20.h),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
-                builder: (context, state) {
-                  var cubit = context.read<UpdateUserDataCubit>();
-
-                  return CircularProgressIndicator(
-                    color: AppColors.mainTealColor,
-                  );
-                /*  return cubit.studentModel == null
-                      ? CircularProgressIndicator(
-                        color: AppColors.mainTealColor,
-                      )
-                      : Text(
-                        "Hi ${cubit.studentModel!.fullName}",
-                        style: TextThemes.font22BlackMedium.copyWith(
-                          color: AppColors.mainTealColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30.sp,
+    return Container(
+      color: Colors.grey[200],
+      child: ListView.separated(
+        itemCount: items.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              context.read<HomeCubit>().getRandomQues(items[index]["text"]!);
+            },
+            child: Card(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Image.asset(
+                    items[index]["image"]!,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 100.h,
+                  ),
+                  Positioned.fill(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [Colors.white, Colors.white.withOpacity(0.0)],
+                          stops: [0.0, 0.5],
                         ),
-                      );*/
-                }, listener: (BuildContext context, UpdateUserDataState state) {  },
-              ),
-              SizedBox(height: 16.h),
-              AnimatedText(),
-              SizedBox(height: 30.h),
-              BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
-                listener: (context, state) {},
-                builder: (context, state) {
-                  var cubit = context.read<UpdateUserDataCubit>();
-
-                  return StaticLastScoresWidget(
-                    text: "Your Last 5 Scores",
-                    dummyScores: cubit.scoreModelLimit,
-                    backGround: Colors.teal[50]!,
-                  );
-                },
-              ),
-              SizedBox(height: 30.h),
-              BlocConsumer<UpdateUserDataCubit, UpdateUserDataState>(
-                listener: (context, state) {
-                  // TODO: implement listener
-                },
-                builder: (context, state) {
-                  var cubit = context.read<UpdateUserDataCubit>();
-                  return Center(
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: 70.h,
-                      child:null,
-                          /*cubit.studentModel != null
-                              ? MaterialButton(
-                                disabledColor: Colors.grey,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                onPressed:
-                                    cubit.studentModel!.tries! <= 0
-                                        ? null
-                                        : () async {
-                                          print(cubit.studentModel!.tries);
-                                          print(
-                                            """"""
-                                            """"""
-                                            """"""
-                                            """"""
-                                            """"""
-                                            """"""
-                                            """dd""ddddddddddddddddddddddddddddd""",
-                                          );
-
-                                          context
-                                              .read<HomeCubit>()
-                                              .getRandomQues();
-
-                                          // Action here
-                                        },
-                                color: Colors.teal,
-                                child: Text(
-                                  cubit.studentModel!.tries! <= 0
-                                      ? "You Haven\'t any tries  "
-                                      : "Start Quiz",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              )
-                              : Center(
-                                child: CircularProgressIndicator(
-                                  color: AppColors.mainTealColor,
-                                ),
-                              ),*/
-                    ),
-                  );
-                },
-              ),
-              BlocListener<HomeCubit, HomeState>(
-                listener: (context, state) {
-                  if (state is GetLoading) {
-                    showDialog(
-                      context: context,
-                      builder:
-                          (context) => Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.mainTealColor,
-                            ),
-                          ),
-                    );
-                  }
-                  if (state is GetSucc) {
-                    Navigator.pop(context);
-                    context
-                        .pushNamed(
-                          quizScreen,
-                          arguments: context.read<HomeCubit>().questions,
-                        )
-                        .then((value) {
-                          context.read<HomeCubit>().resetState();
-                        });
-                  }
-                  if (state is GetFail) {
-                    setupState(
-                      context,
-                      error: state.error,
-                      icon: Icons.error,
-                      color: Colors.red,
-                      onpressed: () {
-                        Navigator.pop(context);
-                      },
-                    );
-                  }
-                },
-                child: SizedBox.shrink(),
-              ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.view_in_ar),
-                label: Text("عرض ثلاثي الأبعاد"),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => Anatomy3DView(
-                        title: 'العضلة ذات الرأسين (Biceps)',
-                        url: 'https://sketchfab.com/3d-models/biceps-brachii-40b94cb7af854a669f0d6123bc7b7540',
                       ),
                     ),
-                  );
-                },
-              )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      items[index]["text"]!,
+                      style: TextThemes.font16BlackBold.copyWith(
+                        color: AppColors.mainTealColor,
+                      ),
+                    ),
+                  ),
+                  BlocListener<HomeCubit,HomeState>(listener: (BuildContext context, HomeState state) {
+                    if(state is GetLoading){
+                      showDialog(
+                        context: context,
+                        builder:
+                            (context) => Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.whiteColor,
+                            semanticsLabel: "loading",
+                          ),
+                        ),
+                      );
+                    }
+                    if(state is GetSucc){
+                      Navigator.pop(context);
+                      context.pushNamed(quizScreen,arguments: context.read<HomeCubit>().questions);
+                    }
+                    if(state is GetFail){
+                      Navigator.pop(context);
+                      AwesomeSnackBar(
+                        context: context,
+                        tittle: "error",
+                        message: state.error,
+                      );
+                    }
 
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-
-        backgroundColor: AppColors.mainTealColor,
-        onPressed: () {
-          context.pushNamed(chatScreen);
+                  },
+                  child: SizedBox(),
+                  )
+                ],
+              ),
+            ),
+          );
         },
-        child: Icon(Icons.assistant,size: 25.r,color: Colors.white,),
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(height: 10.h);
+        },
       ),
     );
   }

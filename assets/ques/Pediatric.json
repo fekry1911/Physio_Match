@@ -1,0 +1,155 @@
+{
+  "specialty": "Pediatric",
+  "questions": [
+    {
+      "question": "Which vaccine protects children from measles, mumps, and rubella?",
+      "options": ["Polio vaccine", "MMR vaccine", "Tetanus vaccine", "Flu vaccine"],
+      "correctAnswer": "MMR vaccine"
+    },
+    {
+      "question": "What is the term for a common viral infection causing bronchiolitis in infants?",
+      "options": ["Influenza", "Bronchiolitis", "Tonsillitis", "Chickenpox"],
+      "correctAnswer": "Bronchiolitis"
+    },
+    {
+      "question": "What is the importance of breastfeeding for infants?",
+      "options": ["Increases allergy risk", "Provides essential immunity and nutrients", "Causes constipation", "Delays growth"],
+      "correctAnswer": "Provides essential immunity and nutrients"
+    },
+    {
+      "question": "What disorder is characterized by difficulties in social interaction and communication?",
+      "options": ["Attention-Deficit/Hyperactivity Disorder (ADHD)", "Autism Spectrum Disorder", "Dyslexia", "Anxiety disorder"],
+      "correctAnswer": "Autism Spectrum Disorder"
+    },
+    {
+      "question": "What is the term for fever with a rash in children, caused by a viral infection?",
+      "options": ["Meningitis", "Appendicitis", "Chickenpox", "Otitis media"],
+      "correctAnswer": "Chickenpox"
+    },
+    {
+      "question": "What is one sign of severe dehydration in infants?",
+      "options": ["Increased urination", "Sunken eyes and jaundice", "Sunken eyes and decreased urination", "Weight gain"],
+      "correctAnswer": "Sunken eyes and decreased urination"
+    },
+    {
+      "question": "What screening is performed on all newborns to detect metabolic and genetic disorders?",
+      "options": ["Hearing screening", "Newborn Screening (Heel Prick Test)", "Eye exam", "Dental exam"],
+      "correctAnswer": "Newborn Screening (Heel Prick Test)"
+    },
+    {
+      "question": "What is the term for Otitis Media?",
+      "options": ["Sore throat", "Ear infection", "Eye infection", "Sinus infection"],
+      "correctAnswer": "Ear infection"
+    },
+    {
+      "question": "What disease causes swelling of the salivary glands under the ear (parotitis)?",
+      "options": ["Measles", "Chickenpox", "Mumps", "Polio"],
+      "correctAnswer": "Mumps"
+    },
+    {
+      "question": "What is the importance of regular growth and development monitoring in children?",
+      "options": ["To increase anxiety", "To detect any delays or health problems early", "To reduce the importance of check-ups", "To ignore normal growth"],
+      "correctAnswer": "To detect any delays or health problems early"
+    },
+    {
+      "question": "What disorder is characterized by difficulty concentrating, hyperactivity, and impulsivity?",
+      "options": ["Anxiety", "Depression", "Attention-Deficit/Hyperactivity Disorder (ADHD)", "Obsessive-compulsive disorder"],
+      "correctAnswer": "Attention-Deficit/Hyperactivity Disorder (ADHD)"
+    },
+    {
+      "question": "What is the term for partial or complete intestinal blockage in children?",
+      "options": ["Diarrhea", "Constipation", "Intestinal Obstruction", "Appendicitis"],
+      "correctAnswer": "Intestinal Obstruction"
+    },
+    {
+      "question": "What condition is characterized by narrowing of the airways, causing wheezing and difficulty breathing?",
+      "options": ["Pneumonia", "Asthma", "Sore throat", "Bronchitis"],
+      "correctAnswer": "Asthma"
+    },
+    {
+      "question": "What is the purpose of regular vision screening for children?",
+      "options": ["To assess hearing", "To detect vision problems early", "To assess teeth", "To detect heart diseases"],
+      "correctAnswer": "To detect vision problems early"
+    },
+    {
+      "question": "What disease is caused by the Rotavirus and leads to severe diarrhea and vomiting in infants?",
+      "options": ["Influenza", "Rotavirus Gastroenteritis", "Hepatitis", "Measles"],
+      "correctAnswer": "Rotavirus Gastroenteritis"
+    },
+    {
+      "question": "What is one sign of malnutrition in children?",
+      "options": ["Overweight", "Excessive growth", "Stunting and underweight", "Hyperactivity"],
+      "correctAnswer": "Stunting and underweight"
+    },
+    {
+      "question": "What is the term for fever and seizures in young children due to high body temperature?",
+      "options": ["Epilepsy", "Febrile Seizures", "Cerebral Palsy", "Inflammation"],
+      "correctAnswer": "Febrile Seizures"
+    },
+    {
+      "question": "What is the most common chronic disease in childhood?",
+      "options": ["Diabetes", "Asthma", "Cystic fibrosis", "Sickle cell anemia"],
+      "correctAnswer": "Asthma"
+    },
+    {
+      "question": "What is the primary treatment for bacterial infections in children?",
+      "options": ["Antivirals", "Antibiotics", "Antifungals", "Painkillers"],
+      "correctAnswer": "Antibiotics"
+    },
+    {
+      "question": "What is the purpose of a well-child check-up?",
+      "options": ["To treat specific illnesses only", "To monitor growth, development, and provide preventive care", "To administer vaccines only", "To assess academic performance"],
+      "correctAnswer": "To monitor growth, development, and provide preventive care"
+    },
+    {
+      "question": "What is the term for a birth defect where the spinal cord doesn't close properly?",
+      "options": ["Clubfoot", "Spina Bifida", "Cleft Lip", "Down Syndrome"],
+      "correctAnswer": "Spina Bifida"
+    },
+    {
+      "question": "Which of the following is a common cause of iron deficiency anemia in toddlers?",
+      "options": ["Excessive consumption of fruits", "High intake of dairy products and low iron intake", "High intake of iron-rich foods", "Frequent intake of vegetables"],
+      "correctAnswer": "High intake of dairy products and low iron intake"
+    },
+    {
+      "question": "What is the intervention for children with food allergies?",
+      "options": ["Encouraging consumption of allergic foods", "Strict avoidance of the allergen", "Eating small amounts of the allergen", "Ignoring the allergy"],
+      "correctAnswer": "Strict avoidance of the allergen"
+    },
+    {
+      "question": "What is the term for a sudden, severe allergic reaction that can be life-threatening?",
+      "options": ["Hives", "Asthma attack", "Anaphylaxis", "Eczema"],
+      "correctAnswer": "Anaphylaxis"
+    },
+    {
+      "question": "What is the importance of early intervention for developmental delays in children?",
+      "options": ["It's not important", "It can improve long-term outcomes and minimize disability", "It only helps physically", "It causes more delays"],
+      "correctAnswer": "It can improve long-term outcomes and minimize disability"
+    },
+    {
+      "question": "What is the most common type of childhood cancer?",
+      "options": ["Bone cancer", "Leukemia", "Brain tumors", "Lymphoma"],
+      "correctAnswer": "Leukemia"
+    },
+    {
+      "question": "What is the term for a condition where a child has difficulty learning to read?",
+      "options": ["Dyscalculia", "Dysgraphia", "Dyslexia", "Dyspraxia"],
+      "correctAnswer": "Dyslexia"
+    },
+    {
+      "question": "What is the purpose of fluoride application in pediatric dentistry?",
+      "options": ["To whiten teeth", "To strengthen tooth enamel and prevent cavities", "To cause tooth decay", "To remove teeth"],
+      "correctAnswer": "To strengthen tooth enamel and prevent cavities"
+    },
+    {
+      "question": "What is the term for an acute viral infection that causes swelling in the larynx and trachea, leading to a 'barking' cough?",
+      "options": ["Pneumonia", "Bronchiolitis", "Croup", "Tonsillitis"],
+      "correctAnswer": "Croup"
+    },
+    {
+      "question": "What is a key component of a healthy diet for children to support growth and development?",
+      "options": ["High sugar intake", "Limited fruits and vegetables", "Balanced intake of all food groups", "Exclusive processed foods"],
+      "correctAnswer": "Balanced intake of all food groups"
+    }
+  ]
+}

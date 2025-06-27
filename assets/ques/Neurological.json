@@ -1,0 +1,155 @@
+{
+  "specialty": "Neurological",
+  "questions": [
+    {
+      "question": "Which part of the brain is primarily responsible for balance and coordination?",
+      "options": ["Cerebrum", "Cerebellum", "Brainstem", "Thalamus"],
+      "correctAnswer": "Cerebellum"
+    },
+    {
+      "question": "What type of stroke occurs due to a blocked blood vessel in the brain?",
+      "options": ["Hemorrhagic stroke", "Ischemic stroke", "Transient Ischemic Attack (TIA)", "Aneurysm"],
+      "correctAnswer": "Ischemic stroke"
+    },
+    {
+      "question": "What test is used to assess the electrical activity of the brain?",
+      "options": ["Magnetic Resonance Imaging (MRI)", "Electroencephalogram (EEG)", "Computed Tomography (CT) scan", "Echocardiogram"],
+      "correctAnswer": "Electroencephalogram (EEG)"
+    },
+    {
+      "question": "What is the term for loss of ability to speak or understand language?",
+      "options": ["Dysphagia", "Ataxia", "Aphasia", "Agnosia"],
+      "correctAnswer": "Aphasia"
+    },
+    {
+      "question": "What disease is characterized by progressive loss of dopamine-producing neurons?",
+      "options": ["Multiple Sclerosis", "Alzheimer's Disease", "Parkinson's Disease", "Epilepsy"],
+      "correctAnswer": "Parkinson's Disease"
+    },
+    {
+      "question": "Which of the following symptoms is common in Multiple Sclerosis (MS)?",
+      "options": ["Sudden hearing loss", "Double vision and fatigue", "Excessive hair growth", "Weight gain"],
+      "correctAnswer": "Double vision and fatigue"
+    },
+    {
+      "question": "What is the most common treatment for epileptic seizures?",
+      "options": ["Surgery", "Antiepileptic Drugs", "Physical therapy", "Dietary therapy"],
+      "correctAnswer": "Antiepileptic Drugs"
+    },
+    {
+      "question": "What test is used to evaluate the health of muscles and peripheral nerves?",
+      "options": ["Electroencephalogram (EEG)", "Nerve Conduction Studies and Electromyography (NCS/EMG)", "Magnetic Resonance Imaging (MRI)", "X-ray"],
+      "correctAnswer": "Nerve Conduction Studies and Electromyography (NCS/EMG)"
+    },
+    {
+      "question": "What is the term for weakness or paralysis on one side of the body?",
+      "options": ["Quadriplegia", "Hemiplegia", "Paraplegia", "Intermittent paralysis"],
+      "correctAnswer": "Hemiplegia"
+    },
+    {
+      "question": "What is the purpose of a Lumbar Puncture?",
+      "options": ["Measuring blood pressure", "Collecting a sample of cerebrospinal fluid for diagnosis", "Removing a brain tumor", "Injecting medication into the brain"],
+      "correctAnswer": "Collecting a sample of cerebrospinal fluid for diagnosis"
+    },
+    {
+      "question": "What neurological disease causes progressive muscle weakness leading to paralysis?",
+      "options": ["Carpal Tunnel Syndrome", "Amyotrophic Lateral Sclerosis (ALS)", "Migraine", "Meningitis"],
+      "correctAnswer": "Amyotrophic Lateral Sclerosis (ALS)"
+    },
+    {
+      "question": "Which of the following symptoms is common in Peripheral Neuropathy?",
+      "options": ["Hearing loss", "Numbness and tingling in the extremities", "Chest pain", "Blurred vision"],
+      "correctAnswer": "Numbness and tingling in the extremities"
+    },
+    {
+      "question": "What part of the brain controls vital functions like breathing and heart rate?",
+      "options": ["Cerebrum", "Cerebellum", "Brainstem", "Frontal lobe"],
+      "correctAnswer": "Brainstem"
+    },
+    {
+      "question": "What is the term for a brief loss of consciousness due to temporary decrease in blood flow to the brain?",
+      "options": ["Migraine", "Epileptic seizure", "Syncope", "Dizziness"],
+      "correctAnswer": "Syncope"
+    },
+    {
+      "question": "What test is used to visualize brain and spinal cord structures in detail?",
+      "options": ["X-ray", "Ultrasound", "Magnetic Resonance Imaging (MRI)", "Electromyography (EMG)"],
+      "correctAnswer": "Magnetic Resonance Imaging (MRI)"
+    },
+    {
+      "question": "What disorder is characterized by severe headaches, often accompanied by nausea and sensitivity to light and sound?",
+      "options": ["Tension headache", "Cluster headache", "Migraine", "Sinus headache"],
+      "correctAnswer": "Migraine"
+    },
+    {
+      "question": "What syndrome causes rapid, progressive muscle weakness, often after an infection?",
+      "options": ["Multiple Sclerosis", "Guillain-Barré Syndrome", "Myasthenia Gravis", "Cerebral Palsy"],
+      "correctAnswer": "Guillain-Barré Syndrome"
+    },
+    {
+      "question": "What is the purpose of physical therapy for stroke patients?",
+      "options": ["Treating pain only", "Restoring motor function and improving independence", "Weight gain", "Reduced vision"],
+      "correctAnswer": "Restoring motor function and improving independence"
+    },
+    {
+      "question": "What is the term for inflammation of the membranes surrounding the brain and spinal cord?",
+      "options": ["Encephalitis", "Meningitis", "Myelitis", "Neuritis"],
+      "correctAnswer": "Meningitis"
+    },
+    {
+      "question": "Which of the following is a warning sign of stroke to act FAST upon?",
+      "options": ["Loss of appetite", "Facial drooping on one side", "Increased muscle strength", "Difficulty sleeping"],
+      "correctAnswer": "Facial drooping on one side"
+    },
+    {
+      "question": "What disorder causes involuntary, irregular movements, often hereditary?",
+      "options": ["Restless legs syndrome", "Ataxia", "Huntington's Disease", "Tourette's syndrome"],
+      "correctAnswer": "Huntington's Disease"
+    },
+    {
+      "question": "What test is used to assess blood flow in the cerebral blood vessels?",
+      "options": ["Carotid Doppler Ultrasound", "X-ray", "Electroencephalogram (EEG)", "Routine blood tests"],
+      "correctAnswer": "Carotid Doppler Ultrasound"
+    },
+    {
+      "question": "What is the term for memory loss?",
+      "options": ["Dementia", "Bipolar disorder", "Amnesia", "Psychosis"],
+      "correctAnswer": "Amnesia"
+    },
+    {
+      "question": "What intervention can help improve swallowing difficulties (dysphagia) after a stroke?",
+      "options": ["Liquid diet only", "Swallowing exercises and dietary modification", "Not eating by mouth", "Increasing solid foods"],
+      "correctAnswer": "Swallowing exercises and dietary modification"
+    },
+    {
+      "question": "Which cranial nerve is primarily responsible for vision?",
+      "options": ["Olfactory nerve", "Optic nerve", "Facial nerve", "Vestibulocochlear nerve"],
+      "correctAnswer": "Optic nerve"
+    },
+    {
+      "question": "What disorder causes muscle weakness and stiffness with progressive wasting?",
+      "options": ["Myasthenia Gravis", "Muscular Dystrophy", "Cerebral Palsy", "Multiple Sclerosis"],
+      "correctAnswer": "Muscular Dystrophy"
+    },
+    {
+      "question": "What intervention can reduce the risk of a second stroke?",
+      "options": ["Smoking", "Controlling risk factors like hypertension and diabetes", "Diet rich in saturated fats", "Lack of physical activity"],
+      "correctAnswer": "Controlling risk factors like hypertension and diabetes"
+    },
+    {
+      "question": "What part of the brain deals with sensory processing (touch, pain, temperature)?",
+      "options": ["Frontal lobe", "Parietal lobe", "Temporal lobe", "Occipital lobe"],
+      "correctAnswer": "Parietal lobe"
+    },
+    {
+      "question": "What test is used to assess intracranial blood flow?",
+      "options": ["Skull X-ray", "CT Angiography (CTA)", "Electroencephalogram (EEG)", "Blood tests"],
+      "correctAnswer": "CT Angiography (CTA)"
+    },
+    {
+      "question": "What is the term for inflammation of nerves causing weakness and pain?",
+      "options": ["Tendonitis", "Arthritis", "Neuritis", "Myositis"],
+      "correctAnswer": "Neuritis"
+    }
+  ]
+}

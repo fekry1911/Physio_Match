@@ -13,12 +13,12 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<Map<String,dynamic>> questions=[];
 
-  Future<void> getRandomQues()async {
+  Future<void> getRandomQues(String specialty)async {
     emit(GetLoading());
-    await getAllQues.getAllQues().then((onValue) async {
+    await getAllQues.getAllQues(specialty).then((onValue) async {
       questions=onValue;
       await FirebaseFirestore.instance
-      .collection("users").doc(CacheHelper.getString(key: "uid")).update({
+      .collection("doctors").doc(CacheHelper.getString(key: "uid")).update({
         "tries": FieldValue.increment(-1),
       }).then((onValue){
         emit(GetSucc());

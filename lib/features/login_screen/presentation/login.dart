@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:add_ques/core/const/const.dart';
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:add_ques/features/login_screen/presentation/widgets/already_have_text.dart';
 import 'package:add_ques/features/login_screen/presentation/widgets/email_password.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/shared_widgets/shared_button.dart';
@@ -64,7 +68,38 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () async {
+
+                            final firestore = FirebaseFirestore.instance;
+
+                            try {
+                              // Load JSON file from assets
+                              String data = await rootBundle.loadString('assets/ques/Women’s Health.json');
+                              Map<String, dynamic> parsed = jsonDecode(data);
+
+                              String specialty = parsed['specialty'];
+                              List<dynamic> questions = parsed['questions'];
+
+                              for (int i = 0; i < questions.length; i++) {
+                                var question = questions[i];
+
+                                await firestore
+                                    .collection('questions')
+                                    .doc(specialty) // Use specialty name as document
+                                    .collection('items') // Store actual questions as subcollection
+                                    .add({
+                                  'question': question['question'],
+                                  'options': List<String>.from(question['options']),
+                                  'correctAnswer': question['correctAnswer'],
+                                });
+                              }
+
+                              print('✅ Questions for "$specialty" uploaded successfully!');
+                            } catch (e) {
+                              print('❌ Error uploading: $e');
+                            }
+
+                        },
                         child: Text(
                           "Forgot Password?",
                           style: TextThemes.font12BlueRegular,

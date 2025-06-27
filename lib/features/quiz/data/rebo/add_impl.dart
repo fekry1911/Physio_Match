@@ -10,7 +10,7 @@ class AppScoreImpl implements AddScore {
 
   @override
   Future<void> AddSCore(ScoreModel scoreModel) async {
-    await fire.collection("users")
+    await fire.collection("doctors")
         .doc(CacheHelper.getString(key: "uid"))
         .collection("score")
         .add(scoreModel.toMap());

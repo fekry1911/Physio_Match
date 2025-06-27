@@ -19,6 +19,8 @@ import '../../../features/quiz/data/rebo/add.dart';
 import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
+import '../../features/doctor/logic/doctor_cubit.dart';
+import '../../features/doctor/presentaion/doctr_home.dart';
 import '../../features/home/presentation/screens/decider_screen.dart';
 import '../../features/payment/logic/payment_cubit.dart';
 import '../../features/payment/screens/payment_screen.dart';
@@ -119,6 +121,14 @@ class AppRouter {
         final args = settings.arguments;
         return MaterialPageRoute(
           builder: (_) => PaymentScreen(url: args.toString()),
+        );
+      case doctorHomeScreen:
+        final args = settings.arguments;
+        return MaterialPageRoute(
+          builder: (_) =>BlocProvider(
+            create: (context) => DoctorCubit(),
+            child: DoctorHomeScreen(),
+          ),
         );
     }
     return null;
