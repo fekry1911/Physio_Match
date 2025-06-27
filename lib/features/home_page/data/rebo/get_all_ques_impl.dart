@@ -11,8 +11,12 @@ class GetAllQuesImpl implements GetAllQues {
   GetAllQuesImpl(this.firestore);
 
   @override
-  Future<List<Map<String, dynamic>>> getAllQues() async {
-    final snapshot = await firestore.collection('questions').get();
+  Future<List<Map<String, dynamic>>> getAllQues(String specialty) async {
+    final snapshot = await firestore
+        .collection('questions')
+        .doc(specialty)
+        .collection('items')
+        .get();
     List<Map<String, dynamic>> allQuestions =
     snapshot.docs.map((doc) {
       final data = doc.data();

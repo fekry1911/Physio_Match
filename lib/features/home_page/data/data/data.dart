@@ -1,34 +1,34 @@
 List<Map<String,String>> items=[
   {
-    "text":"Cardiopulmonary Physical Therapy",
+    "text":"Cardiopulmonary",
     "image":"assets/physio/Cardiopulmonary Physical Therapy.jpg",
   },
   {
-    "text":"Geriatric Physical Therapy",
+    "text":"Geriatric",
     "image":"assets/physio/Geriatric Physical Therapy.jpeg",
   },
   {
-    "text":"ICU Physiotherapy",
+    "text":"ICU",
     "image":"assets/physio/ICU Physiotherapy.jpg",
   },
   {
-    "text":"Neurological Physical Therapy",
+    "text":"Neurological",
     "image":"assets/physio/Neurological Physical Therapy.jpeg",
   },
   {
-    "text":"Occupational Rehabilitation",
+    "text":"Occupational",
     "image":"assets/physio/Occupational Rehabilitation.jpg",
   },
   {
-    "text":"Orthopedic Physical Therapy",
+    "text":"Orthopedic",
     "image":"assets/physio/Orthopedic Physical Therapy.jpg",
   },
   {
-    "text":"Pediatric Physical Therapy",
+    "text":"Pediatric",
     "image":"assets/physio/Pediatric Physical Therapy.jpeg",
   },
   {
-    "text":"Women’s Health Physical Therapy",
+    "text":"Women’s Health",
     "image":"assets/physio/Women’s Health Physical Therapy.jpg",
   },
 

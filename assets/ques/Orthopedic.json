@@ -1,0 +1,155 @@
+{
+  "specialty": "Orthopedic",
+  "questions": [
+    {
+      "question": "What is the term for arthritis caused by the breakdown of cartilage?",
+      "options": ["Rheumatoid arthritis", "Osteoarthritis", "Gout", "Psoriatic arthritis"],
+      "correctAnswer": "Osteoarthritis"
+    },
+    {
+      "question": "Which part of the body is affected by Carpal Tunnel Syndrome?",
+      "options": ["Knee", "Shoulder", "Wrist", "Ankle"],
+      "correctAnswer": "Wrist"
+    },
+    {
+      "question": "What diagnostic test is commonly used to evaluate bone fractures?",
+      "options": ["Magnetic Resonance Imaging (MRI)", "X-ray", "Ultrasound", "Electromyography (EMG)"],
+      "correctAnswer": "X-ray"
+    },
+    {
+      "question": "What is the term for a tear in the ligaments that connect bones?",
+      "options": ["Fracture", "Sprain", "Muscle strain", "Dislocation"],
+      "correctAnswer": "Sprain"
+    },
+    {
+      "question": "What condition is characterized by low bone density and increased fracture risk?",
+      "options": ["Osteoporosis", "Osteomyelitis", "Osteomalacia", "Rickets"],
+      "correctAnswer": "Osteoporosis"
+    },
+    {
+      "question": "What is the purpose of using a cast after a fracture?",
+      "options": ["To relieve pain only", "To immobilize the fractured bone and prevent movement", "To increase swelling", "To improve blood flow"],
+      "correctAnswer": "To immobilize the fractured bone and prevent movement"
+    },
+    {
+      "question": "Which of the following is a symptom of a Herniated Disc in the back?",
+      "options": ["Chest pain", "Pain radiating down the leg (sciatica)", "Severe headache", "Swelling in the hands"],
+      "correctAnswer": "Pain radiating down the leg (sciatica)"
+    },
+    {
+      "question": "What is the term for inflammation of tendons?",
+      "options": ["Myositis", "Arthritis", "Tendinitis", "Osteitis"],
+      "correctAnswer": "Tendinitis"
+    },
+    {
+      "question": "What is the common treatment for mild sprains?",
+      "options": ["Immediate surgery", "Rest, Ice, Compression, Elevation (RICE)", "Excessive movement", "Antibiotics"],
+      "correctAnswer": "Rest, Ice, Compression, Elevation (RICE)"
+    },
+    {
+      "question": "What test is used to assess bone health and density?",
+      "options": ["X-ray", "Bone Densitometry (DEXA Scan)", "Magnetic Resonance Imaging (MRI)", "Blood tests"],
+      "correctAnswer": "Bone Densitometry (DEXA Scan)"
+    },
+    {
+      "question": "What is the term for abnormal sideways curvature of the spine?",
+      "options": ["Kyphosis", "Scoliosis", "Lordosis", "Ankylosing Spondylitis"],
+      "correctAnswer": "Scoliosis"
+    },
+    {
+      "question": "Which of the following is a symptom of a torn meniscus in the knee?",
+      "options": ["Ankle pain", "Pain, popping, and locking in the knee", "Shoulder pain", "Headache"],
+      "correctAnswer": "Pain, popping, and locking in the knee"
+    },
+    {
+      "question": "What is the purpose of physical therapy after orthopedic surgery?",
+      "options": ["To keep the joint immobile", "To restore movement and strength and reduce pain", "To increase swelling", "To reduce physical activity"],
+      "correctAnswer": "To restore movement and strength and reduce pain"
+    },
+    {
+      "question": "What is the term for complete separation of a bone from a joint?",
+      "options": ["Fracture", "Sprain", "Dislocation", "Muscle strain"],
+      "correctAnswer": "Dislocation"
+    },
+    {
+      "question": "What is one dietary recommendation for osteoporosis patients?",
+      "options": ["Increased sugar intake", "Adequate calcium and Vitamin D", "Reduced protein", "Increased sodium"],
+      "correctAnswer": "Adequate calcium and Vitamin D"
+    },
+    {
+      "question": "What is the term for Bursitis?",
+      "options": ["Bone inflammation", "Tendon inflammation", "Inflammation of a fluid-filled sac (bursa) near a joint", "Joint inflammation"],
+      "correctAnswer": "Inflammation of a fluid-filled sac (bursa) near a joint"
+    },
+    {
+      "question": "Which of these conditions commonly requires surgical intervention?",
+      "options": ["Minor bruise", "Compound fracture (open fracture)", "Mild sprain", "Mild tendinitis"],
+      "correctAnswer": "Compound fracture (open fracture)"
+    },
+    {
+      "question": "What is the term for Muscle Atrophy?",
+      "options": ["Increased muscle size", "Loss of muscle mass and strength", "Muscle inflammation", "Muscle strain"],
+      "correctAnswer": "Loss of muscle mass and strength"
+    },
+    {
+      "question": "What is the purpose of corticosteroid injections in joints?",
+      "options": ["To increase inflammation", "To reduce pain and inflammation", "To increase bone growth", "To treat infection"],
+      "correctAnswer": "To reduce pain and inflammation"
+    },
+    {
+      "question": "What is the term for pain in the lower back?",
+      "options": ["Neck pain", "Sciatica", "Low Back Pain", "Shoulder pain"],
+      "correctAnswer": "Low Back Pain"
+    },
+    {
+      "question": "Which of these sports activities are beneficial for bone health?",
+      "options": ["Swimming only", "Weight-bearing activities (like walking and running)", "Complete rest", "Excessive weightlifting"],
+      "correctAnswer": "Weight-bearing activities (like walking and running)"
+    },
+    {
+      "question": "What is the purpose of Joint Replacement Surgery?",
+      "options": ["To increase pain", "To restore joint function and relieve pain in severely damaged joints", "To reduce movement", "To remove healthy bone"],
+      "correctAnswer": "To restore joint function and relieve pain in severely damaged joints"
+    },
+    {
+      "question": "What is the term for inflammation of the rotator cuff tendons in the shoulder?",
+      "options": ["Carpal Tunnel Syndrome", "Knee arthritis", "Rotator Cuff Tendinitis", "Achilles Tendinitis"],
+      "correctAnswer": "Rotator Cuff Tendinitis"
+    },
+    {
+      "question": "What test is used to evaluate soft tissues like ligaments and tendons?",
+      "options": ["X-ray", "Magnetic Resonance Imaging (MRI)", "Computed Tomography (CT) scan", "Bone densitometry"],
+      "correctAnswer": "Magnetic Resonance Imaging (MRI)"
+    },
+    {
+      "question": "What is the term for pain resulting from nerve compression?",
+      "options": ["Muscle pain", "Neuropathic Pain", "Joint pain", "Bone pain"],
+      "correctAnswer": "Neuropathic Pain"
+    },
+    {
+      "question": "What is one strategy for preventing back injuries?",
+      "options": ["Lifting heavy objects incorrectly", "Maintaining good posture when lifting and sitting", "Not exercising", "Smoking"],
+      "correctAnswer": "Maintaining good posture when lifting and sitting"
+    },
+    {
+      "question": "What is the term 'Subluxation'?",
+      "options": ["Complete joint dislocation", "Partial joint dislocation", "Joint fracture", "Joint inflammation"],
+      "correctAnswer": "Partial joint dislocation"
+    },
+    {
+      "question": "What is the main importance of Vitamin D in bone health?",
+      "options": ["Increases bone loss", "Helps calcium absorption", "Causes osteoporosis", "Has no relation to bones"],
+      "correctAnswer": "Helps calcium absorption"
+    },
+    {
+      "question": "What is the term for abnormal new bone growth on the edges of damaged joints?",
+      "options": ["Tumor", "Bone Spur", "Abscess", "Clot"],
+      "correctAnswer": "Bone Spur"
+    },
+    {
+      "question": "What role do exercises play in treating arthritis?",
+      "options": ["Increase pain", "Reduce mobility", "Improve flexibility and strengthen muscles around the joint", "Worsen inflammation"],
+      "correctAnswer": "Improve flexibility and strengthen muscles around the joint"
+    }
+  ]
+}

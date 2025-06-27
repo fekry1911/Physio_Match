@@ -1,0 +1,155 @@
+{
+  "specialty": "Occupational",
+  "questions": [
+    {
+      "question": "What is the primary goal of occupational health and safety?",
+      "options": ["Only increasing productivity", "Reducing insurance costs", "Protecting the health and safety of workers", "Increasing profits"],
+      "correctAnswer": "Protecting the health and safety of workers"
+    },
+    {
+      "question": "What is the term for an injury or illness resulting from the work environment?",
+      "options": ["Genetic disease", "Sports injury", "Occupational disease", "Chronic illness"],
+      "correctAnswer": "Occupational disease"
+    },
+    {
+      "question": "Which of these hazards are considered biological hazards in the workplace?",
+      "options": ["Loud noise", "Bacteria and viruses", "Chemical substances", "Heavy lifting"],
+      "correctAnswer": "Bacteria and viruses"
+    },
+    {
+      "question": "What is the purpose of risk assessment in the workplace?",
+      "options": ["Punishing workers", "Identifying and evaluating potential hazards", "Increasing risks", "Ignoring accidents"],
+      "correctAnswer": "Identifying and evaluating potential hazards"
+    },
+    {
+      "question": "What is the term 'Repetitive Strain Injury (RSI)'?",
+      "options": ["Acute injury from a single accident", "Injury caused by repetitive movements", "Injury caused by falling", "Mental injury"],
+      "correctAnswer": "Injury caused by repetitive movements"
+    },
+    {
+      "question": "Which of these devices are considered Personal Protective Equipment (PPE)?",
+      "options": ["Desks", "Helmets and safety glasses", "Chairs", "Computers"],
+      "correctAnswer": "Helmets and safety glasses"
+    },
+    {
+      "question": "What is the main role of an occupational physician?",
+      "options": ["Treating all diseases", "Assessing the impact of work on worker's health and vice versa", "Selling medical products", "Only issuing sick leave certificates"],
+      "correctAnswer": "Assessing the impact of work on worker's health and vice versa"
+    },
+    {
+      "question": "What is the importance of awareness and training programs in occupational health?",
+      "options": ["Increasing accidents", "Reducing awareness of hazards", "Increasing awareness of hazards and how to prevent them", "Wasting time"],
+      "correctAnswer": "Increasing awareness of hazards and how to prevent them"
+    },
+    {
+      "question": "What is the term for psychological stress resulting from work pressures?",
+      "options": ["Physical fatigue", "Work-related stress", "Chronic fatigue", "Sleep disorder"],
+      "correctAnswer": "Work-related stress"
+    },
+    {
+      "question": "Which of the following is a chemical hazard in the workplace?",
+      "options": ["Extreme temperatures", "Asbestos and solvents", "Noise", "Vibrations"],
+      "correctAnswer": "Asbestos and solvents"
+    },
+    {
+      "question": "What is the purpose of regular hearing tests for workers in noisy environments?",
+      "options": ["To ensure they can sing", "To detect noise-induced hearing loss early", "To monitor blood pressure", "To assess vision"],
+      "correctAnswer": "To detect noise-induced hearing loss early"
+    },
+    {
+      "question": "What is the term for providing a safe and healthy work environment for employees?",
+      "options": ["Maximum productivity", "Maintenance", "Safe work environment", "Social welfare"],
+      "correctAnswer": "Safe work environment"
+    },
+    {
+      "question": "What is the importance of proper ergonomic design of workstations?",
+      "options": ["To increase fatigue", "To reduce comfort", "To reduce strain and musculoskeletal injuries", "To increase accidents"],
+      "correctAnswer": "To reduce strain and musculoskeletal injuries"
+    },
+    {
+      "question": "Which of the following is a physical hazard in the workplace?",
+      "options": ["Bullying", "Psychological stress", "Noise and radiation", "Bacteria"],
+      "correctAnswer": "Noise and radiation"
+    },
+    {
+      "question": "What is the purpose of accident and injury reporting systems in the workplace?",
+      "options": ["To hide accidents", "To collect and analyze data to prevent recurrence", "To increase bureaucracy", "To reduce safety"],
+      "correctAnswer": "To collect and analyze data to prevent recurrence"
+    },
+    {
+      "question": "What respiratory disease affects coal miners due to dust inhalation?",
+      "options": ["Asthma", "Pneumonia", "Black Lung Disease (Coalworker's Pneumoconiosis)", "Tuberculosis"],
+      "correctAnswer": "Black Lung Disease (Coalworker's Pneumoconiosis)"
+    },
+    {
+      "question": "What is the goal of occupational rehabilitation?",
+      "options": ["To make the worker unemployed", "To help injured workers return to work safely", "To increase injuries", "To reduce skills"],
+      "correctAnswer": "To help injured workers return to work safely"
+    },
+    {
+      "question": "Which of the following are psychosocial hazards in the workplace?",
+      "options": ["High temperatures", "Bullying and harassment", "Toxic chemicals", "Heavy machinery"],
+      "correctAnswer": "Bullying and harassment"
+    },
+    {
+      "question": "What is the term for indoor air pollution in office buildings?",
+      "options": ["Outdoor pollution", "Sick Building Syndrome", "Smog", "Chemical pollution"],
+      "correctAnswer": "Sick Building Syndrome"
+    },
+    {
+      "question": "What is the purpose of preventive medical examinations for workers?",
+      "options": ["To make judgments", "To detect work-related diseases early", "To increase costs", "To disrupt work"],
+      "correctAnswer": "To detect work-related diseases early"
+    },
+    {
+      "question": "What role do joint health and safety committees play in the workplace?",
+      "options": ["Creating conflicts", "Facilitating cooperation between management and workers to improve safety", "Increasing risks", "Making unilateral decisions"],
+      "correctAnswer": "Facilitating cooperation between management and workers to improve safety"
+    },
+    {
+      "question": "Which of these industries has the highest risk of occupational respiratory diseases?",
+      "options": ["IT industry", "Manufacturing involving dust and chemicals", "Food service industry", "Education"],
+      "correctAnswer": "Manufacturing involving dust and chemicals"
+    },
+    {
+      "question": "What is the concept of 'Corporate Social Responsibility' in the context of occupational health?",
+      "options": ["Maximizing profits at the expense of workers", "Companies' commitment to protecting the health and well-being of workers and society", "Evading responsibility", "Reducing safety standards"],
+      "correctAnswer": "Companies' commitment to protecting the health and well-being of workers and society"
+    },
+    {
+      "question": "What is the purpose of machine guarding?",
+      "options": ["To reduce machine efficiency", "To protect workers from dangerous moving parts", "To increase noise", "For decoration only"],
+      "correctAnswer": "To protect workers from dangerous moving parts"
+    },
+    {
+      "question": "What is the term for adapting working conditions to suit the capabilities of workers?",
+      "options": ["Manufacturing", "Management", "Ergonomics", "Training"],
+      "correctAnswer": "Ergonomics"
+    },
+    {
+      "question": "What is the importance of good ventilation in industrial work environments?",
+      "options": ["To increase air pollution", "To reduce air quality", "To remove pollutants and improve air quality", "No importance"],
+      "correctAnswer": "To remove pollutants and improve air quality"
+    },
+    {
+      "question": "Which of the following is a sign of heat stress in the workplace?",
+      "options": ["Increased focus", "Cool, dry skin", "Heavy sweating and muscle cramps", "Decreased body temperature"],
+      "correctAnswer": "Heavy sweating and muscle cramps"
+    },
+    {
+      "question": "What is the purpose of emergency and evacuation plans in the workplace?",
+      "options": ["To increase chaos", "To ensure a rapid and organized response in emergencies", "To ignore risks", "To disrupt work"],
+      "correctAnswer": "To ensure a rapid and organized response in emergencies"
+    },
+    {
+      "question": "What disease is caused by inhaling silica dust?",
+      "options": ["Asthma", "Cystic Fibrosis", "Silicosis", "Bronchitis"],
+      "correctAnswer": "Silicosis"
+    },
+    {
+      "question": "What is the term for 'Hazardous Material Handling'?",
+      "options": ["Unsafe waste disposal", "Managing, storing, and transporting hazardous materials safely", "Using hazardous materials randomly", "Ignoring safety instructions"],
+      "correctAnswer": "Managing, storing, and transporting hazardous materials safely"
+    }
+  ]
+}

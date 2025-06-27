@@ -59,7 +59,6 @@ class LoginCubit extends Cubit<LoginStates> {
         .signOut()
         .then((onValue) {
           CacheHelper.removeString(key: "uid");
-          CacheHelper.removeString(key: "type");
           CacheHelper.removeBool(key: "submitted");
           emit(SignOutDone());
         })

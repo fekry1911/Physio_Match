@@ -1,0 +1,155 @@
+{
+  "specialty": "Cardiopulmonary",
+  "questions": [
+    {
+      "question": "Which of the following is a common symptom of chronic obstructive pulmonary disease (COPD)?",
+      "options": ["Productive cough", "High blood pressure", "Chest pain", "Nausea"],
+      "correctAnswer": "Productive cough"
+    },
+    {
+      "question": "What is the primary goal of cardiac rehabilitation?",
+      "options": ["Improve muscle mass", "Improve cardiovascular endurance", "Reduce weight", "Strengthen bones"],
+      "correctAnswer": "Improve cardiovascular endurance"
+    },
+    {
+      "question": "What position helps to relieve dyspnea in COPD patients?",
+      "options": ["Supine", "Side-lying", "Forward lean sitting", "Prone"],
+      "correctAnswer": "Forward lean sitting"
+    },
+    {
+      "question": "Which breathing technique is most beneficial for emphysema?",
+      "options": ["Shallow breathing", "Pursed-lip breathing", "Diaphragmatic breathing", "Apical breathing"],
+      "correctAnswer": "Pursed-lip breathing"
+    },
+    {
+      "question": "Which of these is a contraindication to postural drainage?",
+      "options": ["Hemorrhage", "COPD", "Asthma", "Emphysema"],
+      "correctAnswer": "Hemorrhage"
+    },
+    {
+      "question": "What is the normal range for resting heart rate in adults?",
+      "options": ["40-60 bpm", "60-100 bpm", "100-120 bpm", "120-140 bpm"],
+      "correctAnswer": "60-100 bpm"
+    },
+    {
+      "question": "Which heart chamber pumps oxygenated blood to the body?",
+      "options": ["Right atrium", "Left atrium", "Right ventricle", "Left ventricle"],
+      "correctAnswer": "Left ventricle"
+    },
+    {
+      "question": "What is the most common cause of coronary artery disease (CAD)?",
+      "options": ["Infection", "Inflammation", "Atherosclerosis", "Trauma"],
+      "correctAnswer": "Atherosclerosis"
+    },
+    {
+      "question": "Which diagnostic test is used to assess the electrical activity of the heart?",
+      "options": ["Echocardiogram", "Chest X-ray", "Electrocardiogram (ECG)", "CT scan"],
+      "correctAnswer": "Electrocardiogram (ECG)"
+    },
+    {
+      "question": "What is a common complication of uncontrolled hypertension?",
+      "options": ["Hypoglycemia", "Stroke", "Anemia", "Osteoporosis"],
+      "correctAnswer": "Stroke"
+    },
+    {
+      "question": "Which medication class is commonly used to lower cholesterol levels?",
+      "options": ["Beta-blockers", "Diuretics", "Statins", "ACE inhibitors"],
+      "correctAnswer": "Statins"
+    },
+    {
+      "question": "What is the primary function of the alveoli in the lungs?",
+      "options": ["Gas exchange", "Air filtration", "Mucus production", "Voice production"],
+      "correctAnswer": "Gas exchange"
+    },
+    {
+      "question": "Which type of pneumonia is often acquired in a hospital setting?",
+      "options": ["Community-acquired pneumonia", "Viral pneumonia", "Fungal pneumonia", "Hospital-acquired pneumonia"],
+      "correctAnswer": "Hospital-acquired pneumonia"
+    },
+    {
+      "question": "What is the term for a collapsed lung?",
+      "options": ["Pneumonia", "Bronchitis", "Pneumothorax", "Asthma"],
+      "correctAnswer": "Pneumothorax"
+    },
+    {
+      "question": "Which of the following is a risk factor for developing deep vein thrombosis (DVT)?",
+      "options": ["Regular exercise", "Prolonged immobility", "Low-fat diet", "Adequate hydration"],
+      "correctAnswer": "Prolonged immobility"
+    },
+    {
+      "question": "What is the recommended dietary modification for patients with heart failure?",
+      "options": ["High sodium intake", "Low potassium intake", "Fluid restriction", "High fat intake"],
+      "correctAnswer": "Fluid restriction"
+    },
+    {
+      "question": "Which exercise intensity is generally recommended for cardiac rehabilitation?",
+      "options": ["Very light", "Moderate", "Maximal", "None"],
+      "correctAnswer": "Moderate"
+    },
+    {
+      "question": "What is a common sign of peripheral artery disease (PAD)?",
+      "options": ["Swelling in the hands", "Leg pain with walking (claudication)", "Facial numbness", "Blurred vision"],
+      "correctAnswer": "Leg pain with walking (claudication)"
+    },
+    {
+      "question": "Which vital sign is most indicative of respiratory distress?",
+      "options": ["Normal temperature", "Bradypnea", "Tachypnea", "Normal blood pressure"],
+      "correctAnswer": "Tachypnea"
+    },
+    {
+      "question": "What is the purpose of a pulse oximeter?",
+      "options": ["Measure blood pressure", "Measure heart rate", "Measure oxygen saturation", "Measure body temperature"],
+      "correctAnswer": "Measure oxygen saturation"
+    },
+    {
+      "question": "Which type of asthma is triggered by allergens?",
+      "options": ["Exercise-induced asthma", "Nocturnal asthma", "Allergic asthma", "Occupational asthma"],
+      "correctAnswer": "Allergic asthma"
+    },
+    {
+      "question": "What is the primary role of the diaphragm in breathing?",
+      "options": ["Filters air", "Warms air", "Contracts to draw air in", "Produces mucus"],
+      "correctAnswer": "Contracts to draw air in"
+    },
+    {
+      "question": "Which of these is a common symptom of a myocardial infarction (heart attack)?",
+      "options": ["Leg cramps", "Chest discomfort or pain", "Nosebleed", "Dizziness when standing"],
+      "correctAnswer": "Chest discomfort or pain"
+    },
+    {
+      "question": "What is the recommended position for a patient experiencing an acute asthma attack?",
+      "options": ["Supine", "Trendelenburg", "Sitting upright", "Prone"],
+      "correctAnswer": "Sitting upright"
+    },
+    {
+      "question": "Which type of cardiac arrhythmia is characterized by a rapid, irregular heartbeat?",
+      "options": ["Bradycardia", "Sinus rhythm", "Atrial fibrillation", "Ventricular tachycardia"],
+      "correctAnswer": "Atrial fibrillation"
+    },
+    {
+      "question": "What is the primary benefit of regular physical activity for cardiovascular health?",
+      "options": ["Increases LDL cholesterol", "Decreases HDL cholesterol", "Strengthens the heart muscle", "Increases blood pressure"],
+      "correctAnswer": "Strengthens the heart muscle"
+    },
+    {
+      "question": "Which lung volume represents the maximum amount of air that can be exhaled after a maximal inspiration?",
+      "options": ["Tidal volume", "Residual volume", "Total lung capacity", "Vital capacity"],
+      "correctAnswer": "Vital capacity"
+    },
+    {
+      "question": "What is the term for fluid accumulation in the lungs?",
+      "options": ["Emphysema", "Pneumothorax", "Pulmonary edema", "Bronchitis"],
+      "correctAnswer": "Pulmonary edema"
+    },
+    {
+      "question": "Which of these is a non-pharmacological intervention for hypertension?",
+      "options": ["Antibiotics", "Chemotherapy", "Dietary sodium restriction", "Insulin therapy"],
+      "correctAnswer": "Dietary sodium restriction"
+    },
+    {
+      "question": "What is the primary purpose of a stress test in cardiology?",
+      "options": ["Assess kidney function", "Evaluate heart's response to exercise", "Measure bone density", "Diagnose diabetes"],
+      "correctAnswer": "Evaluate heart's response to exercise"
+    }
+  ]
+}

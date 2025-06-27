@@ -98,6 +98,14 @@ flutter:
     - assets/AbdulrahmanFekry cv(flutter Developer.pdf
     - assets/payment.png
     - assets/physio/
+    - assets/ques/Cardiopulmonary.json
+    - assets/ques/Geriatric.json
+    - assets/ques/ICU.json
+    - assets/ques/Neurological.json
+    - assets/ques/Occupational.json
+    - assets/ques/Orthopedic.json
+    - assets/ques/Pediatric.json
+    - assets/ques/Women’s Health.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

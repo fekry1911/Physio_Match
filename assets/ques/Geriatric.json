@@ -1,0 +1,155 @@
+{
+  "specialty": "Geriatric",
+  "questions": [
+    {
+      "question": "Which of the following is a common physiological change with aging?",
+      "options": ["Increased muscle mass", "Increased bone density", "Decreased skin elasticity", "Improved visual acuity"],
+      "correctAnswer": "Decreased skin elasticity"
+    },
+    {
+      "question": "What is the term for age-related dementia?",
+      "options": ["Alzheimer's disease", "Parkinson's disease", "Multiple sclerosis", "Epilepsy"],
+      "correctAnswer": "Alzheimer's disease"
+    },
+    {
+      "question": "Which of these medications commonly causes dizziness and falls in older adults?",
+      "options": ["Antibiotics", "Diuretics", "Sedatives", "Vitamins"],
+      "correctAnswer": "Sedatives"
+    },
+    {
+      "question": "What vitamins and minerals are often deficient in older adults?",
+      "options": ["Vitamin C and iron", "Vitamin D and calcium", "Vitamin A and potassium", "Vitamin K and magnesium"],
+      "correctAnswer": "Vitamin D and calcium"
+    },
+    {
+      "question": "What is one of the most important fall prevention strategies for older adults?",
+      "options": ["Wearing high heels", "Removing throw rugs", "Dim lighting", "Avoiding assistive devices"],
+      "correctAnswer": "Removing throw rugs"
+    },
+    {
+      "question": "What is the term for age-related hearing loss?",
+      "options": ["Tinnitus", "Conductive hearing loss", "Sensorineural hearing loss", "Presbycusis"],
+      "correctAnswer": "Presbycusis"
+    },
+    {
+      "question": "Which of the following is a common nutritional challenge in older adults?",
+      "options": ["Increased appetite", "Decreased sense of taste and smell", "Increased physical activity", "Easy chewing of food"],
+      "correctAnswer": "Decreased sense of taste and smell"
+    },
+    {
+      "question": "What geriatric syndrome is characterized by weakness, weight loss, and low activity?",
+      "options": ["Irritable bowel syndrome", "Frailty", "Chronic fatigue syndrome", "Tourette's syndrome"],
+      "correctAnswer": "Frailty"
+    },
+    {
+      "question": "What intervention can help improve cognitive function in older adults?",
+      "options": ["Social isolation", "Lack of sleep", "Regular mental activity", "High-sugar diet"],
+      "correctAnswer": "Regular mental activity"
+    },
+    {
+      "question": "What eye condition causes central vision loss in older adults?",
+      "options": ["Glaucoma", "Cataracts", "Age-related macular degeneration (AMD)", "Diabetic retinopathy"],
+      "correctAnswer": "Age-related macular degeneration (AMD)"
+    },
+    {
+      "question": "What is one effective strategy for managing chronic pain in older adults?",
+      "options": ["Ignoring the pain", "Relying only on strong painkillers", "Multimodal approach (medication, physical therapy, etc.)", "Excessive physical activity"],
+      "correctAnswer": "Multimodal approach (medication, physical therapy, etc.)"
+    },
+    {
+      "question": "What is the term for the decreased ability to see close objects with aging?",
+      "options": ["Myopia", "Hyperopia", "Presbyopia", "Astigmatism"],
+      "correctAnswer": "Presbyopia"
+    },
+    {
+      "question": "What is a common sleep-related challenge in older adults?",
+      "options": ["Increased deep sleep duration", "Frequent awakenings during the night", "Excessive daytime sleepiness", "No need for sleep"],
+      "correctAnswer": "Frequent awakenings during the night"
+    },
+    {
+      "question": "What is one of the main benefits of regular physical activity for older adults?",
+      "options": ["Increased fall risk", "Decreased bone mass", "Improved balance and strength", "Weight gain"],
+      "correctAnswer": "Improved balance and strength"
+    },
+    {
+      "question": "What is the term for undernutrition or inadequate nutrition in older adults?",
+      "options": ["Obesity", "Anorexia", "Malnutrition", "Bulimia"],
+      "correctAnswer": "Malnutrition"
+    },
+    {
+      "question": "What is a common gastrointestinal issue in older adults?",
+      "options": ["Frequent diarrhea", "Increased stomach acid", "Constipation", "Increased digestion speed"],
+      "correctAnswer": "Constipation"
+    },
+    {
+      "question": "What is the most common type of elder abuse?",
+      "options": ["Physical abuse", "Financial abuse", "Emotional abuse", "Neglect"],
+      "correctAnswer": "Neglect"
+    },
+    {
+      "question": "What test is used to assess fall risk in older adults?",
+      "options": ["Grip strength test", "Timed Up and Go Test", "Vision test", "Hearing test"],
+      "correctAnswer": "Timed Up and Go Test"
+    },
+    {
+      "question": "What medication should be used with caution in older adults due to its cognitive side effects?",
+      "options": ["Vitamin C", "Antibiotics", "First-generation antihistamines", "Mild painkillers"],
+      "correctAnswer": "First-generation antihistamines"
+    },
+    {
+      "question": "What is the term for age-related loss of muscle mass and strength?",
+      "options": ["Osteoporosis", "Arthritis", "Sarcopenia", "Gout"],
+      "correctAnswer": "Sarcopenia"
+    },
+    {
+      "question": "What environmental factor can reduce fall risk at home?",
+      "options": ["Leaving cords exposed", "Not securing rugs", "Good lighting", "Absence of handrails"],
+      "correctAnswer": "Good lighting"
+    },
+    {
+      "question": "What psychosocial intervention can benefit older adults with depression?",
+      "options": ["Social isolation", "Cognitive Behavioral Therapy (CBT)", "Lack of activity", "Excessive TV watching"],
+      "correctAnswer": "Cognitive Behavioral Therapy (CBT)"
+    },
+    {
+      "question": "What is one common skin-related issue in older adults?",
+      "options": ["Increased oil production", "Dry, itchy skin", "Severe acne", "Increased skin elasticity"],
+      "correctAnswer": "Dry, itchy skin"
+    },
+    {
+      "question": "What is the term for loss of bladder control, common in older adults?",
+      "options": ["Kidney stones", "Urinary incontinence", "Urinary tract infection", "Benign prostatic hyperplasia"],
+      "correctAnswer": "Urinary incontinence"
+    },
+    {
+      "question": "What is the importance of vaccinations for older adults?",
+      "options": ["No importance", "Increases disease risk", "Reduces risk of severe infection", "Always causes serious reactions"],
+      "correctAnswer": "Reduces risk of severe infection"
+    },
+    {
+      "question": "What type of care focuses on providing comfort and symptom relief for patients at the end of life?",
+      "options": ["Curative care", "Preventive care", "Palliative care", "Rehabilitation"],
+      "correctAnswer": "Palliative care"
+    },
+    {
+      "question": "What is one strategy to improve communication with older adults who have hearing loss?",
+      "options": ["Shouting loudly", "Speaking quickly", "Speaking clearly and slowly, face-to-face", "Avoiding eye contact"],
+      "correctAnswer": "Speaking clearly and slowly, face-to-face"
+    },
+    {
+      "question": "What is the concept of 'Polypharmacy'?",
+      "options": ["Using one medication for multiple conditions", "Using an ineffective medication", "Using multiple medications at once", "Not using any medications"],
+      "correctAnswer": "Using multiple medications at once"
+    },
+    {
+      "question": "What is one psychological benefit of regular social activity for older adults?",
+      "options": ["Increased feelings of loneliness", "Reduced risk of depression", "Increased anxiety", "Memory loss"],
+      "correctAnswer": "Reduced risk of depression"
+    },
+    {
+      "question": "What is the term for common bone and joint changes in older adults causing pain and stiffness?",
+      "options": ["Rheumatoid arthritis", "Osteoarthritis", "Gout", "Lupus"],
+      "correctAnswer": "Osteoarthritis"
+    }
+  ]
+}

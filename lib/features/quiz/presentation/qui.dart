@@ -69,7 +69,7 @@ class _QuizScreenState extends State<QuizScreen> {
             BlocListener<SaveScoreCubit, SaveScoreState>(
               listener: (BuildContext context, SaveScoreState state) {
                 if(state is SaveScoreSucc){
-                  context.pushAndRemoveUntil(homeScreen);
+                  context.pushAndRemoveUntil(doctorHomeScreen);
                 }
                 if(state is SaveScoreLoad){
                   showDialog(
@@ -117,137 +117,138 @@ class _QuizScreenState extends State<QuizScreen> {
 
         body: Padding(
           padding: EdgeInsets.all(16.0.r),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Q${currentIndex + 1}: ${question['questionText']}',
-                style: TextStyle(
-                  letterSpacing: 2,
-                  height: 1.4,
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.mainTealColor,
-                ),
-              ),
-              SizedBox(height: 20.h),
-              ...List.generate(question['options'].length, (index) {
-                bool isSelected = selectedIndex == index;
-
-                return Padding(
-                  padding: EdgeInsets.all(10.0.r),
-                  child: Container(
-                    height: 50.h,
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(vertical: 6.dg),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            isSelected
-                                ? AppColors.mainTealColor
-                                : Colors.grey[200],
-                        foregroundColor:
-                            isSelected ? Colors.white : Colors.black,
-                      ),
-                      onPressed: () => checkAnswer(index),
-                      child: Text(
-                        question['options'][index],
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          letterSpacing: 2,
-                          height: 1.5,
-                        ),
-                      ),
-                    ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Q${currentIndex + 1}: ${question['question']}',
+                  style: TextStyle(
+                    letterSpacing: 2,
+                    height: 1.4,
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.mainTealColor,
                   ),
-                );
-              }),
-              const Spacer(),
-              Container(
-                margin: EdgeInsets.all(30.r),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "${currentIndex + 1}  /  10",
-                      style: TextThemes.font22BlackMedium.copyWith(
-                        color:
-                            currentIndex == widget.questions.length - 1
-                                ? AppColors.mainTealColor
-                                : Colors.red,
+                ),
+                SizedBox(height: 20.h),
+                ...List.generate(question['options'].length, (index) {
+                  bool isSelected = selectedIndex == index;
+            
+                  return Padding(
+                    padding: EdgeInsets.all(10.0.r),
+                    child: Container(
+                      height: 50.h,
+                      width: double.infinity,
+                      margin: EdgeInsets.symmetric(vertical: 6.dg),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              isSelected
+                                  ? AppColors.mainTealColor
+                                  : Colors.grey[200],
+                          foregroundColor:
+                              isSelected ? Colors.white : Colors.black,
+                        ),
+                        onPressed: () => checkAnswer(index),
+                        child: Text(
+                          question['options'][index],
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            letterSpacing: 2,
+                            height: 1.5,
+                          ),
+                        ),
                       ),
                     ),
-                    SizedBox(height: 10.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 50.h,
-                          width: 100.w,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                            ),
-                            onPressed:
-                                currentIndex > 0
-                                    ? () {
-                                      setState(() {
-                                        currentIndex--;
-                                      });
-                                    }
-                                    : null,
-                            child: Text(
-                              'Previous',
-                              style: TextStyle(
-                                color:
-                                    currentIndex > 0
-                                        ? Colors.white
-                                        : Colors.grey,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          height: 50.h,
-                          width: 100.w,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.teal,
-                            ),
-                            onPressed:
-                                selectedIndex != null
-                                    ? () {
-                                      if (currentIndex <
-                                          widget.questions.length - 1) {
-                                        setState(() {
-                                          currentIndex++;
-                                        });
-                                      } else {
-                                        calculateResult();
-                                      }
-                                    }
-                                    : null,
-                            child: Text(
+                  );
+                }),
+                Container(
+                  margin: EdgeInsets.all(30.r),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${currentIndex + 1}  /  10",
+                        style: TextThemes.font22BlackMedium.copyWith(
+                          color:
                               currentIndex == widget.questions.length - 1
-                                  ? 'Finish'
-                                  : 'Next',
-                              style: TextStyle(
-                                color:
-                                    selectedIndex != null
-                                        ? Colors.white
-                                        : Colors.grey,
+                                  ? AppColors.mainTealColor
+                                  : Colors.red,
+                        ),
+                      ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 50.h,
+                            width: 100.w,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red,
+                              ),
+                              onPressed:
+                                  currentIndex > 0
+                                      ? () {
+                                        setState(() {
+                                          currentIndex--;
+                                        });
+                                      }
+                                      : null,
+                              child: Text(
+                                'Previous',
+                                style: TextStyle(
+                                  color:
+                                      currentIndex > 0
+                                          ? Colors.white
+                                          : Colors.grey,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          Spacer(),
+                          Container(
+                            height: 50.h,
+                            width: 100.w,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.teal,
+                              ),
+                              onPressed:
+                                  selectedIndex != null
+                                      ? () {
+                                        if (currentIndex <
+                                            widget.questions.length - 1) {
+                                          setState(() {
+                                            currentIndex++;
+                                          });
+                                        } else {
+                                          calculateResult();
+                                        }
+                                      }
+                                      : null,
+                              child: Text(
+                                currentIndex == widget.questions.length - 1
+                                    ? 'Finish'
+                                    : 'Next',
+                                style: TextStyle(
+                                  color:
+                                      selectedIndex != null
+                                          ? Colors.white
+                                          : Colors.grey,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

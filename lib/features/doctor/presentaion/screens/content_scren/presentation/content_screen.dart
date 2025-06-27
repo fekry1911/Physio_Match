@@ -1,9 +1,9 @@
 import 'package:add_ques/core/theme/colors/colors.dart';
-import 'package:add_ques/features/doctor/presentaion/screens/content_scren/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/theme/text_themes/text.dart';
+import '../../../../../home_page/data/data/data.dart';
 
 class DoctorFilesScreen extends StatelessWidget {
   @override
