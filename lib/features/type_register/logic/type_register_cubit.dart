@@ -108,19 +108,14 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
 
   String UploadedPdf = "No file added";
   String? fileName;
-
   Future<void> pickAndUploadImage() async {
-    final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile == null) return;
 
     final originalFile = File(pickedFile.path);
     fileName = path.basename(pickedFile.path);
-    print("$fileName 1111111111111111111111111111111111111111111111111111");
-
 
     try {
-      print("$fileName 1111111111111111111111111111111111111111111111111111");
       final compressedBytes = await FlutterImageCompress.compressWithFile(
         originalFile.absolute.path,
         quality: 70,
@@ -133,27 +128,23 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       }
 
       final sizeInMB = compressedBytes.lengthInBytes / (1024 * 1024);
-      print('📏 حجم الصورة المضغوطة: ${sizeInMB.toStringAsFixed(2)} MB');
-
       if (sizeInMB > 50) {
-        print('❌ الصورة لسه كبيرة (>50MB)');
+        print('❌ الصورة كبيرة (>50MB)');
         emit(UploadImageFail());
         return;
       }
 
       emit(UploadImageLoad());
-      // ✅ الحصول على UID من Firebase Auth
+
       final uid = FirebaseAuth.instance.currentUser?.uid;
       if (uid == null) {
-        print('❌ المستخدم غير مسجل دخول');
         emit(UploadImageFail());
         return;
       }
 
-      // ✅ اسم ملف باستخدام uid
       final userFilePath = 'public/${uid}_profile.jpg';
-
       final storageRef = Supabase.instance.client.storage.from('images');
+
       await storageRef.uploadBinary(
         userFilePath,
         compressedBytes,
@@ -161,9 +152,12 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       );
 
       final publicUrl = storageRef.getPublicUrl(userFilePath);
-      uploadedImageUrl = publicUrl;
-
-      emit(UploadImageSucc());
+      if (publicUrl.isNotEmpty) {
+        uploadedImageUrl = publicUrl;
+        emit(UploadImageSucc());
+      } else {
+        emit(UploadImageFail());
+      }
     } catch (e) {
       print('❌ Error: $e');
       emit(UploadImageFail());
@@ -181,13 +175,9 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       }
 
       final fileBytes = await file.readAsBytes();
-      final fileName = file.name;
-
       final sizeInMB = fileBytes.lengthInBytes / (1024 * 1024);
-      print('📏 حجم CV: ${sizeInMB.toStringAsFixed(2)} MB');
-
       if (sizeInMB > 50) {
-        print('❌ الملف أكبر من الحد المسموح به (50MB)');
+        print('❌ الملف كبير جداً');
         return;
       }
 
@@ -195,11 +185,10 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
 
       final uid = FirebaseAuth.instance.currentUser?.uid;
       if (uid == null) {
-        print('❌ المستخدم غير مسجل دخول');
         return;
       }
 
-      final userFilePath = '${uid}_cv.pdf'; // ✅ لا تضع "public/"
+      final userFilePath = '${uid}_cv.pdf';
       final storageRef = Supabase.instance.client.storage.from('documents');
 
       await storageRef.uploadBinary(
@@ -212,16 +201,19 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       );
 
       final publicUrl = storageRef.getPublicUrl(userFilePath);
-      uploadedCvUrl=publicUrl;
-      print('📄 تم رفع CV: $publicUrl');
-
-      UploadedPdf = publicUrl;
-      emit(UploadImageSucc());
+      if (publicUrl.isNotEmpty) {
+        uploadedCvUrl = publicUrl;
+        UploadedPdf = publicUrl;
+        emit(UploadImageSucc());
+      } else {
+        emit(UploadCVFail());
+      }
     } catch (e) {
       print('❌ Error: $e');
       emit(UploadCVFail());
     }
   }
+
 
   setCurrentStep(int step) {
     currentStep = step;

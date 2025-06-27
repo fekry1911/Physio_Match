@@ -154,10 +154,9 @@ class UserData extends StatelessWidget {
                           image: 'assets/personalcard.png',
                           data: 'Update My Personal Data',
                           onPreesed: () {
-                            /* showEditProfileDialog(
+                             showEditProfileDialog(
                                 context,
-                                imageUrl: cubit.studentModel!.imageUrl!,
-                              );*/
+                              );
                           },
                           backColor: Color(0xffEAF2FF),
                         ),

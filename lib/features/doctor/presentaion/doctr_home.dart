@@ -6,11 +6,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../logic/doctor_cubit.dart';
 
 class DoctorHomeScreen extends StatefulWidget {
+  final int initialIndex;
+
+  const DoctorHomeScreen({Key? key, this.initialIndex = 0}) : super(key: key);
   @override
   _DoctorHomeScreenState createState() => _DoctorHomeScreenState();
 }
 
 class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    final cubit = BlocProvider.of<DoctorCubit>(context, listen: false);
+    cubit.changeIndex(widget.initialIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<DoctorCubit>(context);

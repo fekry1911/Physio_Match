@@ -11,6 +11,9 @@ const String paymentData="/paymentData-screen";
 const String paymentSubmit="/paymentSubmit-screen";
 const String doctorHomeScreen="/doctorHome-screen";
 
+String specialization="";
+
+
 
 
 

@@ -29,6 +29,12 @@ class AddAllAues extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
+              specialization=items[index]["text"]!;
+              print(specialization);
+              print(items[index]["text"]);
+              print("1222222222222222222222223333333333333333333");
+
+
               context.read<HomeCubit>().getRandomQues(items[index]["text"]!);
             },
             child: Card(
@@ -78,7 +84,7 @@ class AddAllAues extends StatelessWidget {
                     }
                     if(state is GetSucc){
                       Navigator.pop(context);
-                      context.pushNamed(quizScreen,arguments: context.read<HomeCubit>().questions);
+                      context.pushNamed(quizScreen,arguments: context.read<HomeCubit>().questions,);
                     }
                     if(state is GetFail){
                       Navigator.pop(context);

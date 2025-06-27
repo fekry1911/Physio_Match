@@ -10,7 +10,7 @@ import '../../../../core/shared_widgets/snack_bar.dart';
 import '../../../../core/theme/text_themes/text.dart';
 import '../../logic/update_user_data_cubit.dart';
 
-void showEditProfileDialog(BuildContext context, {required String imageUrl}) {
+void showEditProfileDialog(BuildContext context) {
   final cubit = context.read<UpdateUserDataCubit>();
 
   showDialog(
@@ -42,33 +42,6 @@ void showEditProfileDialog(BuildContext context, {required String imageUrl}) {
                             color: AppColors.mainTealColor,
                           ),
                         ),
-                        SizedBox(height: 16.h),
-                        Stack(
-                          clipBehavior: Clip.none,
-                          alignment: Alignment.bottomRight,
-                          children: [
-                            CircleAvatar(
-                              radius: 60.r,
-                              backgroundImage: NetworkImage(
-                                cubit.updateImageUrl ?? imageUrl,
-                              ),
-                            ),
-                            Positioned(
-                              right: -5,
-                              bottom: -10,
-                              child: IconButton(
-                                onPressed: () {
-                                },
-                                icon: Icon(
-                                  Icons.camera_alt,
-                                  color: AppColors.mainTealColor,
-                                  size: 30.r,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 16.h),
                         SharedTextFormField(
                           controller: cubit.name,
                           maxLength: 22,
@@ -108,7 +81,7 @@ void showEditProfileDialog(BuildContext context, {required String imageUrl}) {
                               shape: RoundedRectangleBorder(),
                               onPressed: () {
                                if(cubit.formKey.currentState!.validate()){
-                                // cubit.updateData();
+                                 cubit.updateData();
                                }
                               },
                               child: Text(
@@ -135,7 +108,7 @@ void showEditProfileDialog(BuildContext context, {required String imageUrl}) {
                               );
                             }
                             if (state is UpdateUserDataDone) {
-                              context.pushNamed(userData);
+                              context.pushNamed(doctorHomeScreen,arguments: 2);
                             }
                             if (state is UpdateUserDataFail) {
                               AwesomeSnackBar(
