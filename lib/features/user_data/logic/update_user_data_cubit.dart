@@ -126,13 +126,12 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
 
   List<ScoreModel> scoreModel = [];
 
-  Future<void> getUserScores(String id) async {
+  Future<void> getUserScores(String id,String specialization) async {
     scoreModel.clear(); // 👈 أضف دي هنا
     await FirebaseFirestore.instance
-        .collection('users')
+        .collection('doctors')
         .doc(id)
-        .collection("score")
-        .orderBy("date", descending: true)
+        .collection("score").doc(specialization).collection("items")
         .get()
         .then((onValue) {
           if (onValue.docs.isNotEmpty) {

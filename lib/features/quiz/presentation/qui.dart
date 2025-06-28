@@ -112,7 +112,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
     return WillPopScope(
       onWillPop: () {
-        context.pushAndRemoveUntil(homeScreen);
+        context.pushAndRemoveUntil(doctorHomeScreen,arguments: 1);
         return Future.value(false);
       },
       child: Scaffold(
