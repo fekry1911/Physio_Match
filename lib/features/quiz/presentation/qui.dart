@@ -41,19 +41,25 @@ class _QuizScreenState extends State<QuizScreen> {
   void calculateResult() {
     int correct = 0;
     for (int i = 0; i < widget.questions.length; i++) {
-      if (selectedAnswers[i] == widget.questions[i]['correctAnswerIndex']) {
+      final selected = selectedAnswers[i];
+      final correctAnswer = widget.questions[i]['correctAnswer'];
+      final selectedText = selected != null ? widget.questions[i]['options'][selected] : null;
+
+      if (selectedText == correctAnswer) {
         correct++;
       }
     }
+
     setState(() {
       showResult = true;
     });
-    final saveCubit = context.read<SaveScoreCubit>(); // ✅
+
+    final saveCubit = context.read<SaveScoreCubit>();
     AwesomeDialog(
       context: context,
       correct: correct,
       widget: widget,
-      cubit: saveCubit, // ✅ مرر cubit
+      cubit: saveCubit,
     );
   }
 
@@ -69,7 +75,7 @@ class _QuizScreenState extends State<QuizScreen> {
             BlocListener<SaveScoreCubit, SaveScoreState>(
               listener: (BuildContext context, SaveScoreState state) {
                 if(state is SaveScoreSucc){
-                  context.pushAndRemoveUntil(doctorHomeScreen);
+                  context.pushAndRemoveUntil(doctorHomeScreen,arguments: 1);
                 }
                 if(state is SaveScoreLoad){
                   showDialog(

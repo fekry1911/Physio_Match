@@ -15,7 +15,7 @@ class HomeDeciderScreen extends StatelessWidget {
 
       return BlocProvider(
         create: (context) => DoctorCubit(),
-        child: DoctorHomeScreen(),
+        child: DoctorHomeScreen(initialIndex: 0,),
       );
   }
 }

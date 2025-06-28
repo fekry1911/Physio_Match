@@ -124,12 +124,18 @@ class AppRouter {
         );
       case doctorHomeScreen:
         final args = settings.arguments;
-        return MaterialPageRoute(
-          builder: (_) =>BlocProvider(
-            create: (context) => DoctorCubit(),
-            child: DoctorHomeScreen(),
-          ),
-        );
+        if(args is int){
+          return MaterialPageRoute(
+            builder: (_) =>BlocProvider(
+              create: (context) => DoctorCubit(),
+              child: DoctorHomeScreen(initialIndex: args),
+            ),
+          );
+
+        }
+        else {
+          return null;
+        }
     }
     return null;
   }

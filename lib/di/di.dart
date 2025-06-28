@@ -33,7 +33,6 @@ void setupServiceLocator() {
   // Firebase
   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
-  sl.registerLazySingleton<FirebaseStorage>(() => FirebaseStorage.instance);
 
 
   // Repositories
@@ -42,7 +41,7 @@ void setupServiceLocator() {
   sl.registerLazySingleton<AddUserData>(() => AddUserDataImpl(sl()));
   sl.registerLazySingleton<GetAllQues>(() => GetAllQuesImpl(sl(),));
   sl.registerLazySingleton<AddScore>(() => AppScoreImpl(sl(),));
-  sl.registerLazySingleton<UpdateUserRebo>(() => UpdateUserDataImpl(sl(),sl()));
+  sl.registerLazySingleton<UpdateUserRebo>(() => UpdateUserDataImpl(sl()));
   sl.registerLazySingleton<RegisterRepository>(() => RegisterRepoImpl(sl()));
 
   // payment
