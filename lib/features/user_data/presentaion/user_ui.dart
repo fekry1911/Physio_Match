@@ -4,7 +4,11 @@ import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/dialog.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/list_title_data.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/name_email.dart';
+import 'package:add_ques/features/user_data/presentaion/widgets/results.dart';
 import 'package:add_ques/features/user_data/presentaion/widgets/resume.dart';
+import 'package:drop_down_list/drop_down_list.dart';
+import 'package:drop_down_list/model/selected_list_item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -140,10 +144,26 @@ class UserData extends StatelessWidget {
                           image: 'assets/personalcard.png',
                           data: 'Show My Scores',
                           onPreesed: () {
-                            /* showEditProfileDialog(
-                                context,
-                                imageUrl: cubit.studentModel!.imageUrl!,
-                              );*/
+                            DropDownState<String>(
+                              dropDown: DropDown<String>(
+                                data: <SelectedListItem<String>>[
+                                  SelectedListItem(data: 'Cardiopulmonary'),
+                                  SelectedListItem(data: 'Geriatric'),
+                                  SelectedListItem(data: 'ICU'),
+                                  SelectedListItem(data: 'Neurological'),
+                                  SelectedListItem(data: 'Occupational'),
+                                  SelectedListItem(data: 'Orthopedic'),
+                                  SelectedListItem(data: 'Pediatric'),
+                                  SelectedListItem(data: 'Women’s Health'),
+                                ],
+                                onSelected: (selectedItems) {
+                                 cubit.getUserScores(FirebaseAuth.instance.currentUser!.uid,  selectedItems.first.data).then((value) {
+                                   showGradesDialog(context,cubit.scoreModel,selectedItems.first.data);
+                                 });
+                                },
+                              ),
+                            ).showModal(context);
+
                           },
                           backColor: Color(0xffEAF2FF),
                         ),
