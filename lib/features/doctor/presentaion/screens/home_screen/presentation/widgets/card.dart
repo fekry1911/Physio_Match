@@ -4,6 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorCard extends StatelessWidget {
+  String imageUrl;
+  String name;
+  String jobTitle;
+  String location;
+  String experience;
+
+  DoctorCard({required this.imageUrl, required this.name,required this.jobTitle,required this.location,required this.experience,});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,14 +27,12 @@ class DoctorCard extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    "https://as1.ftcdn.net/jpg/03/04/90/28/1000_F_304902822_RhvrRzzXR15rCfXfIjlNdOd0nwVX1iwI.jpg",
-                  ),
+                  backgroundImage: NetworkImage(imageUrl.trim()),
                   radius: 25.r,
                 ),
                 SizedBox(width: 12.h),
                 Text(
-                  "spinal health care medical",
+                  name!,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16.sp,
@@ -42,7 +48,7 @@ class DoctorCard extends StatelessWidget {
 
             // Job Title
             Text(
-              "مطلوب أخصائي علاج طبيعي",
+              jobTitle!,
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 fontSize: 18.sp,
@@ -65,7 +71,7 @@ class DoctorCard extends StatelessWidget {
                 ),
                 SizedBox(width: 4.w),
                 Text(
-                  "القاهره",
+                  location!,
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -74,7 +80,7 @@ class DoctorCard extends StatelessWidget {
                 Icon(Icons.work_outline, size: 18.r, color: Colors.black),
                 SizedBox(width: 4.w),
                 Text(
-                  " 4 سنوات خبرة",
+                  "${experience!} سنوات خبرة",
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -94,7 +100,7 @@ class DoctorCard extends StatelessWidget {
                 },
                 icon: Icon(Icons.send, color: Colors.white),
                 label: Text(
-                  "تقديم الآن",
+                  "Apply Now",
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.whiteColor,
                   ),
