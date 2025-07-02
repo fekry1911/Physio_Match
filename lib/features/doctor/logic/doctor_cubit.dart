@@ -1,3 +1,4 @@
+import 'package:add_ques/features/doctor/presentaion/screens/home_screen/logic/get_posts_cubit.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +20,10 @@ part 'doctor_state.dart';
 class DoctorCubit extends Cubit<DoctorState> {
   DoctorCubit() : super(DoctorInitial());
   final List<Widget> pages = [
-    DoctorDashboardScreen(),
+    BlocProvider(
+  create: (context) => sl<GetPostsCubit>()..getPostsData(),
+  child: DoctorDashboardScreen(),
+),
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => sl<HomeCubit>()),

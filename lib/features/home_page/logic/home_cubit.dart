@@ -1,6 +1,7 @@
 import 'package:add_ques/features/home_page/data/rebo/get_all_ques.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
 import '../../../core/helpers/cache_helper.dart';
@@ -15,16 +16,23 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> getRandomQues(String specialty)async {
     emit(GetLoading());
-    await getAllQues.getAllQues(specialty).then((onValue) async {
-      questions=onValue;
-      await FirebaseFirestore.instance
-      .collection("doctors").doc(CacheHelper.getString(key: "uid")).update({
-        "tries": FieldValue.increment(-1),
-      }).then((onValue){
-        emit(GetSucc());
-      });
-    }).catchError((onError){
-      emit(GetFail(onError));
+    FirebaseFirestore.instance.collection("doctors").doc(FirebaseAuth.instance.currentUser!.uid).get().then((value) async {
+      if(value.data()!["tries"]>0){
+        await getAllQues.getAllQues(specialty).then((onValue) async {
+          questions=onValue;
+          await FirebaseFirestore.instance
+              .collection("doctors").doc(CacheHelper.getString(key: "uid")).update({
+            "tries": FieldValue.increment(-1),
+          }).then((onValue){
+            emit(GetSucc());
+          });
+        }).catchError((onError){
+          emit(GetFail(onError));
+        });
+      }
+      else{
+        emit(OutOfTries());
+      }
     });
 
   }

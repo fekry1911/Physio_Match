@@ -1,4 +1,7 @@
 // lib/core/service_locator.dart
+import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts.dart';
+import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts_impl.dart';
+import 'package:add_ques/features/doctor/presentaion/screens/home_screen/logic/get_posts_cubit.dart';
 import 'package:add_ques/features/home_page/data/rebo/get_all_ques.dart';
 import 'package:add_ques/features/home_page/data/rebo/get_all_ques_impl.dart';
 import 'package:add_ques/features/home_page/logic/home_cubit.dart';
@@ -43,6 +46,8 @@ void setupServiceLocator() {
   sl.registerLazySingleton<AddScore>(() => AppScoreImpl(sl(),));
   sl.registerLazySingleton<UpdateUserRebo>(() => UpdateUserDataImpl(sl()));
   sl.registerLazySingleton<RegisterRepository>(() => RegisterRepoImpl(sl()));
+  sl.registerLazySingleton<GetPosts>(() => GetPostsImpl(sl()));
+
 
   // payment
   sl.registerLazySingleton<PaymobService>(() => PaymobService());
@@ -55,5 +60,6 @@ void setupServiceLocator() {
   sl.registerFactory<UpdateUserDataCubit>(() => UpdateUserDataCubit(sl<UpdateUserRebo>()));
   sl.registerFactory<TypeRegisterCubit>(() => TypeRegisterCubit(sl<RegisterRepository>(),sl<FirebaseAuth>()));
   sl.registerFactory<PaymentCubit>(() => PaymentCubit(sl<PaymobService>(),));
+  sl.registerFactory<GetPostsCubit>(() => GetPostsCubit(sl<GetPosts>(),));
 
 }
