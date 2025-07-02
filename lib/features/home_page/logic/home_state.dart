@@ -16,3 +16,8 @@ final class GetFail extends HomeState {
   GetFail(this.error);
 }
 
+final class OutOfTries extends HomeState {
+
+  OutOfTries();
+}
+

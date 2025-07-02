@@ -1,5 +1,7 @@
 import 'package:add_ques/core/const/const.dart';
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -27,27 +29,22 @@ class _PaymentScreenState extends State<PaymentScreen> {
           ..setJavaScriptMode(JavaScriptMode.unrestricted)
           ..setNavigationDelegate(
             NavigationDelegate(
-              onNavigationRequest: (NavigationRequest request) {
+              onNavigationRequest: (NavigationRequest request) async {
                 final url = request.url;
                 if (url.contains('post_pay')) {
                   final uri = Uri.parse(url);
                   final success = uri.queryParameters['success'];
 
                   if (success == 'true') {
-                    // ✅ الدفع نجح
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('✅ Payment successful')),
-                    );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder:
-                            (context) => BlocProvider(
-                              create: (context) => DoctorCubit(),
-                              child: DoctorHomeScreen(),
-                            ),
-                      ),
-                    ); // Navigator.pop(context, true); // ترجع للصفحة السابقة مع النتيجة
+                 await   FirebaseFirestore.instance.collection("doctors").doc(FirebaseAuth.instance.currentUser!.uid).update(<Object, Object?>{
+                      "tries": 3,
+                    }).then((value){
+                   ScaffoldMessenger.of(context).showSnackBar(
+                     SnackBar(content: Text('✅ Payment successful')),
+                   );
+                   context.pushAndRemoveUntil(doctorHomeScreen,arguments: 1);
+
+                 });
                   } else {
                     // ❌ الدفع فشل
                     ScaffoldMessenger.of(
