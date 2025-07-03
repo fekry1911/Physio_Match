@@ -7,6 +7,9 @@ class PostModel {
   final String location;
   final String imagePostUrl;
   final DateTime date;
+  final bool isSaved;
+  final String? uid;
+
 
   PostModel({
     required this.id,
@@ -17,10 +20,13 @@ class PostModel {
     required this.location,
     required this.imagePostUrl,
     required this.date,
+    this.uid,
+    this.isSaved = false,
   });
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
+      uid: json["uid"] ?? '',
       id: json['id'] ?? '',
       centerName: json['centerName'] ?? '',
       imageUrl: json['imageUrl'] ?? '',
@@ -29,6 +35,7 @@ class PostModel {
       location: json['location'] ?? '',
       imagePostUrl: json['imagePostUrl'] ?? '',
       date: DateTime.tryParse(json['date'] ?? '') ?? DateTime.now(),
+      isSaved: json['isSaved'] ?? false,
     );
   }
 
@@ -42,6 +49,8 @@ class PostModel {
       'location': location,
       'imagePostUrl': imagePostUrl,
       'date': date.toIso8601String(),
+      'isSaved': isSaved,
+      "uid":uid
     };
   }
 }

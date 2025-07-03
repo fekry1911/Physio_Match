@@ -25,8 +25,7 @@ class MyApp extends StatelessWidget {
           initialRoute: splashScreen,
           title: 'First Method',
           theme: ThemeData(
-            primaryColorLight: Colors.blue,
-            primaryColor: Colors.blue,
+            scaffoldBackgroundColor:  Color(0xFF121212),
             appBarTheme: AppBarTheme(
               centerTitle: false,
               scrolledUnderElevation: 0,
@@ -34,7 +33,6 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black),
             ),
-            scaffoldBackgroundColor: Colors.white,
             fontFamily: 'cairo',
             primarySwatch: Colors.blue,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),

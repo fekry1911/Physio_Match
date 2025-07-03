@@ -26,7 +26,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
     var cubit = BlocProvider.of<DoctorCubit>(context);
     return BlocConsumer<DoctorCubit, DoctorState>(
       listener: (context, state) {
-        // TODO: implement listener
+
       },
       builder: (context, state) {
         return Scaffold(

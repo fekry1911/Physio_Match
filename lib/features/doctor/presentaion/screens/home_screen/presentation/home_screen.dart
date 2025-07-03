@@ -17,7 +17,7 @@ class DoctorDashboardScreen extends StatelessWidget {
      }else{
        return ListView.separated(
          itemBuilder: (BuildContext context, int index) {
-           return DoctorCard(imageUrl: cubit.posts[index].imageUrl.trim(), name: cubit.posts[index].centerName, jobTitle: cubit.posts[index].content, location: cubit.posts[index].location, experience: cubit.posts[index].experienceYears,);
+           return DoctorCard(postModel: cubit.posts[index]);
          },
          separatorBuilder: (BuildContext context, int index) {
            return Divider(height: 1.h, color: Colors.grey);
@@ -27,6 +27,27 @@ class DoctorDashboardScreen extends StatelessWidget {
      }
    }, listener: (BuildContext context, Object? state) {
 
+     if(state is SavePostsucc){
+       ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content: Text("تم حفظ الوظيفة بنجاح"),),
+       );
+       context.read<GetPostsCubit>().getPostsData();
+     }
+     if(state is ApplyDone){
+       ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content: Text("تم التقديم بنجاح"),),
+       );
+     }
+     if(state is ApplyBefore){
+       ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content: Text("⚠️ المستخدم قدم بالفعل على هذا البوست"),),
+       );
+     }
+     if(state is AlreadySaved){
+       ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content: Text("⚠️ تم حفظ بالفعل على هذا البوست"),),
+       );
+     }
    },);
   }
 }
