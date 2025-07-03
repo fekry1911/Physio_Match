@@ -61,7 +61,8 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
           imageUrl:uploadedImageUrl!,
           tries: 3,
           resume: uploadedCvUrl ?? "",
-          specialization: specializationController.text
+          specialization: specializationController.text,
+        uid: CacheHelper.getString(key: "uid")
         )
       );
       print(nameController.text);
