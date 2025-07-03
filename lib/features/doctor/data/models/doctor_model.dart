@@ -2,6 +2,8 @@ import '../../../type_register/data/models/register_model.dart';
 
 class DoctorModel extends RegisterModel {
   int? tries = 3;
+  final String? uid;
+
 
   DoctorModel({
     super.fullName,
@@ -15,6 +17,8 @@ class DoctorModel extends RegisterModel {
     super.specialization,
     this.tries,
     super.resume,
+    this.uid,
+
   });
 
   factory DoctorModel.fromMap(Map<String, dynamic> map) {
@@ -30,6 +34,7 @@ class DoctorModel extends RegisterModel {
       dateOfBirth: map['dateOfBirth'] ?? '',
       city: map['city'] ?? '',
       resume: map['resume'],
+      uid: map['uid'],
     );
   }
 
@@ -46,6 +51,7 @@ class DoctorModel extends RegisterModel {
       'imageUrl': imageUrl,
       'tries': tries,
       'resume': resume,
+      'uid': uid,
     };
   }
 }
