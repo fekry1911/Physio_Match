@@ -1,16 +1,16 @@
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DoctorCard extends StatelessWidget {
-  String imageUrl;
-  String name;
-  String jobTitle;
-  String location;
-  String experience;
+import '../../data/models/post_model.dart';
+import '../../logic/get_posts_cubit.dart';
 
-  DoctorCard({required this.imageUrl, required this.name,required this.jobTitle,required this.location,required this.experience,});
+class DoctorCard extends StatelessWidget {
+  PostModel postModel;
+
+  DoctorCard({required this.postModel});
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +27,12 @@ class DoctorCard extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(imageUrl.trim()),
+                  backgroundImage: NetworkImage(postModel.imageUrl.trim()),
                   radius: 25.r,
                 ),
                 SizedBox(width: 12.h),
                 Text(
-                  name!,
+                  postModel.centerName,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16.sp,
@@ -40,7 +40,29 @@ class DoctorCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                Icon(Icons.more_horiz, color: Colors.black),
+                GestureDetector(
+                  onTap: () {
+                    context.read<GetPostsCubit>().savePost(
+                      PostModel(
+                        id: postModel.id,
+                        centerName: postModel.centerName,
+                        imageUrl: postModel.imageUrl,
+                        content: postModel.content,
+                        experienceYears: postModel.experienceYears,
+                        location: postModel.location,
+                        imagePostUrl: postModel.imagePostUrl,
+                        date: postModel.date,
+                        isSaved: true,
+                      ),
+                    );
+                  },
+                  child: Image.asset(
+                    "assets/icons/saved.png",
+                    height: 40.h,
+                    width: 40.w,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
               ],
             ),
 
@@ -48,7 +70,7 @@ class DoctorCard extends StatelessWidget {
 
             // Job Title
             Text(
-              jobTitle!,
+              postModel.content,
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 fontSize: 18.sp,
@@ -57,7 +79,7 @@ class DoctorCard extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
 
             // Details
             Row(
@@ -71,7 +93,7 @@ class DoctorCard extends StatelessWidget {
                 ),
                 SizedBox(width: 4.w),
                 Text(
-                  location!,
+                  postModel.location!,
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -80,7 +102,7 @@ class DoctorCard extends StatelessWidget {
                 Icon(Icons.work_outline, size: 18.r, color: Colors.black),
                 SizedBox(width: 4.w),
                 Text(
-                  "${experience!} سنوات خبرة",
+                  "${postModel.experienceYears!} سنوات خبرة",
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -95,8 +117,7 @@ class DoctorCard extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: () {
-                  // تنفيذ تقديم الوظيفة
-                  print("✅ User applied to ");
+                  context.read<GetPostsCubit>().applyNow(postModel);
                 },
                 icon: Icon(Icons.send, color: Colors.white),
                 label: Text(
