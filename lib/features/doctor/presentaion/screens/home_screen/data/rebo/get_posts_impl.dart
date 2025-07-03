@@ -2,6 +2,9 @@ import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/models/post_model.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../../../../data/models/doctor_model.dart';
 
 class GetPostsImpl extends GetPosts {
   FirebaseFirestore firebaseFirestore;
@@ -56,6 +59,10 @@ class GetPostsImpl extends GetPosts {
     try {
       final uid = CacheHelper.getString(key: "uid");
       if (uid == null) throw Exception("❌ لا يوجد مستخدم");
+      var response=await firebaseFirestore.collection("doctors").doc(uid).get();
+      DoctorModel? doctortModel;
+      doctortModel=DoctorModel.fromMap(response.data()!);
+
 
       final appliedRef = firebaseFirestore
           .collection('doctors')
@@ -83,7 +90,7 @@ class GetPostsImpl extends GetPosts {
           .collection("my_posts")
           .doc(postModel.id)
           .collection("Applied")
-          .add(postModel.toJson());
+          .add(doctortModel.toMap());
       print("✅ تم التقديم بنجاح");
       return true;
     } catch (e) {
