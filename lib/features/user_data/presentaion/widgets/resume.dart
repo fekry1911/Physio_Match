@@ -41,7 +41,7 @@ class ResumeButton extends StatelessWidget {
         SizedBox(height: 10.h,),
         TextButton(onPressed: (){
           cubit.updateCv();
-        }, child:Text("click to Edit"))
+        }, child:Text("click to Edit",style:TextThemes.font18BlackSemiBold.copyWith(color: AppColors.mainTealColor)))
       ],
     );
   }

@@ -16,8 +16,8 @@ class NameAndEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(name,style: TextThemes.font22BlackMedium.copyWith(color: Colors.black),),
         SizedBox(height: 10.h,),

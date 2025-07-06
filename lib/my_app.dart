@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           initialRoute: splashScreen,
           title: 'First Method',
           theme: ThemeData(
-            scaffoldBackgroundColor:  Color(0xFF121212),
+            scaffoldBackgroundColor: Colors.white,
             appBarTheme: AppBarTheme(
               centerTitle: false,
               scrolledUnderElevation: 0,

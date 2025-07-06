@@ -141,7 +141,7 @@ class UserData extends StatelessWidget {
                         SizedBox(height: 20.h),
 
                         IconAndInfo(
-                          image: 'assets/personalcard.png',
+                          image: 'assets/icons/credit-score.png',
                           data: 'Show My Scores',
                           onPreesed: () {
                             DropDownState<String>(
@@ -165,7 +165,7 @@ class UserData extends StatelessWidget {
                             ).showModal(context);
 
                           },
-                          backColor: Color(0xffEAF2FF),
+                          backColor: Color(0xfffeffea),
                         ),
 
                         SizedBox(height: 20.h),
@@ -179,6 +179,16 @@ class UserData extends StatelessWidget {
                               );
                           },
                           backColor: Color(0xffEAF2FF),
+                        ),
+                        SizedBox(height: 20.h),
+
+                        IconAndInfo(
+                          image: 'assets/icons/bookmark.png',
+                          data: 'Saved Posts',
+                          onPreesed: () {
+                            context.pushNamed(savedPosts);
+                          },
+                          backColor: Color(0xffcddada),
                         ),
                         Divider(height: 25.h, endIndent: 50.w, indent: 30.w),
                         Padding(
