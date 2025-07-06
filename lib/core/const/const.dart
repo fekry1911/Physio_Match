@@ -10,6 +10,8 @@ const String homeDeciderScreen="/homeDecider-screen";
 const String paymentData="/paymentData-screen";
 const String paymentSubmit="/paymentSubmit-screen";
 const String doctorHomeScreen="/doctorHome-screen";
+const String savedPosts="/savedPosts-screen";
+
 
 String specialization="";
 

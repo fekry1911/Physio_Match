@@ -144,9 +144,9 @@ class _QuizScreenState extends State<QuizScreen> {
                   return Padding(
                     padding: EdgeInsets.all(10.0.r),
                     child: Container(
-                      height: 50.h,
+                      height: 55.h,
                       width: double.infinity,
-                      margin: EdgeInsets.symmetric(vertical: 6.dg),
+                      margin: EdgeInsets.symmetric(vertical: 3.dg),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
@@ -159,6 +159,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         onPressed: () => checkAnswer(index),
                         child: Text(
                           question['options'][index],
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 16.sp,
                             letterSpacing: 2,
@@ -190,7 +191,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         children: [
                           Container(
                             height: 50.h,
-                            width: 100.w,
+                            width: 130.w,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red,
@@ -206,6 +207,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               child: Text(
                                 'Previous',
                                 style: TextStyle(
+                                  fontSize: 16.sp,
                                   color:
                                       currentIndex > 0
                                           ? Colors.white
@@ -217,7 +219,7 @@ class _QuizScreenState extends State<QuizScreen> {
                           Spacer(),
                           Container(
                             height: 50.h,
-                            width: 100.w,
+                            width: 130.w,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.teal,
@@ -240,6 +242,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                     ? 'Finish'
                                     : 'Next',
                                 style: TextStyle(
+                                  fontSize: 16.sp,
                                   color:
                                       selectedIndex != null
                                           ? Colors.white

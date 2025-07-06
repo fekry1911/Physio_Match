@@ -17,7 +17,7 @@ class IconAndInfo extends StatelessWidget {
         onTap: onPreesed,
         child: CircleAvatar(
           backgroundColor: backColor,//Color(0xffEAF2FF),
-          radius: 40.r,child: Image.asset(image,fit: BoxFit.cover,),
+          radius: 40.r,child: Image.asset(image,fit: BoxFit.cover,height: 20.h,width: 20.h,),
         ),
       ),
       title: Text(data,style: TextThemes.font18BlackSemiBold.copyWith(color: Color(0xff242424)),),

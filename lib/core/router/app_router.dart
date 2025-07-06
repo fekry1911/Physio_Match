@@ -25,6 +25,8 @@ import '../../features/home/presentation/screens/decider_screen.dart';
 import '../../features/payment/logic/payment_cubit.dart';
 import '../../features/payment/screens/payment_screen.dart';
 import '../../features/payment/screens/pre_payment/payment_data.dart';
+import '../../features/saved_posts/logic/get_saved_posts_cubit.dart';
+import '../../features/saved_posts/presentation/saved_posts_screen.dart';
 import '../../features/type_register/logic/type_register_cubit.dart';
 
 class AppRouter {
@@ -45,7 +47,13 @@ class AppRouter {
           builder:
               (_) => MultiBlocProvider(
                 providers: [
-                  BlocProvider(create: (context)=>sl<UpdateUserDataCubit>()..getDoctorData(FirebaseAuth.instance.currentUser!.uid),),
+                  BlocProvider(
+                    create:
+                        (context) =>
+                            sl<UpdateUserDataCubit>()..getDoctorData(
+                              FirebaseAuth.instance.currentUser!.uid,
+                            ),
+                  ),
                   BlocProvider(create: (context) => sl<LoginCubit>()),
                 ],
                 child: UserData(),
@@ -77,9 +85,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => MultiBlocProvider(
-                providers: [
-                  BlocProvider(create: (context) => sl<HomeCubit>()),
-                ],
+                providers: [BlocProvider(create: (context) => sl<HomeCubit>())],
                 child: AddAllAues(),
               ),
         );
@@ -124,18 +130,25 @@ class AppRouter {
         );
       case doctorHomeScreen:
         final args = settings.arguments;
-        if(args is int){
+        if (args is int) {
           return MaterialPageRoute(
-            builder: (_) =>BlocProvider(
-              create: (context) => DoctorCubit(),
-              child: DoctorHomeScreen(initialIndex: args),
-            ),
+            builder:
+                (_) => BlocProvider(
+                  create: (context) => DoctorCubit(),
+                  child: DoctorHomeScreen(initialIndex: args),
+                ),
           );
-
-        }
-        else {
+        } else {
           return null;
         }
+      case savedPosts:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => sl<GetSavedPostsCubit>()..getPostsData(),
+                child: MySavedPosts(),
+              ),
+        );
     }
     return null;
   }

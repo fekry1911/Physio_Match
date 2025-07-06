@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/core/models/user_model.dart';
+import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/models/post_model.dart';
 import 'package:add_ques/features/user_data/data/update_user_rebo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_selector/file_selector.dart';
@@ -129,6 +131,21 @@ class UpdateUserDataImpl implements UpdateUserRebo {
     } catch (e) {
       print('❌ Error: $e');
       return null; // ✅ صرّح بالـ null
+    }
+  }
+
+  @override
+  Future<List<PostModel>> getSavedPosts() async {
+    try {
+      final results =
+          await fireStore.collection("doctors").doc(CacheHelper.getString(key: "uid")).collection("saved_posts").get();
+      final posts =
+      results.docs.map((e) => PostModel.fromJson(e.data())).toList();
+      print(results.docs);
+      print(posts);
+      return posts;
+    } catch (e) {
+      rethrow;
     }
   }
 }

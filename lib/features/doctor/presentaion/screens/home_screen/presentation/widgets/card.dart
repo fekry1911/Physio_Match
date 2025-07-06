@@ -9,8 +9,9 @@ import '../../logic/get_posts_cubit.dart';
 
 class DoctorCard extends StatelessWidget {
   PostModel postModel;
+  bool applied = false;
 
-  DoctorCard({required this.postModel});
+  DoctorCard({required this.postModel,this.applied=false});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,6 @@ class DoctorCard extends StatelessWidget {
             // Job Title
             Text(
               postModel.content,
-              textDirection: TextDirection.rtl,
               style: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
@@ -79,7 +79,7 @@ class DoctorCard extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 8.h),
+            SizedBox(height: 12.h),
 
             // Details
             Row(
@@ -110,9 +110,10 @@ class DoctorCard extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 16.h),
+            !applied! ?SizedBox(height: 16.h):SizedBox(),
 
             // Apply Button
+            !applied! ?
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
@@ -133,7 +134,7 @@ class DoctorCard extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            ):SizedBox()
           ],
         ),
       ),

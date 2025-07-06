@@ -10,6 +10,7 @@ import 'package:add_ques/features/quiz/data/rebo/add.dart';
 import 'package:add_ques/features/quiz/logic/save_score_cubit.dart';
 import 'package:add_ques/features/register_screen/data/rebo/add_user_data_rebo.dart';
 import 'package:add_ques/features/register_screen/data/rebo/add_user_data_rebo_impl.dart';
+import 'package:add_ques/features/saved_posts/data/rebo/get_saved_posts_impl.dart';
 import 'package:add_ques/features/user_data/data/update_user_data_impl.dart';
 import 'package:add_ques/features/user_data/data/update_user_rebo.dart';
 import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
@@ -26,6 +27,8 @@ import '../features/quiz/data/rebo/add_impl.dart';
 import '../features/register_screen/cubit/register_cubit.dart';
 import '../features/register_screen/data/rebo/rebo.dart';
 import '../features/register_screen/data/rebo/rebo_impl.dart';
+import '../features/saved_posts/data/rebo/get_saved_posts.dart';
+import '../features/saved_posts/logic/get_saved_posts_cubit.dart';
 import '../features/type_register/data/rebo/register_repo.dart';
 import '../features/type_register/data/rebo/register_repo_impl.dart';
 import '../features/type_register/logic/type_register_cubit.dart';
@@ -47,6 +50,7 @@ void setupServiceLocator() {
   sl.registerLazySingleton<UpdateUserRebo>(() => UpdateUserDataImpl(sl()));
   sl.registerLazySingleton<RegisterRepository>(() => RegisterRepoImpl(sl()));
   sl.registerLazySingleton<GetPosts>(() => GetPostsImpl(sl()));
+  sl.registerLazySingleton<GetSavedPosts>(() => GetSavedPostsImpl(sl()));
 
 
   // payment
@@ -61,5 +65,6 @@ void setupServiceLocator() {
   sl.registerFactory<TypeRegisterCubit>(() => TypeRegisterCubit(sl<RegisterRepository>(),sl<FirebaseAuth>()));
   sl.registerFactory<PaymentCubit>(() => PaymentCubit(sl<PaymobService>(),));
   sl.registerFactory<GetPostsCubit>(() => GetPostsCubit(sl<GetPosts>(),));
+  sl.registerFactory<GetSavedPostsCubit>(() => GetSavedPostsCubit(sl<GetSavedPosts>(),));
 
 }
