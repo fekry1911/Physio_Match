@@ -1,57 +1,37 @@
-# 🏥 PhysioMatch - Medical Center Onboarding App
+# Physio Match 🏥💼
 
-**PhysioMatch** is a Flutter-based mobile application designed to assess and onboard fresh physiotherapists to join medical centers. The app streamlines the recruitment process by evaluating candidates through interactive steps, forms, and scoring systems.
+**Physio Match** is a mobile application built with Flutter to support **fresh graduates of physical therapy** in starting their careers. The app enables doctors to register, choose a specialization, take an assessment test, store their scores, and apply for relevant job opportunities posted by medical centers.
 
-## ✨ Features
-
-- 👤 **Doctor & Student Registration**
-  - Separate flows for doctors and physiotherapy students
-  - Secure login and profile creation
-
-- 📝 **Step-based Evaluation**
-  - Multi-step onboarding for students with auto-submission
-  - Stepper UI with progress tracking
-  - Auto-submit on final step
-
-- 📊 **Score Tracking**
-  - Store and update evaluation scores per student
-  - Data saved securely in Firebase
-
-## 🧱 Tech Stack
-
-- **Flutter** (Cross-platform UI)
-- **Dart** (Programming language)
-- **Firebase**:
-  - Authentication
-  - Firestore (Realtime DB)
-- **Bloc / Cubit** for state management
-- **GetIt** for dependency injection
-- **Flutter ScreenUtil** for responsive design
-
-
-## 🚀 Getting Started
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/fekry1911/Physio_Match.git
-   cd physiomatch
-   flutter pub get
-   flutter run
-
+> 🎯 This project is part of a broader app that aims to streamline the journey from graduation to employment in the healthcare sector.
 
 ---
 
-### 🛠️ To Do
+## 🚀 Features
 
-```markdown
-## 🛠️ To Do
+- 👨‍⚕️ Doctor registration and specialization selection
+- 🧪 Skill-based assessment flow
+- 📊 Score storage linked to user profile
+- 📢 Job post listing and application
+- 🌐 Full Arabic language support
+- 💡 Clean UI optimized for usability
 
-- [ ] 🧑‍⚕️ Admin panel to manage applicants and centers
-- [ ] 🔔 Push notifications for interview and score updates
-- [ ] 💳 Integration with Paymob or Stripe for paid bookings
-- [ ] 📂 Export reports for student performance
-- [ ] 🧠 AI-based suggestions for matching students with centers
+---
 
+## 🛠️ Tech Stack
 
+- **Flutter**
+- **Firebase** (Authentication, Firestore)
+- **Bloc** – State management
+- **GetIt** – Dependency Injection
+- **Clean Architecture**
+- **Responsive Design**
 
+---
 
+## 📦 Installation
+
+```bash
+git clone https://github.com/fekry1911/Physio_Match.git
+cd Physio_Match
+flutter pub get
+flutter run
