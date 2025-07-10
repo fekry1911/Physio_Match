@@ -3,6 +3,7 @@ import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:add_ques/features/quiz/logic/save_score_cubit.dart';
 import 'package:add_ques/features/quiz/presentation/widgets/alert_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -66,45 +67,51 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     if (showResult) {
-      return Scaffold(
-        body: Column(
-          children: [
-            Center(
-              child: Text('You got your result!', style: TextStyle(fontSize: 24)),
-            ),
-            BlocListener<SaveScoreCubit, SaveScoreState>(
-              listener: (BuildContext context, SaveScoreState state) {
-                if(state is SaveScoreSucc){
-                  context.pushAndRemoveUntil(doctorHomeScreen,arguments: 1);
-                }
-                if(state is SaveScoreLoad){
-                  showDialog(
-                    context: context,
-                    builder:
-                        (context) => Center(
-                      child: CircularProgressIndicator(
-                        color: AppColors.whiteColor,
-                        semanticsLabel: "loading",
+      return WillPopScope(
+        onWillPop: () {
+          context.pushAndRemoveUntil(doctorHomeScreen,arguments: 1);
+          return Future.value(false);
+        },
+        child: Scaffold(
+          body: Column(
+            children: [
+              Center(
+                child: Text('You got your result!', style: TextStyle(fontSize: 24)),
+              ),
+              BlocListener<SaveScoreCubit, SaveScoreState>(
+                listener: (BuildContext context, SaveScoreState state) {
+                  if(state is SaveScoreSucc){
+                    context.pushAndRemoveUntil(doctorHomeScreen,arguments: 1);
+                  }
+                  if(state is SaveScoreLoad){
+                    showDialog(
+                      context: context,
+                      builder:
+                          (context) => Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.whiteColor,
+                          semanticsLabel: "loading",
 
+                        ),
                       ),
-                    ),
-                  );
-                }
-                if(state is SaveScoreFail){
-                  AwesomeSnackBar(
-                    context: context,
-                    tittle: "Save Score Error",
-                    message: state.error,
-                  );
-                }
+                    );
+                  }
+                  if(state is SaveScoreFail){
+                    AwesomeSnackBar(
+                      context: context,
+                      tittle: "Save Score Error",
+                      message: state.error,
+                    );
+                  }
 
 
-              },
-              child: SizedBox.shrink(),
-            ),
+                },
+                child: SizedBox.shrink(),
+              ),
 
-          ],
-        )
+            ],
+          )
+        ),
       );
     }
 
@@ -136,7 +143,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     fontWeight: FontWeight.bold,
                     color: AppColors.mainTealColor,
                   ),
-                ),
+                ).animate().slideX(duration: 500.ms, begin: -1.0, end: 0.0),
                 SizedBox(height: 20.h),
                 ...List.generate(question['options'].length, (index) {
                   bool isSelected = selectedIndex == index;
@@ -168,7 +175,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         ),
                       ),
                     ),
-                  );
+                  ).animate().slideY(duration: 500.ms, begin: -1.0, end: 0.0);
                 }),
                 Container(
                   margin: EdgeInsets.all(30.r),
@@ -255,7 +262,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     ],
                   ),
-                ),
+                ).animate().slideX(duration: 500.ms, begin: -1.0, end: 0.0),
               ],
             ),
           ),

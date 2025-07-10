@@ -16,6 +16,9 @@ const String savedPosts="/savedPosts-screen";
 String specialization="";
 
 
+int durationAnimate=700;
+
+
 
 
 

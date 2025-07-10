@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/const/const.dart';
 import '../../../../core/regexs/regexs.dart';
 import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../../../core/theme/colors/colors.dart';
@@ -27,8 +29,8 @@ class EmailAndPassword extends StatelessWidget {
                 return "Please Enter Valid Email";
               }
               return null;
-            },
-          ),
+            }, keyboardType: TextInputType.emailAddress,
+          ).animate().slideX(duration: durationAnimate.ms, begin: -1.0, end: 0.0),
           SizedBox(height: 16.h),
           SharedTextFormField(
             suffixIcon: IconButton(onPressed: onTap, icon:!isSecure?Icon(Icons.visibility,color: AppColors.mainTealColor,):Icon(Icons.visibility_off,color: AppColors.mainTealColor,),),
@@ -41,8 +43,8 @@ class EmailAndPassword extends StatelessWidget {
               }
               return null;
             },
-            isObscureText: isSecure,
-          ),
+            isObscureText: isSecure, keyboardType: TextInputType.text,
+          ).animate().slideX(duration: durationAnimate.ms, begin: 1.0, end: 0.0),
           SizedBox(height: 16.h),
         ],
       ),

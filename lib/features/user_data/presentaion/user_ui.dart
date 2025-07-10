@@ -10,10 +10,12 @@ import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/const/const.dart';
+import '../../../core/shared_widgets/shared_loading.dart';
 import '../../../core/shared_widgets/snack_bar.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
@@ -72,9 +74,7 @@ class UserData extends StatelessWidget {
         builder: (context, state) {
           var cubit = context.read<UpdateUserDataCubit>();
           if (cubit.doctortModel == null) {
-            return Center(
-              child: CircularProgressIndicator(color: AppColors.mainTealColor),
-            );
+            return LoadingShared();
           }
           return Padding(
             padding:  EdgeInsets.only(top: 20.h),
@@ -121,7 +121,7 @@ class UserData extends StatelessWidget {
                     ),
 
                   ],
-                ),
+                ).animate().slideY(begin: -1,end: 0,duration: 1000.ms),
                 Padding(
                   padding: EdgeInsets.only(top: 160.h), // لتحت الصورة بمسافة
                   child: SingleChildScrollView(
@@ -132,14 +132,25 @@ class UserData extends StatelessWidget {
                           name: cubit.doctortModel!.fullName!,
                           email: cubit.doctortModel!.email!,
                           phone: cubit.doctortModel!.phone!,
-                        ),
+                        ).animate().slideY(begin: 1,end: 0,duration: 1000.ms),
                         SizedBox(height: 20.h),
                         Padding(
                           padding:  EdgeInsets.symmetric(horizontal: 34.w),
-                          child: ResumeButton(),
+                          child: ResumeButton().animate().slideX(begin: -1,end: 0,duration: 550.ms),
                         ),
                         SizedBox(height: 20.h),
+                        IconAndInfo(
+                          image: 'assets/icons/bookmark.png',
+                          data: 'Saved Posts',
+                          onPreesed: () {
+                            context.pushNamed(savedPosts);
+                          },
+                          backColor: Color(0xffcddada),
+                        ).animate().slideX(begin: -1,end: 0,duration: 700.ms),
 
+
+
+                        SizedBox(height: 20.h),
                         IconAndInfo(
                           image: 'assets/icons/credit-score.png',
                           data: 'Show My Scores',
@@ -157,39 +168,29 @@ class UserData extends StatelessWidget {
                                   SelectedListItem(data: 'Women’s Health'),
                                 ],
                                 onSelected: (selectedItems) {
-                                 cubit.getUserScores(FirebaseAuth.instance.currentUser!.uid,  selectedItems.first.data).then((value) {
-                                   showGradesDialog(context,cubit.scoreModel,selectedItems.first.data);
-                                 });
+                                  cubit.getUserScores(FirebaseAuth.instance.currentUser!.uid,  selectedItems.first.data).then((value) {
+                                    showGradesDialog(context,cubit.scoreModel,selectedItems.first.data);
+                                  });
                                 },
                               ),
                             ).showModal(context);
 
                           },
                           backColor: Color(0xfffeffea),
-                        ),
+                        ).animate().slideX(begin: -1,end: 0,duration: 850.ms),
 
                         SizedBox(height: 20.h),
-
                         IconAndInfo(
                           image: 'assets/personalcard.png',
                           data: 'Update My Personal Data',
                           onPreesed: () {
-                             showEditProfileDialog(
-                                context,
-                              );
+                            showEditProfileDialog(
+                              context,
+                            );
                           },
                           backColor: Color(0xffEAF2FF),
-                        ),
-                        SizedBox(height: 20.h),
+                        ).animate().slideX(begin: -1,end: 0,duration: 1000.ms),
 
-                        IconAndInfo(
-                          image: 'assets/icons/bookmark.png',
-                          data: 'Saved Posts',
-                          onPreesed: () {
-                            context.pushNamed(savedPosts);
-                          },
-                          backColor: Color(0xffcddada),
-                        ),
                         Divider(height: 25.h, endIndent: 50.w, indent: 30.w),
                         Padding(
                           padding: EdgeInsets.only(bottom: 20.0.h),
@@ -200,7 +201,7 @@ class UserData extends StatelessWidget {
                               context.read<LoginCubit>().signOut();
                             },
                             backColor: Color(0xffFFEEEF),
-                          ),
+                          ).animate().slideY(begin: 1,end: 0,duration: 1000.ms),
                         ),
                       ],
                     ),

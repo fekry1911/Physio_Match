@@ -7,6 +7,7 @@ import 'package:add_ques/features/type_register/presentation/widgets/step1_name_
 import 'package:add_ques/features/type_register/presentation/widgets/step2_year_city_uni.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step3_doctor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -79,7 +80,7 @@ class TypeRegisterScreen extends StatelessWidget {
                               color: AppColors.mainTealColor,
                             ),
                           ),
-                          content: Center(child: SetNameAndPhone()),
+                          content: Center(child: SetNameAndPhone()).animate().slideY(duration: 1000.ms,begin: -1,end: 0),
                           isActive: cubit.currentStep >= 0,
                         ),
                         Step(
@@ -92,7 +93,7 @@ class TypeRegisterScreen extends StatelessWidget {
                                       : Colors.grey,
                             ),
                           ),
-                          content: SetUniAndYearAndCity(),
+                          content: SetUniAndYearAndCity().animate().slideY(duration: 1000.ms,begin: -1,end: 0),
                           isActive: cubit.currentStep >= 1,
                         ),
                         Step(
@@ -105,7 +106,7 @@ class TypeRegisterScreen extends StatelessWidget {
                                       : Colors.grey,
                             ),
                           ),
-                          content: SetStep3ForDoctors(),
+                          content: SetStep3ForDoctors().animate().slideY(duration: 1000.ms,begin: -1,end: 0),
                           isActive: cubit.currentStep >= 2,
                         ),
                       ],

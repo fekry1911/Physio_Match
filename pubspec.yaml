@@ -58,6 +58,9 @@ dependencies:
   url_launcher: ^6.2.6
   drop_down_list: ^2.0.0
   shimmer: ^3.0.0
+  clarity_flutter: ^1.0.0
+  lottie: ^3.3.1
+  flutter_animate: ^4.5.2
 
 
 
@@ -113,6 +116,8 @@ flutter:
     - assets/icons/score.png
     - assets/icons/credit-score.png
     - assets/icons/bookmark.png
+    - assets/loading.json
+    - assets/payment.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
