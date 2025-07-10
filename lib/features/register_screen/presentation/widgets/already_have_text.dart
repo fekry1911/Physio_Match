@@ -2,6 +2,7 @@ import 'package:add_ques/core/const/const.dart';
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/theme/text_themes/text.dart';
@@ -23,7 +24,8 @@ class AlreadyHaveAccount extends StatelessWidget {
                 context.pushNamed(loginScreen);
               },
               text: "        Log in",style: TextThemes.font13BlueRegular)
-        ]),),
+        ]),).animate().slideY(duration: durationAnimate.ms,begin: 1,end: 0),
+
       ),
     );
   }

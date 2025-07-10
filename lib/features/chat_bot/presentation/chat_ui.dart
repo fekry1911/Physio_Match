@@ -87,7 +87,7 @@ class ChatScreen extends StatelessWidget {
                     child: SharedTextFormField(
                       hintText: "اكتب سؤالك...",
                       validator: (_)=>null,
-                      controller: controller,
+                      controller: controller, keyboardType: TextInputType.text,
                     ),
                   ),
                    SizedBox(width: 8.w),

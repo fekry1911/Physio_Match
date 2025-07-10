@@ -51,6 +51,7 @@ void showEditProfileDialog(BuildContext context) {
                               return "Please Enter phone";
                             }
                           },
+                            keyboardType: TextInputType.name
                         ),
                         SizedBox(height: 10.h),
                         SharedTextFormField(
@@ -62,6 +63,7 @@ void showEditProfileDialog(BuildContext context) {
                               return "Please Enter phone";
                             }
                           },
+                            keyboardType: TextInputType.phone
                         ),
                         SizedBox(height: 20.h),
                         Row(

@@ -1,8 +1,10 @@
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/const/const.dart';
 import '../../../../core/regexs/regexs.dart';
 import '../../../../core/shared_widgets/shared_text_form_field.dart';
 import '../../cubit/register_cubit.dart';
@@ -33,7 +35,8 @@ class EmailAndPassword1 extends StatelessWidget {
               }
               return null;
             },
-          ),
+              keyboardType: TextInputType.emailAddress
+          ).animate().slideX(duration: durationAnimate.ms,begin: 1,end: 0),
 
           SizedBox(height: 16.h),
           SharedTextFormField(
@@ -53,8 +56,9 @@ class EmailAndPassword1 extends StatelessWidget {
               }
               return null;
             },
+            keyboardType: TextInputType.text,
             isObscureText: isSecure,
-          ),
+          ).animate().slideX(duration: durationAnimate.ms,begin: -1,end: 0),
           SizedBox(height: 16.h),
           SizedBox(height: 16.h),
           SharedTextFormField(
@@ -68,7 +72,8 @@ class EmailAndPassword1 extends StatelessWidget {
               }
               return null;
             },
-          ),
+              keyboardType: TextInputType.phone
+          ).animate().slideX(duration: durationAnimate.ms,begin: 1,end: 0),
           SizedBox(height: 16.h),
           SharedTextFormField(
             maxLength: 22,
@@ -81,7 +86,8 @@ class EmailAndPassword1 extends StatelessWidget {
               }
               return null;
             },
-          ),
+              keyboardType: TextInputType.name
+          ).animate().slideX(duration: durationAnimate.ms,begin: -1,end: 0),
         ],
       ),
     );

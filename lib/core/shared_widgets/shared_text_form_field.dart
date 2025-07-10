@@ -20,6 +20,7 @@ class SharedTextFormField extends StatelessWidget {
   final String? Function(String?) validator;
   final int? maxLength;
   final bool? enabled;
+  final TextInputType keyboardType;
 
 
   const SharedTextFormField({
@@ -38,17 +39,20 @@ class SharedTextFormField extends StatelessWidget {
     this.backgroundColor,
     this.controller,
     required this.validator,
+    this.keyboardType=TextInputType.text,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       enabled: enabled,
+      keyboardType: keyboardType,
       style: inputTextStyle ?? const TextStyle(color: Colors.black),
       controller: controller,
       obscureText: isObscureText ?? false,
       validator: validator,
       maxLength: maxLength,
+      cursorColor: AppColors.mainTealColor,
       inputFormatters: [
         LengthLimitingTextInputFormatter(maxLength), ],
       decoration: InputDecoration(

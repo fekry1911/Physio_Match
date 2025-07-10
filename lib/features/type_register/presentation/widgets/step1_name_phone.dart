@@ -37,6 +37,7 @@ class SetNameAndPhone extends StatelessWidget {
                 }
                 return null;
               },
+              keyboardType: TextInputType.name,
               controller: cubit.nameController,
             ),
             SizedBox(height: 20.h),
@@ -48,6 +49,7 @@ class SetNameAndPhone extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             SharedTextFormField(
+              maxLength: 11,
               hintText: "Enter Your Phone Number",
               validator: (validator) {
                 if(validator!.isEmpty) {
@@ -56,6 +58,7 @@ class SetNameAndPhone extends StatelessWidget {
                 return null;
               },
               controller: cubit.phoneController,
+                keyboardType: TextInputType.phone
             ),
 
             SizedBox(height: 25.h),

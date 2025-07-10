@@ -1,12 +1,15 @@
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
+import 'package:add_ques/core/shared_widgets/shared_loading.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
 import 'package:add_ques/features/home_page/logic/home_cubit.dart';
 import 'package:add_ques/features/home_page/presentation/widgets/paymentDialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/const/const.dart';
+import '../../../core/shared_widgets/loading_hare_dialog.dart';
 import '../../../core/shared_widgets/snack_bar.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../data/data/data.dart';
@@ -16,95 +19,96 @@ class AddAllAues extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.grey[200],
-      child: ListView.separated(
-        itemCount: items.length,
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () {
-              specialization = items[index]["text"]!;
-              print(specialization);
-              print(items[index]["text"]);
-              print("1222222222222222222222223333333333333333333");
-
-              context.read<HomeCubit>().getRandomQues(items[index]["text"]!);
-            },
-            child: Card(
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  Image.asset(
-                    items[index]["image"]!,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: 100.h,
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: BlocListener<HomeCubit, HomeState>(
+        listener: (BuildContext context, HomeState state) {
+          if (state is GetLoading) {
+            dialogLoading(context);
+          }
+          if (state is GetSucc) {
+            Navigator.pop(context);
+            context.pushNamed(
+              quizScreen,
+              arguments: context.read<HomeCubit>().questions,
+            );
+          }
+          if (state is GetFail) {
+            Navigator.pop(context);
+            AwesomeSnackBar(
+              context: context,
+              tittle: "Error",
+              message: state.error,
+            );
+          }
+          if (state is OutOfTries) {
+            Navigator.pop(context);
+            showPaymentDialog(context);
+          }
+        },
+        child: Padding(
+          padding: EdgeInsets.all(12.w),
+          child: ListView.separated(
+            itemCount: items.length,
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                onTap: () {
+                  specialization = items[index]["text"]!;
+                  context.read<HomeCubit>().getRandomQues(specialization);
+                },
+                child: Card(
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
                   ),
-                  Positioned.fill(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [Colors.white, Colors.white.withOpacity(0.0)],
-                          stops: [0.0, 0.5],
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12.r),
+                        child: Image.asset(
+                          items[index]["image"]!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 100.h,
+                          cacheHeight: (100.h * MediaQuery.of(context).devicePixelRatio).toInt(),
                         ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      items[index]["text"]!,
-                      style: TextThemes.font16BlackBold.copyWith(
-                        color: AppColors.mainTealColor,
-                      ),
-                    ),
-                  ),
-                  BlocListener<HomeCubit, HomeState>(
-                    listener: (BuildContext context, HomeState state) {
-                      if (state is GetLoading) {
-                        showDialog(
-                          context: context,
-                          builder:
-                              (context) => Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.mainTealColor,
+                      Positioned.fill(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.r),
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [Colors.white, Colors.white.withOpacity(0.0)],
+                              stops: [0.0, 0.5],
                             ),
                           ),
-                        );
-                      }
-                      if (state is GetSucc) {
-                        Navigator.pop(context);
-                        context.pushNamed(
-                          quizScreen,
-                          arguments: context.read<HomeCubit>().questions,
-                        );
-                      }
-                      if (state is GetFail) {
-                        Navigator.pop(context);
-                        AwesomeSnackBar(
-                          context: context,
-                          tittle: "error",
-                          message: state.error,
-                        );
-                      }
-                      if (state is OutOfTries) {
-                        Navigator.pop(context);
-                        showPaymentDialog(context);
-                      }
-                    },
-                    child: SizedBox(),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          items[index]["text"]!,
+                          textAlign: TextAlign.center,
+                          style: TextThemes.font16BlackBold.copyWith(
+                            color: AppColors.mainTealColor,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return SizedBox(height: 10.h);
-        },
+                ).animate().slideX(
+                  duration: 500.ms,
+                  begin: index.isEven ? -1.0 : 1.0,
+                  end: 0.0,
+                ),
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) => SizedBox(height: 10.h),
+          ),
+        ),
       ),
     );
   }

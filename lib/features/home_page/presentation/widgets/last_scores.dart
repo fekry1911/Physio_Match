@@ -36,7 +36,7 @@ class StaticLastScoresWidget extends StatelessWidget {
                 Text(
                   text,
                   style: TextStyle(
-                    fontSize: 20.sp,
+                    fontSize: 17.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.teal[800],
                   ),
@@ -48,7 +48,7 @@ class StaticLastScoresWidget extends StatelessWidget {
                 ? Center(
               child: Text(
                 "Please take a quiz to see your results here....",
-                style: TextStyle(fontSize: 16.sp, color: Colors.grey),
+                style: TextStyle(fontSize: 13.sp, color: Colors.grey),
               ),
             )
                 : SizedBox(
@@ -66,7 +66,7 @@ class StaticLastScoresWidget extends StatelessWidget {
                         Text(
                           "Score: ${score.correctAnswers}/${score.totalQuestions}",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
                             color: getScoreColor(score.correctAnswers),
                           ),
@@ -74,8 +74,8 @@ class StaticLastScoresWidget extends StatelessWidget {
                         const Spacer(),
                         Text(
                           (score.date.toIso8601String()).split("T").first,
-                          style: const TextStyle(
-                            fontSize: 14,
+                          style:  TextStyle(
+                            fontSize: 14.sp,
                             color: Colors.black54,
                           ),
                         )

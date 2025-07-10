@@ -1,8 +1,12 @@
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/presentation/widgets/card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
+import '../../../../../../core/shared_widgets/shared_loading.dart';
+import '../../../../../../core/shared_widgets/shimmer_loading.dart';
 import '../logic/get_posts_cubit.dart';
 
 
@@ -13,11 +17,11 @@ class DoctorDashboardScreen extends StatelessWidget {
    return BlocConsumer<GetPostsCubit, GetPostsState>(builder: (BuildContext context, state) {
      var cubit=context.read<GetPostsCubit>();
      if(cubit.posts.isEmpty){
-       return Center(child: CircularProgressIndicator());
+       return LoadingShimmerWidget();
      }else{
        return ListView.separated(
          itemBuilder: (BuildContext context, int index) {
-           return DoctorCard(postModel: cubit.posts[index]);
+           return DoctorCard(postModel: cubit.posts[index]).animate().slideX(duration: 500.ms, begin: index.isEven ? -1.0 : 1.0, end: 0.0);
          },
          separatorBuilder: (BuildContext context, int index) {
            return Divider(height: 1.h, color: Colors.grey);

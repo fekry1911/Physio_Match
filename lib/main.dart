@@ -1,5 +1,6 @@
 import 'package:add_ques/core/const/keys/aoi_keys.dart';
 import 'package:add_ques/my_app.dart';
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,10 +19,16 @@ Future<void> main() async {
   await Supabase.initialize(url: url, anonKey: anonKey);
   await CacheHelper.init();
   DioHelperPayMent.init();
+  final config = ClarityConfig(
+      projectId: "sbhso1e66x" // You can find it on the Settings page of Clarity dashboard.
+  );
 
   setupServiceLocator();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(MyApp(appRouter: AppRouter()));
+  runApp(ClarityWidget(
+    app:MyApp(appRouter: AppRouter()),
+    clarityConfig: config,
+  ));
 }
 

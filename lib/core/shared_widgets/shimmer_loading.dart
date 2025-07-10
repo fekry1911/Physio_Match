@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';
 
 class LoadingShimmerWidget extends StatelessWidget {
@@ -7,7 +8,7 @@ class LoadingShimmerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.black,
+      baseColor: Colors.grey,
       highlightColor: Colors.grey.shade600,
       child: ListView.builder(
         itemCount: 5,
@@ -43,7 +44,7 @@ class LoadingShimmerWidget extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          ).animate().slideY(duration: 500.ms, begin: index>3 ? -1.0 : 1.0, end: 0.0),
         ),
       ),
     );

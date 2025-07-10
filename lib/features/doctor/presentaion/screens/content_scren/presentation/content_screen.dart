@@ -1,5 +1,6 @@
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/theme/text_themes/text.dart';
@@ -17,7 +18,12 @@ class DoctorFilesScreen extends StatelessWidget {
             child: Stack(
               alignment: Alignment.bottomCenter,
               children: [
-                Image.asset(items[index]["image"]!, fit: BoxFit.cover,width: double.infinity,height: 100.h,),
+                Image.asset(
+                  items[index]["image"]!,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 100.h,
+                ),
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
@@ -28,24 +34,29 @@ class DoctorFilesScreen extends StatelessWidget {
                         stops: [0.0, 0.5],
                       ),
                     ),
-
                   ),
                 ),
-               Padding(
-                 padding: const EdgeInsets.all(8.0),
-                 child: Text(
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
                     textAlign: TextAlign.center,
                     items[index]["text"]!,
-                    style: TextThemes.font16BlackBold.copyWith(color: AppColors.mainTealColor),
+                    style: TextThemes.font16BlackBold.copyWith(
+                      color: AppColors.mainTealColor,
+                    ),
                   ),
-               )
-
+                ),
               ],
             ),
+          ).animate().slideX(
+            duration: 500.ms,
+            begin: index.isEven ? -1.0 : 1.0,
+            end: 0.0,
           );
-        }, separatorBuilder: (BuildContext context, int index) {
-          return SizedBox(height: 10.h,);
-      },
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(height: 10.h);
+        },
       ),
     );
   }
