@@ -1,4 +1,6 @@
 // lib/core/service_locator.dart
+import 'package:add_ques/features/centers/data/rebo/get_center_data_rebo.dart';
+import 'package:add_ques/features/centers/logic/get_center_data_cubit.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts_impl.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/logic/get_posts_cubit.dart';
@@ -19,6 +21,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 
+import '../features/centers/data/rebo/get_center_data.dart';
 import '../features/login_screen/data/rebo/login_rebo.dart';
 import '../features/login_screen/data/rebo/login_rebo_imp.dart';
 import '../features/login_screen/logic/cubit/login_cubit.dart';
@@ -51,6 +54,8 @@ void setupServiceLocator() {
   sl.registerLazySingleton<RegisterRepository>(() => RegisterRepoImpl(sl()));
   sl.registerLazySingleton<GetPosts>(() => GetPostsImpl(sl()));
   sl.registerLazySingleton<GetSavedPosts>(() => GetSavedPostsImpl(sl()));
+  sl.registerLazySingleton<GetCenterData>(() => GetCenterDataImpl(sl()));
+
 
 
   // payment
@@ -66,5 +71,6 @@ void setupServiceLocator() {
   sl.registerFactory<PaymentCubit>(() => PaymentCubit(sl<PaymobService>(),));
   sl.registerFactory<GetPostsCubit>(() => GetPostsCubit(sl<GetPosts>(),));
   sl.registerFactory<GetSavedPostsCubit>(() => GetSavedPostsCubit(sl<GetSavedPosts>(),));
+  sl.registerFactory<GetCenterDataCubit>(() => GetCenterDataCubit(sl<GetCenterData>(),));
 
 }

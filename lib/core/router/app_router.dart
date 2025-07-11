@@ -19,6 +19,8 @@ import '../../../features/quiz/data/rebo/add.dart';
 import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
+import '../../features/centers/logic/get_center_data_cubit.dart';
+import '../../features/centers/presentation/screens/center_posts/ui/one_center_data.dart';
 import '../../features/doctor/logic/doctor_cubit.dart';
 import '../../features/doctor/presentaion/doctr_home.dart';
 import '../../features/home/presentation/screens/decider_screen.dart';
@@ -149,7 +151,21 @@ class AppRouter {
                 child: MySavedPosts(),
               ),
         );
+      case center:
+        final args = settings.arguments;
+        if (args is String) {
+          return MaterialPageRoute(
+            builder:
+                (_) => BlocProvider(
+                  create:
+                      (context) =>
+                          sl<GetCenterDataCubit>()..getCenterInfo(args),
+                  child: CenterData(),
+                ),
+          );
+        }
     }
+
     return null;
   }
 }
