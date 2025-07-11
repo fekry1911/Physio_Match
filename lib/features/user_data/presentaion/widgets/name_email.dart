@@ -23,7 +23,7 @@ class NameAndEmail extends StatelessWidget {
         SizedBox(height: 10.h,),
         Text(phone,style: TextThemes.font14LightDarkRegular,),
         SizedBox(height: 10.h,),
-        //Text(email,style: TextThemes.font14LightDarkRegular,),
+        Text(email,style: TextThemes.font14LightDarkRegular,),
 
       ],
     );
