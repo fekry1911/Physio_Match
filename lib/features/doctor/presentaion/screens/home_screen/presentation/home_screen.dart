@@ -21,7 +21,7 @@ class DoctorDashboardScreen extends StatelessWidget {
      }else{
        return ListView.separated(
          itemBuilder: (BuildContext context, int index) {
-           return DoctorCard(postModel: cubit.posts[index]).animate().slideX(duration: 500.ms, begin: index.isEven ? -1.0 : 1.0, end: 0.0);
+           return PostCard(postModel: cubit.posts[index]).animate().slideX(duration: 500.ms, begin: index.isEven ? -1.0 : 1.0, end: 0.0);
          },
          separatorBuilder: (BuildContext context, int index) {
            return Divider(height: 1.h, color: Colors.grey);

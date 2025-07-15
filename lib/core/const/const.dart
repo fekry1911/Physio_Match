@@ -12,6 +12,8 @@ const String paymentSubmit="/paymentSubmit-screens";
 const String doctorHomeScreen="/doctorHome-screens";
 const String savedPosts="/savedPosts-screens";
 const String center="/center-screens";
+const String centerPosts="/centerPosts-screens";
+const String allReviews="/allReviews-screens";
 
 
 
