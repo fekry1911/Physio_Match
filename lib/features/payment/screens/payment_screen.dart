@@ -3,14 +3,11 @@ import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../doctor/logic/doctor_cubit.dart';
-import '../../doctor/presentaion/doctr_home.dart';
 
 class PaymentScreen extends StatefulWidget {
-  PaymentScreen({Key? key, required this.url}) : super(key: key);
+  const PaymentScreen({super.key, required this.url});
   final String? url;
 
   @override

@@ -18,12 +18,16 @@ import '../data/rebo/register_repo.dart';
 
 class TypeRegisterCubit extends Cubit<TypeRegisterState> {
   TypeRegisterCubit(this.registerRepository, this.auth)
-    : super(StudentInitial());
+      : super(StudentInitial());
   FirebaseAuth auth;
 
   RegisterRepository registerRepository;
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  String name = CacheHelper.getString(key:"name");
+  String phone = CacheHelper.getString(key: 'phone');
+
+
+  TextEditingController nameController = TextEditingController(text:CacheHelper.getString(key:"name"));
+  TextEditingController phoneController = TextEditingController(text:  CacheHelper.getString(key: 'phone'));
   TextEditingController universityController = TextEditingController();
   TextEditingController yearController = TextEditingController();
   TextEditingController cityController = TextEditingController();
@@ -58,12 +62,12 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
           dateOfBirth: yearController.text,
           city: cityController.text,
           email: auth.currentUser!.email!,
-          imageUrl:uploadedImageUrl!,
+          imageUrl: uploadedImageUrl!,
           tries: 3,
           resume: uploadedCvUrl ?? "",
           specialization: specializationController.text,
-        uid: CacheHelper.getString(key: "uid")
-        )
+          uid: CacheHelper.getString(key: "uid")
+      )
       );
       print(nameController.text);
       print(phoneController.text);
@@ -76,6 +80,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       print(specializationController.text);
 
       CacheHelper.putString(key: "type", value: "Doctor");
+      CacheHelper.putString(key: "image", value: uploadedImageUrl!);
       CacheHelper.putBoolean(key: "submitted", value: true);
       emit(StudentSubmitted());
     } catch (e) {
@@ -109,6 +114,7 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
 
   String UploadedPdf = "No file added";
   String? fileName;
+
   Future<void> pickAndUploadImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile == null) return;
@@ -164,7 +170,9 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
       emit(UploadImageFail());
     }
   }
-  String? uploadedCvUrl="";
+
+  String? uploadedCvUrl = "";
+
   Future<void> pickAndUploadCV() async {
     try {
       final typeGroup = XTypeGroup(label: 'PDF', extensions: ['pdf']);
@@ -254,4 +262,5 @@ class TypeRegisterCubit extends Cubit<TypeRegisterState> {
     )) {
       print('❌ لا يمكن فتح الرابط');
     }
-  }}
+  }
+}

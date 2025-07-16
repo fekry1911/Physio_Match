@@ -1,11 +1,8 @@
-import 'dart:io';
 
 import 'package:add_ques/core/helpers/cache_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/const/const.dart';
 import '../../../../core/theme/colors/colors.dart';
 import '../../logic/save_score_cubit.dart';
 

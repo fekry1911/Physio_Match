@@ -1,4 +1,3 @@
-import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/features/centers/data/models/rate_model.dart';
 import 'package:add_ques/features/centers/data/rebo/rate_rebo/rate_rebo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,9 +21,9 @@ class RateReboImpl extends RateRebo{
     List<RateModel> rates=[];
     try{
       var data= await firestore.collection('admins').doc(uid).collection('rates').get();
-      data.docs.forEach((element) {
+      for (var element in data.docs) {
         rates.add(RateModel.fromMap(element.data()));
-      });
+      }
       return Future.value(rates);
     }
         catch(e){

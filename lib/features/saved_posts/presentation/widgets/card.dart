@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/const/const.dart';
 import '../../../../core/theme/colors/colors.dart';
 import '../../../../core/theme/text_themes/text.dart';
 import '../../../doctor/presentaion/screens/home_screen/data/models/post_model.dart';
@@ -9,7 +8,7 @@ import '../../../doctor/presentaion/screens/home_screen/data/models/post_model.d
 class DoctorCard extends StatelessWidget {
   PostModel postModel;
 
-  DoctorCard({required this.postModel});
+  DoctorCard({super.key, required this.postModel});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +70,7 @@ class DoctorCard extends StatelessWidget {
                 ),
                 SizedBox(width: 4.w),
                 Text(
-                  postModel.location!,
+                  postModel.location,
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -80,7 +79,7 @@ class DoctorCard extends StatelessWidget {
                 Icon(Icons.work_outline, size: 18.r, color: Colors.white),
                 SizedBox(width: 4.w),
                 Text(
-                  "${postModel.experienceYears!} سنوات خبرة",
+                  "${postModel.experienceYears} سنوات خبرة",
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),

@@ -11,14 +11,14 @@ class ReviewCard extends StatelessWidget {
   final List<String> reviewImages;
 
   const ReviewCard({
-    Key? key,
+    super.key,
     required this.userImage,
     required this.userName,
     required this.reviewDate,
     required this.rating,
     this.reviewText="",
     this.reviewImages = const [],
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:add_ques/core/theme/colors/colors.dart';
-import 'package:add_ques/core/theme/text_themes/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +7,8 @@ import '../../doctor/presentaion/screens/home_screen/presentation/widgets/card.d
 import '../logic/get_saved_posts_cubit.dart';
 
 class MySavedPosts extends StatelessWidget {
+  const MySavedPosts({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

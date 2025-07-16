@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -6,7 +5,7 @@ import 'core/const/const.dart';
 import 'core/router/app_router.dart';
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key, required this.appRouter});
+  const MyApp({super.key, required this.appRouter});
 
   final AppRouter appRouter;
 

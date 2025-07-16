@@ -11,7 +11,7 @@ class PostCard extends StatelessWidget {
   PostModel postModel;
   bool applied = false;
 
-  PostCard({required this.postModel,this.applied=false});
+  PostCard({super.key, required this.postModel,this.applied=false});
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class PostCard extends StatelessWidget {
                 ),
                 SizedBox(width: 4.w),
                 Text(
-                  postModel.location!,
+                  postModel.location,
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -102,7 +102,7 @@ class PostCard extends StatelessWidget {
                 Icon(Icons.work_outline, size: 18.r, color: Colors.black),
                 SizedBox(width: 4.w),
                 Text(
-                  "${postModel.experienceYears!} سنوات خبرة",
+                  "${postModel.experienceYears} سنوات خبرة",
                   style: TextThemes.font16BlackBold.copyWith(
                     color: AppColors.blackColor,
                   ),
@@ -110,7 +110,7 @@ class PostCard extends StatelessWidget {
               ],
             ),
 
-            !applied! ?SizedBox(height: 16.h):SizedBox(),
+            !applied ?SizedBox(height: 16.h):SizedBox(),
 
             // Apply Button
             !applied ?

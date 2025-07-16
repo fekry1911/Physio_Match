@@ -50,6 +50,7 @@ void showEditProfileDialog(BuildContext context) {
                             if (value!.isEmpty) {
                               return "Please Enter phone";
                             }
+                            return null;
                           },
                             keyboardType: TextInputType.name
                         ),
@@ -62,6 +63,7 @@ void showEditProfileDialog(BuildContext context) {
                             if (value!.isEmpty) {
                               return "Please Enter phone";
                             }
+                            return null;
                           },
                             keyboardType: TextInputType.phone
                         ),

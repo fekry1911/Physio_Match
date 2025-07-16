@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../core/models/sign_model.dart';
 
 class AuthRepositorySignUp implements RegisterRebo {
-   FirebaseAuth _auth ;
+   final FirebaseAuth _auth ;
    AuthRepositorySignUp(this._auth);
 
 

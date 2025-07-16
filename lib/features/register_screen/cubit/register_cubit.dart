@@ -50,6 +50,8 @@ class RegisterCubit extends Cubit<RegisterStates> {
                 )
                 .then((value) {
                   CacheHelper.putString(key: 'uid', value: onValue.user!.uid);
+                  CacheHelper.putString(key: 'name', value: name.text);
+                  CacheHelper.putString(key: 'phone', value: phone.text);
                   emit(RegisterSuccess(onValue.user!.uid));
                 });
           });

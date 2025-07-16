@@ -2,7 +2,6 @@ import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/models/post_model.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../../data/models/doctor_model.dart';
 

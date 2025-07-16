@@ -3,10 +3,8 @@ import 'package:add_ques/my_app.dart';
 import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'core/const/const.dart';
 import 'core/helpers/cache_helper.dart';
 import 'core/router/app_router.dart';
 import 'di/di.dart';

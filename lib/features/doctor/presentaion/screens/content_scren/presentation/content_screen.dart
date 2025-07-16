@@ -7,6 +7,8 @@ import '../../../../../../core/theme/text_themes/text.dart';
 import '../../../../../home_page/data/data/data.dart';
 
 class DoctorFilesScreen extends StatelessWidget {
+  const DoctorFilesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

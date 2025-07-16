@@ -1,13 +1,11 @@
 import 'dart:io';
 
 import 'package:add_ques/core/helpers/cache_helper.dart';
-import 'package:add_ques/core/models/user_model.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/models/post_model.dart';
 import 'package:add_ques/features/user_data/data/update_user_rebo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
