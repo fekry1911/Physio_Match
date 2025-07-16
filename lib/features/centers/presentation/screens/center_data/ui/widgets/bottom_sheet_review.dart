@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-import '../../../../../../../core/shared_widgets/loading_hare_dialog.dart';
 import '../../../../../../../core/shared_widgets/shared_button.dart';
 import '../../../../../../../core/theme/colors/colors.dart';
 

@@ -14,7 +14,7 @@ import '../../../core/theme/text_themes/text.dart';
 class QuizScreen extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
 
-  const QuizScreen({Key? key, required this.questions}) : super(key: key);
+  const QuizScreen({super.key, required this.questions});
 
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -196,7 +196,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                             height: 50.h,
                             width: 130.w,
                             child: ElevatedButton(
@@ -224,7 +224,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             ),
                           ),
                           Spacer(),
-                          Container(
+                          SizedBox(
                             height: 50.h,
                             width: 130.w,
                             child: ElevatedButton(

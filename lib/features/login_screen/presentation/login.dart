@@ -5,17 +5,14 @@ import 'package:add_ques/core/helpers/extentions/context_extention.dart';
 import 'package:add_ques/features/login_screen/presentation/widgets/already_have_text.dart';
 import 'package:add_ques/features/login_screen/presentation/widgets/email_password.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../../core/shared_widgets/loading_hare_dialog.dart';
 import '../../../core/shared_widgets/shared_button.dart';
-import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
 import '../../register_screen/presentation/widgets/errr_setup.dart';
 import '../../register_screen/presentation/widgets/term_text.dart';

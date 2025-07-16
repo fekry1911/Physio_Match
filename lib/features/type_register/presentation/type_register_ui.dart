@@ -1,8 +1,6 @@
 import 'package:add_ques/core/helpers/extentions/context_extention.dart';
-import 'package:add_ques/core/shared_widgets/shared_text_form_field.dart';
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
-import 'package:add_ques/features/register_screen/cubit/register_cubit.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step1_name_phone.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step2_year_city_uni.dart';
 import 'package:add_ques/features/type_register/presentation/widgets/step3_doctor.dart';
@@ -17,6 +15,8 @@ import '../logic/type_register_cubit.dart';
 import '../logic/type_register_state.dart';
 
 class TypeRegisterScreen extends StatelessWidget {
+  const TypeRegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

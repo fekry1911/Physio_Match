@@ -6,7 +6,7 @@ part 'payment_state.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
   PaymentCubit(this._paymobService) : super(PaymentInitial());
-  PaymobService _paymobService;
+  final PaymobService _paymobService;
   String? url;
   final formKey = GlobalKey<FormState>();
   TextEditingController? firstName=TextEditingController();

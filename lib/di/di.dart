@@ -21,7 +21,6 @@ import 'package:add_ques/features/user_data/data/update_user_rebo.dart';
 import 'package:add_ques/features/user_data/logic/update_user_data_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 
 import '../features/centers/data/rebo/get_center_data.dart';
@@ -48,7 +47,7 @@ void setupServiceLocator() {
 
 
   // Repositories
-  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()),);
+  sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl(),sl()),);
   sl.registerLazySingleton<RegisterRebo>(() => AuthRepositorySignUp(sl()));
   sl.registerLazySingleton<AddUserData>(() => AddUserDataImpl(sl()));
   sl.registerLazySingleton<GetAllQues>(() => GetAllQuesImpl(sl(),));

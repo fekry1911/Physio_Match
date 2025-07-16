@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,7 +16,7 @@ part 'update_user_data_state.dart';
 class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
   UpdateUserRebo updateUserRebo;
 
-  UpdateUserDataCubit(this.updateUserRebo) : super(UpdateUserDataInitial()) {}
+  UpdateUserDataCubit(this.updateUserRebo) : super(UpdateUserDataInitial());
 
   TextEditingController name = TextEditingController();
   TextEditingController phone = TextEditingController();
@@ -30,7 +31,8 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
       )
     )
         .then((value) {
-          emit(UpdateUserDataDone());
+      CacheHelper.putString(key: "name", value: name.text);
+      emit(UpdateUserDataDone());
     })
         .catchError((onError) {
           emit(UpdateUserDataFail(onError));
@@ -50,7 +52,9 @@ class UpdateUserDataCubit extends Cubit<UpdateUserDataState> {
       await FirebaseFirestore.instance
           .collection("doctors")
           .doc(FirebaseAuth.instance.currentUser!.uid)
-          .update({"imageUrl": respnse});
+          .update({"imageUrl": respnse}).then((onValue){
+            CacheHelper.putString(key: "image", value: respnse);
+      });
 
       updateImageUrl = respnse; // لو حبيت تستخدمه بعدين
       doctortModel = null;

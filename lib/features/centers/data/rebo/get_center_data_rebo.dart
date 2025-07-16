@@ -13,9 +13,9 @@ class GetCenterDataImpl extends GetCenterData{
     List<AdminModel> adminList = [];
     try{
      var result =await firebaseFirestore.collection('admins').get();
-     result.docs.forEach((element) {
+     for (var element in result.docs) {
        adminList.add(AdminModel.fromMap(element.data()));
-     });
+     }
      return adminList;
     }
         catch(e){
@@ -28,9 +28,9 @@ class GetCenterDataImpl extends GetCenterData{
     List<PostModel> postList = [];
     try{
       var result=await firebaseFirestore.collection('admins').doc(uid).collection("my_posts").get();
-      result.docs.forEach((element) {
+      for (var element in result.docs) {
         postList.add(PostModel.fromJson(element.data()));
-      });
+      }
       return postList;
     }
         catch(e){

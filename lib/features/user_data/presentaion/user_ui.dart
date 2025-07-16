@@ -19,7 +19,6 @@ import '../../../core/shared_widgets/shared_loading.dart';
 import '../../../core/shared_widgets/snack_bar.dart';
 import '../../../core/theme/colors/colors.dart';
 import '../../../core/theme/text_themes/text.dart';
-import '../../home_page/presentation/widgets/last_scores.dart';
 import '../../login_screen/logic/cubit/login_states.dart';
 
 class UserData extends StatelessWidget {

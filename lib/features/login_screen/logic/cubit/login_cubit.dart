@@ -1,7 +1,6 @@
 import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/core/models/sign_model.dart';
 import 'package:add_ques/features/quiz/data/models/score_models.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,8 +41,13 @@ class LoginCubit extends Cubit<LoginStates> {
             ),
           )
           .then((value) async {
+
             await CacheHelper.putString(key: "uid", value: value.user!.uid);
             CacheHelper.putBoolean(key: "submitted", value: true);
+            model = await authRepository.getUserModel(value.user!.uid);
+            await CacheHelper.putString(key: "image", value:model!.imageUrl);
+            await CacheHelper.putString(key: "name", value: model!.name);
+
             emit(AuthSuccess());
 
       });

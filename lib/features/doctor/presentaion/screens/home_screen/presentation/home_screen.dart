@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
-import '../../../../../../core/shared_widgets/shared_loading.dart';
 import '../../../../../../core/shared_widgets/shimmer_loading.dart';
 import '../logic/get_posts_cubit.dart';
 
 
 class DoctorDashboardScreen extends StatelessWidget {
+  const DoctorDashboardScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
 
