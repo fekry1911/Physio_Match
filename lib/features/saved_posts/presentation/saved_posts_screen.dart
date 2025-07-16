@@ -27,7 +27,7 @@ class MySavedPosts extends StatelessWidget {
               return Center(child: Text("No Posts Yet", ));
             }
             return ListView.separated(
-              itemBuilder: (context, index) => DoctorCard(postModel: state.posts[index],applied: true,),
+              itemBuilder: (context, index) => PostCard(postModel: state.posts[index],applied: true,),
               separatorBuilder: (context, index) => Divider(height: 1.h),
               itemCount: state.posts.length,
             );

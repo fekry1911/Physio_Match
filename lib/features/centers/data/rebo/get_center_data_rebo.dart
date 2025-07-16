@@ -24,9 +24,18 @@ class GetCenterDataImpl extends GetCenterData{
   }
 
   @override
-  Future<List<PostModel>> getPostData() {
-    // TODO: implement getPostData
-    throw UnimplementedError();
+  Future<List<PostModel>> getPostData(String uid) async {
+    List<PostModel> postList = [];
+    try{
+      var result=await firebaseFirestore.collection('admins').doc(uid).collection("my_posts").get();
+      result.docs.forEach((element) {
+        postList.add(PostModel.fromJson(element.data()));
+      });
+      return postList;
+    }
+        catch(e){
+      return postList;
+        }
   }
 
   @override

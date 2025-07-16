@@ -5,6 +5,6 @@ import '../models/center_model.dart';
 abstract class GetCenterData{
   Future<List<AdminModel>> getAllCentersData();
   Future<AdminModel>   getCenterData(String uid);
-  Future<List<PostModel>> getPostData();
+  Future<List<PostModel>> getPostData(String uid);
 
 }

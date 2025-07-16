@@ -1,6 +1,9 @@
 // lib/core/service_locator.dart
 import 'package:add_ques/features/centers/data/rebo/get_center_data_rebo.dart';
+import 'package:add_ques/features/centers/data/rebo/rate_rebo/rate_rebo.dart';
+import 'package:add_ques/features/centers/data/rebo/rate_rebo/rate_rebo_imbl.dart';
 import 'package:add_ques/features/centers/logic/get_center_data_cubit.dart';
+import 'package:add_ques/features/centers/logic/rate_logic/rate_cubit.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/data/rebo/get_posts_impl.dart';
 import 'package:add_ques/features/doctor/presentaion/screens/home_screen/logic/get_posts_cubit.dart';
@@ -55,6 +58,9 @@ void setupServiceLocator() {
   sl.registerLazySingleton<GetPosts>(() => GetPostsImpl(sl()));
   sl.registerLazySingleton<GetSavedPosts>(() => GetSavedPostsImpl(sl()));
   sl.registerLazySingleton<GetCenterData>(() => GetCenterDataImpl(sl()));
+  sl.registerLazySingleton<RateRebo>(() => RateReboImpl(sl()));
+
+
 
 
 
@@ -72,5 +78,6 @@ void setupServiceLocator() {
   sl.registerFactory<GetPostsCubit>(() => GetPostsCubit(sl<GetPosts>(),));
   sl.registerFactory<GetSavedPostsCubit>(() => GetSavedPostsCubit(sl<GetSavedPosts>(),));
   sl.registerFactory<GetCenterDataCubit>(() => GetCenterDataCubit(sl<GetCenterData>(),));
+  sl.registerFactory<RateCubit>(() => RateCubit(sl<RateRebo>(),));
 
 }

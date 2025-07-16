@@ -7,11 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../data/models/post_model.dart';
 import '../../logic/get_posts_cubit.dart';
 
-class DoctorCard extends StatelessWidget {
+class PostCard extends StatelessWidget {
   PostModel postModel;
   bool applied = false;
 
-  DoctorCard({required this.postModel,this.applied=false});
+  PostCard({required this.postModel,this.applied=false});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class DoctorCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                GestureDetector(
+               applied?SizedBox(): GestureDetector(
                   onTap: () {
                     context.read<GetPostsCubit>().savePost(
                       PostModel(
@@ -113,7 +113,7 @@ class DoctorCard extends StatelessWidget {
             !applied! ?SizedBox(height: 16.h):SizedBox(),
 
             // Apply Button
-            !applied! ?
+            !applied ?
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(

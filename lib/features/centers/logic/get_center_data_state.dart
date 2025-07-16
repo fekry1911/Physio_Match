@@ -22,4 +22,13 @@ final class GetCenterDataSuccess extends GetCenterDataState {
   final AdminModel adminModel;
   GetCenterDataSuccess(this.adminModel);
 }
+final class GetPostsLoading extends GetCenterDataState {}
+final class GetPostsError extends GetCenterDataState {
+  final String error;
+  GetPostsError(this.error);
+}
+final class GetPostsSuccess extends GetCenterDataState {
+  final List<PostModel> posts;
+  GetPostsSuccess(this.posts);
+}
 

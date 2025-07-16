@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../doctor/presentaion/screens/home_screen/data/models/post_model.dart';
 import '../data/models/center_model.dart';
 import '../data/rebo/get_center_data.dart';
 
@@ -28,6 +29,16 @@ class GetCenterDataCubit extends Cubit<GetCenterDataState> {
       emit(GetCenterDataSuccess(centerModel!));
     } catch (e) {
       emit(GetCenterDataError(e.toString()));
+    }
+  }
+  List<PostModel> posts=[];
+  Future<void> getPosts(String uid) async {
+    emit(GetPostsLoading());
+    try {
+      posts = await centerData.getPostData(uid);
+      emit(GetPostsSuccess(posts));
+    } catch (e) {
+      emit(GetPostsError(e.toString()));
     }
   }
 

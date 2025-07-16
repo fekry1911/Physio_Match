@@ -1,4 +1,5 @@
 import 'package:add_ques/core/const/const.dart';
+import 'package:add_ques/features/centers/presentation/screens/center_review/center_review.dart';
 import 'package:add_ques/features/chat_bot/logic/cubit/chat_cubit.dart';
 import 'package:add_ques/features/chat_bot/presentation/chat_ui.dart';
 import 'package:add_ques/features/home_page/logic/home_cubit.dart';
@@ -20,7 +21,9 @@ import '../../../features/quiz/presentation/qui.dart';
 import '../../../features/register_screen/presentation/register_screen.dart';
 import '../../../features/user_data/presentaion/user_ui.dart';
 import '../../features/centers/logic/get_center_data_cubit.dart';
-import '../../features/centers/presentation/screens/center_posts/ui/one_center_data.dart';
+import '../../features/centers/logic/rate_logic/rate_cubit.dart';
+import '../../features/centers/presentation/screens/center_data/ui/one_center_data.dart';
+import '../../features/centers/presentation/screens/center_posts/center_posts.dart';
 import '../../features/doctor/logic/doctor_cubit.dart';
 import '../../features/doctor/presentaion/doctr_home.dart';
 import '../../features/home/presentation/screens/decider_screen.dart';
@@ -156,12 +159,46 @@ class AppRouter {
         if (args is String) {
           return MaterialPageRoute(
             builder:
-                (_) => BlocProvider(
+                (_) => MultiBlocProvider(
+  providers: [
+    BlocProvider(
                   create:
                       (context) =>
                           sl<GetCenterDataCubit>()..getCenterInfo(args),
-                  child: CenterData(),
-                ),
+),
+    BlocProvider(
+      create: (context) => sl<RateCubit>(),
+    ),
+  ],
+  child: CenterData(),
+),
+          );
+        }
+        return null;
+      case centerPosts:
+        final args = settings.arguments;
+        if (args is String) {
+          return MaterialPageRoute(
+            builder:
+                (_) => BlocProvider(
+              create:
+                  (context) =>
+              sl<GetCenterDataCubit>()..getPosts(args),
+              child: CenterPosts(),
+            ),
+          );
+        }
+      case allReviews:
+        final args = settings.arguments;
+        if (args is String) {
+          return MaterialPageRoute(
+            builder:
+                (_) => BlocProvider(
+              create:
+                  (context) =>
+              sl<RateCubit>()..getAllReview(args),
+              child: AllReviews(),
+            ),
           );
         }
     }
