@@ -41,16 +41,22 @@ class LoginCubit extends Cubit<LoginStates> {
             ),
           )
           .then((value) async {
+            final isVerified =
+                await authRepository.checkAndCacheEmailVerified();
+          /*  if (!isVerified) {
+              emit(AuthFailure(error: "يرجى تأكيد البريد الإلكتروني"));
+              return;
+            }*/
+            print(isVerified);
 
-            await CacheHelper.putString(key: "uid", value: value.user!.uid);
+            CacheHelper.putString(key: "uid", value: value.user!.uid);
             CacheHelper.putBoolean(key: "submitted", value: true);
             model = await authRepository.getUserModel(value.user!.uid);
-            await CacheHelper.putString(key: "image", value:model!.imageUrl);
-            await CacheHelper.putString(key: "name", value: model!.name);
+            CacheHelper.putString(key: "image", value: model!.imageUrl);
+            CacheHelper.putString(key: "name", value: model!.name);
 
             emit(AuthSuccess());
-
-      });
+          });
     } catch (e) {
       emit(AuthFailure(error: e.toString()));
     }
@@ -70,5 +76,4 @@ class LoginCubit extends Cubit<LoginStates> {
           emit(SignOutFail(onError));
         });
   }
-
 }

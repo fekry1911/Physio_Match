@@ -41,6 +41,7 @@ import '../features/type_register/logic/type_register_cubit.dart';
 final sl = GetIt.instance;
 
 void setupServiceLocator() {
+
   // Firebase
   sl.registerLazySingleton<FirebaseAuth>(() => FirebaseAuth.instance);
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
@@ -58,10 +59,6 @@ void setupServiceLocator() {
   sl.registerLazySingleton<GetSavedPosts>(() => GetSavedPostsImpl(sl()));
   sl.registerLazySingleton<GetCenterData>(() => GetCenterDataImpl(sl()));
   sl.registerLazySingleton<RateRebo>(() => RateReboImpl(sl()));
-
-
-
-
 
   // payment
   sl.registerLazySingleton<PaymobService>(() => PaymobService());

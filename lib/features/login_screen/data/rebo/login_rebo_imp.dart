@@ -2,6 +2,7 @@ import 'package:add_ques/core/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../../core/helpers/cache_helper.dart';
 import '../../../../core/models/sign_model.dart';
 import 'login_rebo.dart';
 
@@ -31,4 +32,21 @@ class AuthRepositoryImpl implements AuthRepository {
     userModel=UserModel.fromMap(result.data()!);
     return userModel;
   }
+
+  @override
+  Future<bool> checkAndCacheEmailVerified() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user == null) return false;
+
+    await user.reload();
+    user = FirebaseAuth.instance.currentUser;
+
+    final isVerified = user!.emailVerified;
+
+    CacheHelper.putBoolean(key: "verified", value: isVerified);
+
+    return isVerified;
+  }
+
 }
