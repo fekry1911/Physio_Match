@@ -1,10 +1,15 @@
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../core/helpers/cache_helper.dart';
+import '../../../core/helpers/firebase/verify.dart';
+import '../../register_screen/presentation/widgets/errr_setup.dart';
 import '../logic/doctor_cubit.dart';
 
 class DoctorHomeScreen extends StatefulWidget {
@@ -39,6 +44,8 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
             title: Text(
               cubit.titles[cubit.currentIndex],
             ),
+
+
           ),
           body: cubit.pages[cubit.currentIndex],
           bottomNavigationBar: AnimatedNotchBottomBar(
@@ -52,7 +59,7 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
               BottomBarItem(
                 inActiveItem: const FaIcon(FontAwesomeIcons.question, color: Colors.grey),
                 activeItem: FaIcon(FontAwesomeIcons.question, color: AppColors.blackColor),
-                itemLabel: 'Quizes',
+                itemLabel: 'Quiz\'s',
               ),
               BottomBarItem(
                 inActiveItem: const FaIcon(FontAwesomeIcons.centercode, color: Colors.grey),

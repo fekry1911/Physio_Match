@@ -42,7 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Welcome Back", style: TextThemes.textBold24Blue).animate().slideY(duration: durationAnimate.ms, begin: -1.0, end: 0.0),
+                  Text(
+                    "Welcome Back",
+                    style: TextThemes.textBold24Blue,
+                  ).animate().slideY(
+                    duration: durationAnimate.ms,
+                    begin: -1.0,
+                    end: 0.0,
+                  ),
                   SizedBox(height: 8.h),
                   Text(
                     "Log in to continue your journey with PhysioMatch",
@@ -50,7 +57,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 2,
                       letterSpacing: 2,
                     ),
-                  ).animate().slideX(duration: durationAnimate.ms, begin: -1.0, end: 0.0),
+                  ).animate().slideX(
+                    duration: durationAnimate.ms,
+                    begin: -1.0,
+                    end: 0.0,
+                  ),
                   SizedBox(height: 36.h),
                   BlocConsumer<LoginCubit, LoginStates>(
                     buildWhen: (context, state) => state is ToggleSecure,
@@ -129,12 +140,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ).animate().fadeIn(duration: 1000.ms),
                   SizedBox(height: 32.h),
-                  TermAndConditions().animate().slideY(duration: durationAnimate.ms),
+                  TermAndConditions().animate().slideY(
+                    duration: durationAnimate.ms,
+                  ),
                   SizedBox(height: 32.h),
-                  AlreadyHaveAccount1().animate().slideY(duration: durationAnimate.ms,begin: -1,end: 0),
+                  AlreadyHaveAccount1().animate().slideY(
+                    duration: durationAnimate.ms,
+                    begin: -1,
+                    end: 0,
+                  ),
                   BlocListener<LoginCubit, LoginStates>(
                     listener: (BuildContext context, state) {
                       if (state is AuthSuccess) {
+                        Navigator.pop(context);
                         context.pushAndRemoveUntil(homeDeciderScreen);
                       }
                       if (state is AuthFailure) {
