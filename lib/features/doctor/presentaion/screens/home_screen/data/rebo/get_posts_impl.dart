@@ -14,8 +14,7 @@ class GetPostsImpl extends GetPosts {
   Future<List<PostModel>> getPosts() async {
     try {
       final results =
-          await firebaseFirestore.collection("posts").orderBy("date", descending: true)
-              .get();
+          await firebaseFirestore.collection("posts").orderBy("date").get();
       final posts =
           results.docs.map((e) => PostModel.fromJson(e.data())).toList();
       print(results.docs);

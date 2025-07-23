@@ -1,13 +1,9 @@
-import 'package:add_ques/core/helpers/cache_helper.dart';
 import 'package:add_ques/core/theme/colors/colors.dart';
 import 'package:add_ques/core/theme/text_themes/text.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../core/helpers/firebase/verify.dart';
 import '../../data/models/post_model.dart';
 import '../../logic/get_posts_cubit.dart';
 
@@ -15,7 +11,7 @@ class PostCard extends StatelessWidget {
   PostModel postModel;
   bool applied = false;
 
-  PostCard({super.key, required this.postModel, this.applied = false});
+  PostCard({super.key, required this.postModel,this.applied=false});
 
   @override
   Widget build(BuildContext context) {
@@ -45,78 +41,29 @@ class PostCard extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                applied
-                    ? SizedBox()
-                    : GestureDetector(
-                      onTap: () {
-                        print(FirebaseAuth.instance.currentUser!.emailVerified);
-
-                        var varified =
-                            FirebaseAuth.instance.currentUser!.emailVerified;
-                        if (varified == true) {
-                          context.read<GetPostsCubit>().savePost(
-                            PostModel(
-                              id: postModel.id,
-                              centerName: postModel.centerName,
-                              imageUrl: postModel.imageUrl,
-                              content: postModel.content,
-                              experienceYears: postModel.experienceYears,
-                              location: postModel.location,
-                              imagePostUrl: postModel.imagePostUrl,
-                              date: postModel.date,
-                              isSaved: true,
-                            ),
-                          );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                "you have to verify your email first",
-                              ),
-                              action: SnackBarAction(
-                                label: "verify",
-                                onPressed: () async {
-                                  FirebaseAuth.instance.setLanguageCode('ar'); // أو 'en' لو تحب الإنجليزية
-
-                                  User? user = FirebaseAuth.instance.currentUser;
-
-                                  if (user != null) {
-                                    await user.reload(); // مهم جدًا لتحديث حالة المستخدم من السيرفر
-
-                                    if (!user.emailVerified) {
-                                      try {
-                                        await user.sendEmailVerification();
-                                        if (kDebugMode) {
-                                          print("✅ Verification email sent to ${user.email}");
-                                        }
-                                      } catch (e) {
-                                        if (kDebugMode) {
-                                          print("❌ Error sending verification email: $e");
-                                        }
-                                      }
-                                    } else {
-                                      if (kDebugMode) {
-                                        print("📬 Email already verified.");
-                                      }
-                                    }
-                                  } else {
-                                    if (kDebugMode) {
-                                      print("⚠️ No user is signed in.");
-                                    }
-                                  }
-                                },
-                              ),
-                            ),
-                          );
-                        }
-                      },
-                      child: Image.asset(
-                        "assets/icons/saved.png",
-                        height: 40.h,
-                        width: 40.w,
-                        fit: BoxFit.fitWidth,
+               applied?SizedBox(): GestureDetector(
+                  onTap: () {
+                    context.read<GetPostsCubit>().savePost(
+                      PostModel(
+                        id: postModel.id,
+                        centerName: postModel.centerName,
+                        imageUrl: postModel.imageUrl,
+                        content: postModel.content,
+                        experienceYears: postModel.experienceYears,
+                        location: postModel.location,
+                        imagePostUrl: postModel.imagePostUrl,
+                        date: postModel.date,
+                        isSaved: true,
                       ),
-                    ),
+                    );
+                  },
+                  child: Image.asset(
+                    "assets/icons/saved.png",
+                    height: 40.h,
+                    width: 40.w,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
               ],
             ),
 
@@ -163,91 +110,34 @@ class PostCard extends StatelessWidget {
               ],
             ),
 
-            !applied ? SizedBox(height: 16.h) : SizedBox(),
+            !applied ?SizedBox(height: 16.h):SizedBox(),
 
             // Apply Button
-            !applied
-                ? SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      var varified =
-                          FirebaseAuth.instance.currentUser!.emailVerified;
-                      if (varified == true) {
-                        context.read<GetPostsCubit>().applyNow(postModel);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              "you have to verify your email first",
-                            ),
-                            action: SnackBarAction(
-                              label: "verify",
-                              onPressed: () async {
-                                FirebaseAuth.instance.setLanguageCode(
-                                  'ar',
-                                ); // أو 'en' لو تحب الإنجليزية
-
-                                User? user = FirebaseAuth.instance.currentUser;
-
-                                if (user != null) {
-                                  await user
-                                      .reload(); // مهم جدًا لتحديث حالة المستخدم من السيرفر
-
-                                  if (!user.emailVerified) {
-                                    try {
-                                      await user.sendEmailVerification();
-                                      if (kDebugMode) {
-                                        print(
-                                          "✅ Verification email sent to ${user.email}",
-                                        );
-                                      }
-                                    } catch (e) {
-                                      if (kDebugMode) {
-                                        print(
-                                          "❌ Error sending verification email: $e",
-                                        );
-                                      }
-                                    }
-                                  } else {
-                                    if (kDebugMode) {
-                                      print("📬 Email already verified.");
-                                    }
-                                  }
-                                } else {
-                                  if (kDebugMode) {
-                                    print("⚠️ No user is signed in.");
-                                  }
-                                }
-                              },
-                            ),
-                          ),
-                        );
-                      }
-                    },
-                    icon: Icon(Icons.send, color: Colors.white),
-                    label: Text(
-                      "Apply Now",
-                      style: TextThemes.font16BlackBold.copyWith(
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                    ),
+            !applied ?
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  context.read<GetPostsCubit>().applyNow(postModel);
+                },
+                icon: Icon(Icons.send, color: Colors.white),
+                label: Text(
+                  "Apply Now",
+                  style: TextThemes.font16BlackBold.copyWith(
+                    color: AppColors.whiteColor,
                   ),
-                )
-                : SizedBox(),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                ),
+              ),
+            ):SizedBox()
           ],
         ),
       ),
     );
   }
 }
-
-/*
-*
-*/

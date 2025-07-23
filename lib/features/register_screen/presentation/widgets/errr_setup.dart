@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/theme/text_themes/text.dart';
 
-void setupState(BuildContext context, {required String error,required icon,required color,required onpressed,}) {
+void    setupState(BuildContext context, {required String error,required icon,required color,required onpressed,}) {
   Navigator.pop(context);
   showDialog(
     context: context,
@@ -11,7 +10,7 @@ void setupState(BuildContext context, {required String error,required icon,requi
       icon:  Icon(
         icon,
         color: color,
-        size: 32.r,
+        size: 32,
       ),
       content: Text(
         error,
@@ -21,7 +20,7 @@ void setupState(BuildContext context, {required String error,required icon,requi
         TextButton(
           onPressed: onpressed,
           child: Text(
-            'Click To verify',
+            'Got it',
             style: TextThemes.font12BlueRegular,
           ),
         ),

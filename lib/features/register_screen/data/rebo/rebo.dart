@@ -8,6 +8,4 @@ import '../../../../core/models/sign_model.dart';
 
 abstract class RegisterRebo {
    Future<UserCredential> signUpWithEmail({required SignModel signModel});
-   Future<bool> checkAndCacheEmailVerified();
-
 }
