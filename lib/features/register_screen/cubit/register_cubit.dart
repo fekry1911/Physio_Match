@@ -18,6 +18,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController gender = TextEditingController();
 
+
   bool isSecure = true;
 
   void changeSecure() {
@@ -34,9 +35,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
     emit(RegisterLoading());
     try {
       await authRepository
-          .signUpWithEmail(
-            signModel: SignModel(email: email.text, password: password.text),
-          )
+          .signUpWithEmail(signModel:SignModel(email: email.text, password: password.text), )
           .then((onValue) async {
             await addUserData
                 .addUserData(
@@ -45,19 +44,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
                     name: name.text,
                     email: email.text,
                     phone: phone.text,
-                    imageUrl:
-                        "http://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1",
+                    imageUrl: "http://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1",
                   ),
                   userId: onValue.user!.uid,
                 )
-                .then((value) async {
-                  final isVerified =
-                      await authRepository.checkAndCacheEmailVerified();
-                  /*  if (!isVerified) {
-              emit(AuthFailure(error: "يرجى تأكيد البريد الإلكتروني"));
-              return;
-            }*/
-                  print(isVerified);
+                .then((value) {
                   CacheHelper.putString(key: 'uid', value: onValue.user!.uid);
                   CacheHelper.putString(key: 'name', value: name.text);
                   CacheHelper.putString(key: 'phone', value: phone.text);
