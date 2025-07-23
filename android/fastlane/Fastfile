@@ -8,8 +8,8 @@ platform :android do
      sh "flutter clean"
      sh "flutter build apk --release"
      firebase_app_distribution(
-     app: "1:671942974107:android:11f8645560dae58519443e",
-     firebase_cli_token: "1//03vyQ5KryWhOQCgYIARAAGAMSNwF-L9IrjSdXJUIfN-CHim8wGLuOebqeAiFoOshunKnwugDyr2uNLGOSow3yEhi1S5Y1HojyM-s",
+     app: EVN["App_KEY"],
+     firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
      android_artifact_type: "APK",
      android_artifact_path: "D:/add_ques/build/app/outputs/flutter-apk/app-release.apk",
      testers: "abdofekryasda@gmail.com",
